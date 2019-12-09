@@ -1,29 +1,17 @@
 ﻿<Properties StartupConfiguration="{B95D2C88-DC43-4742-A2DB-FC20169257D0}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="src/Referral.EK.API/Controllers/EthnicCategoriesController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="src/IAPT.EK.API/Startup.cs">
     <Files>
-      <File FileName="src/Referral.EK.API/Controllers/EthnicCategoriesController.cs" Line="135" Column="23" />
-      <File FileName="src/Referral.EK.Business/Models/EthnicCategory.cs" />
-      <File FileName="src/Referral.EK.API/DTO/EthnicCategoryDTO.cs" />
-      <File FileName="src/Referral.EK.Business/Models/Validations/EthnicCategoryValidation.cs" />
-      <File FileName="src/Referral.EK.Business/Models/Entity.cs" />
-      <File FileName="src/Referral.EK.Business/Services/EthnicCategoryServices.cs" />
-      <File FileName="src/Referral.EK.Business/Services/BaseServices.cs" />
-      <File FileName="src/Referral.EK.Data/Repository/Repository.cs" />
-      <File FileName="src/Referral.EK.Business/Interfaces/IRepository.cs" />
-      <File FileName="src/Referral.EK.Business/Interfaces/INotify.cs" />
-      <File FileName="src/Referral.EK.API/Controllers/MainController.cs" />
+      <File FileName="src/IAPT.EK.API/Startup.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="E-Referral" expanded="True">
-            <Node name="Referral.EK.Business" selected="True" />
-          </Node>
+          <Node name="E-Referral" expanded="True" />
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.ItemProperties.Referral.EK.API PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.ItemProperties.IAPT.EK.API PreferredExecutionTarget="/Applications/Google Chrome.app" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

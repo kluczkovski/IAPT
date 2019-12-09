@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26124.0
 MinimumVisualStudioVersion = 15.0.26124.0
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Referral.EK.Business", "src\Referral.EK.Business\Referral.EK.Business.csproj", "{58F75DB1-DBAA-4E42-879E-0A65FAA0D474}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IAPT.EK.Business", "src\IAPT.EK.Business\IAPT.EK.Business.csproj", "{58F75DB1-DBAA-4E42-879E-0A65FAA0D474}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Referral.EK.Data", "src\Referral.EK.Data\Referral.EK.Data.csproj", "{496F37AC-63A8-4E8A-8105-68803812C3EC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IAPT.EK.Data", "src\IAPT.EK.Data\IAPT.EK.Data.csproj", "{496F37AC-63A8-4E8A-8105-68803812C3EC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Referral.EK.API", "src\Referral.EK.API\Referral.EK.API.csproj", "{B95D2C88-DC43-4742-A2DB-FC20169257D0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IAPT.EK.API", "src\IAPT.EK.API\IAPT.EK.API.csproj", "{B95D2C88-DC43-4742-A2DB-FC20169257D0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
