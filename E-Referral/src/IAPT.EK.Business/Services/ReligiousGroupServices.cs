@@ -33,6 +33,11 @@ namespace IAPT.EK.Business.Services
             return obj;
         }
 
+        public async Task<bool> HasAnyAsync(Guid id)
+        {
+            return await _religiousGroupRep.HasAnyAsync(id);
+        }
+
         public async Task<bool> Add(ReligiousGroup religiousGroup)
         {
             if (!RunValidation(new ReligiousGroupValidation(), religiousGroup)) return false;

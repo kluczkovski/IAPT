@@ -11,6 +11,8 @@ namespace IAPT.EK.Business.Interfaces
 
         Task<ReligiousGroup> GetById(Guid id);
 
+        Task<bool> HasAnyAsync(Guid id);
+
         Task<bool> Add(ReligiousGroup religiousGroup);
 
         Task<bool> Update(ReligiousGroup religiousGroup);

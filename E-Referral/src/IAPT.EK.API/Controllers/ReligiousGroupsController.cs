@@ -85,14 +85,46 @@ namespace IAPT.EK.API.Controllers
             }
 
             //chech if exist
+            if (!await _religGroupServ.HasAnyAsync(id))
+            {
+                ModelState.AddModelError("", $"Not found ReligiousGroup for id: {id}");
+                return CustomResponse(ModelState);
+            }
 
+            var religiousGroup = _mapper.Map<ReligiousGroup>(religiousGroupDTO);
+            try
+            {
+                  await _religGroupServ.Update(religiousGroup);
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", ex.InnerException != null ? ex.InnerException.Message : ex.Message);
+                return CustomResponse(ModelState);
+            }
             return CustomResponse(religiousGroupDTO);
         }
 
         // DELETE api/values/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
+        [HttpDelete("{id:guid}")]
+        public async Task<ActionResult<ReligiousGroupDTO>>  Delete(Guid id)
         {
+            if (!await _religGroupServ.HasAnyAsync(id))
+            {
+                ModelState.AddModelError("", $"Not found ReligiousGroup for the id: {id}");
+                return CustomResponse(ModelState);
+            }
+
+            try
+            {
+                await _religGroupServ.Remove(id);
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", ex.InnerException.Message);
+                return CustomResponse(ModelState);
+            }
+
+            return Ok();
         }
     }
 }
