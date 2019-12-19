@@ -12,111 +12,111 @@ using Microsoft.AspNetCore.Mvc;
 namespace IAPT.EK.API.Controllers
 {
     [Route("api/[controller]")]
-    public class ReligiousGroupsController : MainController
+    public class DisabilityCodesController : MainController
     {
-        private readonly IReligiousGroupServices _religGroupServ;
+        private readonly IDisabilityCodeServices _dcServices;
         private readonly IMapper _mapper;
        
 
-        public ReligiousGroupsController(IReligiousGroupServices religiousGroupServices,
+        public DisabilityCodesController(IDisabilityCodeServices disabilityCodeServices,
                                          IMapper mapper,
                                          INotify notify) :base (notify)
         {
-            _religGroupServ = religiousGroupServices;
+            _dcServices = disabilityCodeServices;
             _mapper = mapper;
         }
 
 
-        // GET: api/religiousgroup
+        // GET: api/disabilitycodes
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<ReligiousGroupDTO>>> GetAll()
+        public async Task<ActionResult<IEnumerable<DisabilityCodeDTO>>> GetAll()
         {
-            var listOfReligiousGroups = await _religGroupServ.GetAllOrderByCode();
-            var listOfReligiousGroupsDTO = _mapper.Map<IEnumerable<ReligiousGroupDTO>>(listOfReligiousGroups);
+            var listOfDisabilityCode = await _dcServices.GetAllOrderByCode();
+            var listOfDisabilityCodeDTO = _mapper.Map<IEnumerable<DisabilityCodeDTO>>(listOfDisabilityCode);
 
-            return Ok(listOfReligiousGroupsDTO);
+            return Ok(listOfDisabilityCodeDTO);
         }
 
 
-        // GET api/religiousgroup/5
+        // GET api/disabilitycodes/5
         [HttpGet("{id:guid}")]
-        public async Task<ActionResult<ReligiousGroupDTO>> GetById(Guid id)
+        public async Task<ActionResult<DisabilityCodeDTO>> GetById(Guid id)
         {
-            var religiousGroup = await _religGroupServ.GetById(id);
-            if (religiousGroup == null)
+            var disabilityCode = await _dcServices.GetById(id);
+            if (disabilityCode == null)
             {
-                ModelState.AddModelError("", $"Not found Religious Grupo for {id}");
+                ModelState.AddModelError("", $"Not found Disability Code for {id}");
                 return CustomResponse(ModelState);
             }
 
-            var religiousGroupDTO = _mapper.Map<ReligiousGroupDTO>(religiousGroup);
+            var disabilityCodeDTO = _mapper.Map<DisabilityCodeDTO>(disabilityCode);
 
-            return CustomResponse(religiousGroupDTO);
+            return CustomResponse(disabilityCodeDTO);
         }
 
-        // POST api/religiousgroup
+        // POST api/disabilitycodes
         [HttpPost]
-        public async Task<ActionResult<ReligiousGroupDTO>> Add(ReligiousGroupDTO religiousGroupDTO)
+        public async Task<ActionResult<DisabilityCodeDTO>> Add(DisabilityCodeDTO disabilityCodeDTO)
         {
             if (!ModelState.IsValid) return CustomResponse(ModelState);
 
-            var religiousGroup = _mapper.Map<ReligiousGroup>(religiousGroupDTO);
+            var disabilityCode = _mapper.Map<DisabilityCode>(disabilityCodeDTO);
             try
             {
-                await _religGroupServ.Add(religiousGroup);
-                religiousGroupDTO.Id = religiousGroup.Id;
+                await _dcServices.Add(disabilityCode);
+                disabilityCodeDTO.Id = disabilityCode.Id;
             }
             catch (Exception ex)
             {
                 ModelState.AddModelError("", ex.InnerException.Message);
                 return CustomResponse(ModelState);
             }
-            return CustomResponse(religiousGroupDTO);
+            return CustomResponse(disabilityCodeDTO);
         }
 
-        // PUT api/values/5
+        // PUT api/disabilitycodes/5
         [HttpPut("{id:guid}")]
-        public async Task<ActionResult<ReligiousGroupDTO>> Put(Guid id, ReligiousGroupDTO religiousGroupDTO)
+        public async Task<ActionResult<DisabilityCodeDTO>> Put(Guid id, DisabilityCodeDTO disabilityCodeDTO)
         {
-            if (id != religiousGroupDTO.Id)
+            if (id != disabilityCodeDTO.Id)
             {
                 ModelState.AddModelError("", "Id from header is not equal body's ID");
                 return CustomResponse(ModelState);
             }
 
             //chech if exist
-            if (!await _religGroupServ.HasAnyAsync(id))
+            if (!await _dcServices.HasAnyAsync(id))
             {
-                ModelState.AddModelError("", $"Not found ReligiousGroup for id: {id}");
+                ModelState.AddModelError("", $"Not found Disability Code for id: {id}");
                 return CustomResponse(ModelState);
             }
 
-            var religiousGroup = _mapper.Map<ReligiousGroup>(religiousGroupDTO);
+            var disabilityCode = _mapper.Map<DisabilityCode>(disabilityCodeDTO);
             try
             {
-                  await _religGroupServ.Update(religiousGroup);
+                  await _dcServices.Update(disabilityCode);
             }
             catch (Exception ex)
             {
                 ModelState.AddModelError("", ex.InnerException != null ? ex.InnerException.Message : ex.Message);
                 return CustomResponse(ModelState);
             }
-            return CustomResponse(religiousGroupDTO);
+            return CustomResponse(disabilityCodeDTO);
         }
 
-        // DELETE api/values/5
+        // DELETE api/disabilitycodes/5
         [HttpDelete("{id:guid}")]
-        public async Task<ActionResult<ReligiousGroupDTO>>  Delete(Guid id)
+        public async Task<ActionResult<DisabilityCodeDTO>>  Delete(Guid id)
         {
-            if (!await _religGroupServ.HasAnyAsync(id))
+            if (!await _dcServices.HasAnyAsync(id))
             {
-                ModelState.AddModelError("", $"Not found ReligiousGroup for the id: {id}");
+                ModelState.AddModelError("", $"Not found Disability Code for the id: {id}");
                 return CustomResponse(ModelState);
             }
 
             try
             {
-                await _religGroupServ.Remove(id);
+                await _dcServices.Remove(id);
             }
             catch (Exception ex)
             {

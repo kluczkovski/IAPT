@@ -10,7 +10,6 @@ namespace IAPT.EK.Business.Services
 {
     public class ReligiousGroupServices : BaseServices, IReligiousGroupServices
     {
-        private readonly INotify _notify;
         private readonly IReligiousGroupRepository _religiousGroupRep;
 
 
@@ -33,10 +32,12 @@ namespace IAPT.EK.Business.Services
             return obj;
         }
 
+
         public async Task<bool> HasAnyAsync(Guid id)
         {
             return await _religiousGroupRep.HasAnyAsync(id);
         }
+
 
         public async Task<bool> Add(ReligiousGroup religiousGroup)
         {
@@ -54,21 +55,7 @@ namespace IAPT.EK.Business.Services
             return true;
         }
 
-       
-        public async Task<bool> Remove(Guid id)
-        {
-            try
-            {
-                await _religiousGroupRep.DeleteEntityAsync(id);
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-            return true;
-        }
-
-
+      
         public async  Task<bool> Update(ReligiousGroup religiousGroup)
         {
             if (!RunValidation(new ReligiousGroupValidation(), religiousGroup)) return false;
@@ -85,11 +72,23 @@ namespace IAPT.EK.Business.Services
         }
 
 
+        public async Task<bool> Remove(Guid id)
+        {
+            try
+            {
+                await _religiousGroupRep.DeleteEntityAsync(id);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return true;
+        }
+
+
         public void Dispose()
         {
             _religiousGroupRep?.Dispose();
         }
-
-      
     }
 }

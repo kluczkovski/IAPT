@@ -5,9 +5,9 @@ using IAPT.EK.Data.Context;
 
 namespace IAPT.EK.Data.Repository
 {
-    public class ReligiousGroupRepository : Repository<ReligiousGroup>, IReligiousGroupRepository
+    public class DisabilityCodeRepository : Repository<DisabilityCode>, IDisabilityCodeRepository
     {
-        public ReligiousGroupRepository(AppDbContext dbContext) : base(dbContext)
+        public DisabilityCodeRepository(AppDbContext dbContext) : base(dbContext)
         {
 
         }

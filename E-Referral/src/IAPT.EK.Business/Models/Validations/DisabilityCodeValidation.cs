@@ -3,9 +3,9 @@ using FluentValidation;
 
 namespace IAPT.EK.Business.Models.Validations
 {
-    public class ReligiousGroupValidation : AbstractValidator<ReligiousGroup>
+    public class DisabilityCodeValidation : AbstractValidator<DisabilityCode>
     {
-        public ReligiousGroupValidation()
+        public DisabilityCodeValidation()
         {
             RuleFor(rg => rg.Code)
                 .NotEmpty().WithMessage("The field {PropertyName} must be informed");

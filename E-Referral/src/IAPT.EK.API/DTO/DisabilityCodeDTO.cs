@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace IAPT.EK.API.DTO
 {
-    public class ReligiousGroupDTO
+    public class DisabilityCodeDTO
     {
         public Guid Id { get; set; }
 
@@ -14,7 +14,7 @@ namespace IAPT.EK.API.DTO
         [StringLength(50, ErrorMessage = "The field {0} shoud be between {2} and {1} caracters.", MinimumLength = 5)]
         public string Description { get; set; }
 
-        public ReligiousGroupDTO()
+        public DisabilityCodeDTO()
         {
         }
     }

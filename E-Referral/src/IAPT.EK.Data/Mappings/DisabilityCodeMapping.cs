@@ -6,9 +6,9 @@ using IAPT.EK.Business.Models;
 
 namespace IAPT.EK.Data.Mappings
 {
-    public class ReligiousGroupMapping : IEntityTypeConfiguration<ReligiousGroup>
+    public class DisabilityCodeMapping : IEntityTypeConfiguration<DisabilityCode>
     {
-        public void Configure(EntityTypeBuilder<ReligiousGroup> builder)
+        public void Configure(EntityTypeBuilder<DisabilityCode> builder)
         {
             builder.HasKey(rg => rg.Id);
 
@@ -23,98 +23,46 @@ namespace IAPT.EK.Data.Mappings
                 .HasColumnType("varchar(100)");
 
             builder.HasData(
-                new ReligiousGroup
+                new DisabilityCode
                 {
                     Id = Guid.NewGuid(),
-                    Code = "A",
-                    Description = "Baha'i"
+                    Code = "01",
+                    Description = "Behaviour and Emotional"
                 },
-
-                new ReligiousGroup
+                new DisabilityCode
                 {
                     Id = Guid.NewGuid(),
-                    Code = "B",
-                    Description = "Buddhist"
+                    Code = "02",
+                    Description = "Hearing"
                 },
-
-                new ReligiousGroup
+                new DisabilityCode
                 {
                     Id = Guid.NewGuid(),
-                    Code = "C",
-                    Description = "Christian"
+                    Code = "03",
+                    Description = "Manual Dexterity"
                 },
-
-                new ReligiousGroup
+                new DisabilityCode
                 {
                     Id = Guid.NewGuid(),
-                    Code = "D",
-                    Description = "Hindu"
+                    Code = "04",
+                    Description = "Memory or ability to concentrate, learn or understand (Learning Disability)"
                 },
-
-                new ReligiousGroup
+                new DisabilityCode
                 {
                     Id = Guid.NewGuid(),
-                    Code = "E",
-                    Description = "Jain"
-                },
-
-                new ReligiousGroup
-                {
-                    Id = Guid.NewGuid(),
-                    Code = "F",
-                    Description = "Jewish"
-                },
-
-                new ReligiousGroup
-                {
-                    Id = Guid.NewGuid(),
-                    Code = "G",
-                    Description = "Muslim"
-                },
-
-                new ReligiousGroup
-                {
-                    Id = Guid.NewGuid(),
-                    Code = "H",
-                    Description = "Pagan"
-                },
-
-                new ReligiousGroup
-                {
-                    Id = Guid.NewGuid(),
-                    Code = "I",
-                    Description = "Sikh"
-                },
-                new ReligiousGroup
-                {
-                    Id = Guid.NewGuid(),
-                    Code = "J",
-                    Description = "Zoroastrian"
-                },
-                new ReligiousGroup
-                {
-                    Id = Guid.NewGuid(),
-                    Code = "K",
+                    Code = "XX",
                     Description = "Other"
                 },
-                new ReligiousGroup
+                new DisabilityCode
                 {
                     Id = Guid.NewGuid(),
-                    Code = "L",
-                    Description = "None"
-                }, new ReligiousGroup
-                {
-                    Id = Guid.NewGuid(),
-                    Code = "M",
-                    Description = "Declines to Disclose"
-                },
-                new ReligiousGroup
-                {
-                    Id = Guid.NewGuid(),
-                    Code = "N",
-                    Description = "Patient Religion Unknown"
+                    Code = "NN",
+                    Description = "No Disability"
                 }
+               
+
                 ); 
         }
+        
     }
 }

@@ -11,6 +11,7 @@ namespace IAPT.EK.API.Configuration
         {
             CreateMap<EthnicCategory, EthnicCategoryDTO>().ReverseMap();
             CreateMap<ReligiousGroup, ReligiousGroupDTO>().ReverseMap();
+            CreateMap<DisabilityCode, DisabilityCodeDTO>().ReverseMap();
         }
     }
 }
