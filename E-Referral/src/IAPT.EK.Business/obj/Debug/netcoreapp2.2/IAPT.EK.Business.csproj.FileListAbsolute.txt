@@ -17,3 +17,4 @@
 /Users/ekluczkovski/Projects/IAPT/E-Referral/src/IAPT.EK.Business/obj/Debug/netcoreapp2.2/IAPT.EK.Business.AssemblyInfo.cs
 /Users/ekluczkovski/Projects/IAPT/E-Referral/src/IAPT.EK.Business/obj/Debug/netcoreapp2.2/IAPT.EK.Business.dll
 /Users/ekluczkovski/Projects/IAPT/E-Referral/src/IAPT.EK.Business/obj/Debug/netcoreapp2.2/IAPT.EK.Business.pdb
+/Users/ekluczkovski/Projects/IAPT/E-Referral/src/IAPT.EK.Business/obj/Debug/netcoreapp2.2/IAPT.EK.Business.csprojAssemblyReference.cache

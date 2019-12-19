@@ -7,6 +7,7 @@ namespace IAPT.EK.API.DTO
     {
         public Guid Id { get; set; }
 
+        [Required(ErrorMessage = "The field {0} must be informed.")]
         public string Code { get; set; }
 
         [Required(ErrorMessage = "The field {0} must be informed.")]

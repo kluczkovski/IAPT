@@ -14,6 +14,8 @@ namespace IAPT.EK.API.Configuration
 
             services.AddScoped<IEthnicCategoryRepository, EthnicCategoryRepository>();
             services.AddScoped<IEthnicCategoryServices, EthnicCategoryServices>();
+            services.AddScoped<IReligiousGroupRepository, ReligiousGroupRepository>();
+            services.AddScoped<IReligiousGroupServices, ReligiousGroupServices>();
             services.AddScoped<INotify, Notify>();
 
             return services;

@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using IAPT.EK.Business.Models;
 
-namespace Referral.EK.Data.Mappings
+namespace IAPT.EK.Data.Mappings
 {
     public class EthnicCategoryMapping : IEntityTypeConfiguration<EthnicCategory>
     {
@@ -28,6 +28,57 @@ namespace Referral.EK.Data.Mappings
             builder.Property(a => a.Sequence)
                    .IsRequired()
                    .HasColumnType("int(5)");
+
+            builder.HasData(
+                new EthnicCategory
+                {
+                    Id = Guid.NewGuid(),
+                    Code = "A",
+                    Description = "White -British",
+                    Sequence = 15
+                },
+                new EthnicCategory
+                {
+                    Id = Guid.NewGuid(),
+                    Code = "B",
+                    Description = "White - Irish",
+                    Sequence = 20
+                },
+                new EthnicCategory
+                {
+                    Id = Guid.NewGuid(),
+                    Code = "C",
+                    Description = "White - Any other White background",
+                    Sequence = 23
+                },
+                new EthnicCategory
+                {
+                    Id = Guid.NewGuid(),
+                    Code = "D",
+                    Description = "Mixed - White and Black Caribbean",
+                    Sequence = 25
+                },
+                new EthnicCategory
+                {
+                    Id = Guid.NewGuid(),
+                    Code = "E",
+                    Description = "Mixed - White and Black African",
+                    Sequence = 30
+                },
+                new EthnicCategory
+                {
+                    Id = Guid.NewGuid(),
+                    Code = "F",
+                    Description = "Mixed - White and Asian",
+                    Sequence = 35
+                }, new EthnicCategory
+                {
+                    Id = Guid.NewGuid(),
+                    Code = "G",
+                    Description = "Mixed - Any mixed backgroundn",
+                    Sequence = 40
+                }
+                );  
 
         }
     }

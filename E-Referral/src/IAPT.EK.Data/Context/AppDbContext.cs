@@ -11,6 +11,7 @@ namespace IAPT.EK.Data.Context
         }
 
         public DbSet<EthnicCategory> EthnicCategories { get; set; }
+        public DbSet<ReligiousGroup> ReligiousGroups { get; set; }
 
         protected override void OnModelCreating(ModelBuilder  modelBuilder)
         {

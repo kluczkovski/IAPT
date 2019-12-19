@@ -40,7 +40,7 @@ namespace IAPT.EK.API.Controllers
         }
 
 
-        // GET api/values/5
+        // GET api/EthnicCategories/5
         [HttpGet("{id:guid}")]
         public async Task<ActionResult<EthnicCategoryDTO>> GetById(Guid id)
         {
@@ -50,13 +50,13 @@ namespace IAPT.EK.API.Controllers
                 ModelState.AddModelError("", $"Not found EthnicCategory for {id}");
                 return CustomResponse(ModelState);
             }
-
+           
             var ecthnicsDTO = _mapper.Map<EthnicCategoryDTO>(ethnic);
             return Ok(ecthnicsDTO);
         }
 
 
-        // POST api/values
+        // POST api/EthnicCategories
         [HttpPost]
         public async Task<ActionResult> Add(EthnicCategoryDTO ethnicCategoryDTO)
         {
@@ -78,7 +78,7 @@ namespace IAPT.EK.API.Controllers
         }
 
 
-        // PUT api/values/5
+        // PUT api/EthnicCategories/5
         [HttpPut("{id:guid}")]
         public async Task<ActionResult<EthnicCategoryDTO>> Update(Guid id, EthnicCategoryDTO ethnicCategoryDTO)
         {
@@ -111,7 +111,7 @@ namespace IAPT.EK.API.Controllers
         }
 
 
-        // DELETE api/values/5
+        // DELETE api/EthnicCategories/5
         [HttpDelete("{id:guid}")]
         public async Task<ActionResult<EthnicCategoryDTO>> Delete(Guid id)
         {

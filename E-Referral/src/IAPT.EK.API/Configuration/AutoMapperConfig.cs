@@ -10,6 +10,7 @@ namespace IAPT.EK.API.Configuration
         public AutoMapperConfig()
         {
             CreateMap<EthnicCategory, EthnicCategoryDTO>().ReverseMap();
+            CreateMap<ReligiousGroup, ReligiousGroupDTO>().ReverseMap();
         }
     }
 }
