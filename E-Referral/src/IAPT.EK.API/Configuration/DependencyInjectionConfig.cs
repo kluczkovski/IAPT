@@ -18,7 +18,8 @@ namespace IAPT.EK.API.Configuration
             services.AddScoped<IReligiousGroupServices, ReligiousGroupServices>();
             services.AddScoped<IDisabilityCodeRepository, DisabilityCodeRepository>();
             services.AddScoped<IDisabilityCodeServices, DisabilityCodeServices>();
-
+            services.AddScoped<ICityRepository, CityRepository>();
+            services.AddScoped<ICityServices, CityServices>();
             services.AddScoped<INotify, Notify>();
 
             return services;
