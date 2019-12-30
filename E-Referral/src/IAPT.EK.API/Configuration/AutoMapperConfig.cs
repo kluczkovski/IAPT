@@ -13,6 +13,7 @@ namespace IAPT.EK.API.Configuration
             CreateMap<ReligiousGroup, ReligiousGroupDTO>().ReverseMap();
             CreateMap<DisabilityCode, DisabilityCodeDTO>().ReverseMap();
             CreateMap<City, CityDTO>().ReverseMap();
+            CreateMap<CCGCode, CCGCodeDTO>().ReverseMap();
         }
     }
 }

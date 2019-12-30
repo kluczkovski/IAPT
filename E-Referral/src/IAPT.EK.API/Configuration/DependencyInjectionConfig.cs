@@ -20,6 +20,8 @@ namespace IAPT.EK.API.Configuration
             services.AddScoped<IDisabilityCodeServices, DisabilityCodeServices>();
             services.AddScoped<ICityRepository, CityRepository>();
             services.AddScoped<ICityServices, CityServices>();
+            services.AddScoped<ICCGCodeRepository, CCGCodeRepository>();
+            services.AddScoped<ICCGCodeServices, CCGCodeServices>();
             services.AddScoped<INotify, Notify>();
 
             return services;

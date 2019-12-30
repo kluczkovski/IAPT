@@ -1,30 +1,29 @@
 ﻿<Properties StartupConfiguration="{B95D2C88-DC43-4742-A2DB-FC20169257D0}|IAPT.EK.API">
-  <MonoDevelop.Ide.Workbench ActiveDocument="src/IAPT.EK.API/Configuration/DependencyInjectionConfig.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="src/IAPT.EK.Business/Models/CCGCode.cs">
     <Files>
-      <File FileName="src/IAPT.EK.Business/Models/City.cs" Line="9" Column="22" />
-      <File FileName="src/IAPT.EK.Business/Interfaces/ICityServices.cs" Line="10" Column="50" />
-      <File FileName="src/IAPT.EK.Data/Context/AppDbContext.cs" Line="22" Column="1" />
-      <File FileName="src/IAPT.EK.Data/Mappings/CityMapping.cs" Line="53" Column="25" />
-      <File FileName="src/IAPT.EK.Data/Repository/CityRepository.cs" Line="1" Column="1" />
-      <File FileName="src/IAPT.EK.Business/Interfaces/IRepository.cs" Line="1" Column="1" />
-      <File FileName="src/IAPT.EK.Business/Models/Validations/CityValidation.cs" Line="10" Column="32" />
-      <File FileName="src/IAPT.EK.Business/Services/CityServices.cs" Line="95" Column="1" />
-      <File FileName="src/IAPT.EK.API/Controllers/CitiesController.cs" Line="119" Column="33" />
-      <File FileName="src/IAPT.EK.API/Configuration/AutoMapperConfig.cs" Line="15" Column="53" />
-      <File FileName="src/IAPT.EK.Data/Migrations/20191230125016_AddTableCity.cs" Line="1" Column="1" />
-      <File FileName="src/IAPT.EK.Data/Migrations/20191230125016_AddTableCity.Designer.cs" Line="1" Column="1" />
-      <File FileName="src/IAPT.EK.API/Configuration/DependencyInjectionConfig.cs" Line="21" Column="36" />
+      <File FileName="src/IAPT.EK.Business/Models/CCGCode.cs" Line="6" Column="27" />
+      <File FileName="src/IAPT.EK.API/DTO/CCGCodeDTO.cs" Line="18" Column="26" />
+      <File FileName="src/IAPT.EK.API/Controllers/CCGCodesController.cs" Line="35" Column="71" />
+      <File FileName="src/IAPT.EK.API/Configuration/AutoMapperConfig.cs" Line="16" Column="59" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="E-Referral" expanded="True">
             <Node name="IAPT.EK.API" expanded="True">
-              <Node name="Configuration" expanded="True">
-                <Node name="DependencyInjectionConfig.cs" selected="True" />
+              <Node name="Configuration" expanded="True" />
+              <Node name="Controllers" expanded="True" />
+              <Node name="DTO" expanded="True" />
+            </Node>
+            <Node name="IAPT.EK.Business" expanded="True">
+              <Node name="Models" expanded="True">
+                <Node name="CCGCode.cs" selected="True" />
               </Node>
             </Node>
-            <Node name="IAPT.EK.Business" expanded="True" />
+            <Node name="IAPT.EK.Data" expanded="True">
+              <Node name="Migrations" expanded="True" />
+              <Node name="Repository" expanded="True" />
+            </Node>
           </Node>
         </State>
       </Pad>
