@@ -40,7 +40,7 @@ namespace IAPT.EK.Data.Migrations
                     b.HasIndex("Code")
                         .IsUnique();
 
-                    b.ToTable("cCGCodes");
+                    b.ToTable("CCGCodes");
 
                     b.HasData(
                         new
@@ -141,7 +141,7 @@ namespace IAPT.EK.Data.Migrations
                     b.HasIndex("Code")
                         .IsUnique();
 
-                    b.ToTable("DisabilityCode");
+                    b.ToTable("DisabilityCodes");
 
                     b.HasData(
                         new

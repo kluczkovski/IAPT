@@ -37,7 +37,7 @@ namespace IAPT.EK.Data.Migrations
                     b.HasIndex("Code")
                         .IsUnique();
 
-                    b.ToTable("DisabilityCode");
+                    b.ToTable("DisabilityCodes");
 
                     b.HasData(
                         new

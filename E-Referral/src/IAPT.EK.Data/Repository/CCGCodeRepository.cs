@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using IAPT.EK.Business.Interfaces;
 using IAPT.EK.Business.Models;
 using IAPT.EK.Data.Context;
@@ -10,5 +11,7 @@ namespace IAPT.EK.Data.Repository
         public CCGCodeRepository(AppDbContext appDbContext) : base (appDbContext)
         {
         }
+
+
     }
 }

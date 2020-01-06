@@ -5,7 +5,7 @@ using IAPT.EK.Business.Models;
 
 namespace IAPT.EK.Business.Interfaces
 {
-    public interface ICCGCodeServices : IDisposable
+    public interface ICCGCodeSerices : IDisposable
     {
         Task<IEnumerable<CCGCode>> GetAllOrderByDescription();
 

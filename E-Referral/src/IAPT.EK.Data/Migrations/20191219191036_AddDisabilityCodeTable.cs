@@ -113,7 +113,7 @@ namespace IAPT.EK.Data.Migrations
                 keyValue: new Guid("f46e262f-ece4-4f7b-a703-56eab98b33fd"));
 
             migrationBuilder.CreateTable(
-                name: "DisabilityCode",
+                name: "DisabilityCodes",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(nullable: false),
@@ -122,11 +122,11 @@ namespace IAPT.EK.Data.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_DisabilityCode", x => x.Id);
+                    table.PrimaryKey("PK_DisabilityCodes", x => x.Id);
                 });
 
             migrationBuilder.InsertData(
-                table: "DisabilityCode",
+                table: "DisabilityCodes",
                 columns: new[] { "Id", "Code", "Description" },
                 values: new object[,]
                 {
@@ -174,8 +174,8 @@ namespace IAPT.EK.Data.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_DisabilityCode_Code",
-                table: "DisabilityCode",
+                name: "IX_DisabilityCodes_Code",
+                table: "DisabilityCodes",
                 column: "Code",
                 unique: true);
         }
@@ -183,7 +183,7 @@ namespace IAPT.EK.Data.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "DisabilityCode");
+                name: "DisabilityCodes");
 
             migrationBuilder.DeleteData(
                 table: "EthnicCategories",

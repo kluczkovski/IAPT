@@ -38,32 +38,32 @@ namespace IAPT.EK.Data.Migrations
                     b.HasIndex("Code")
                         .IsUnique();
 
-                    b.ToTable("cCGCodes");
+                    b.ToTable("CCGCodes");
 
                     b.HasData(
                         new
                         {
-                            Id = new Guid("f07cf020-ca14-46b6-ba49-35a11a53cc5e"),
+                            Id = new Guid("fe5b3a69-9204-448c-b407-6420e35dfb94"),
                             Code = "01G",
                             Description = "NHS Salford CCG",
                             Hub = "Q73"
                         },
                         new
                         {
-                            Id = new Guid("8f06832d-413b-4b28-a7e6-fdf3117e32e3"),
+                            Id = new Guid("dba432b4-514b-49b0-8794-ad634b63d5df"),
                             Code = "01M",
                             Description = "NHS North Manchester CCG"
                         },
                         new
                         {
-                            Id = new Guid("8efddac3-61a5-4c0b-9159-45c792d18632"),
+                            Id = new Guid("60822e7d-9978-4b51-b082-6327ee535c03"),
                             Code = "01N",
                             Description = "NHS North Manchester CCG",
                             Hub = "Q73"
                         },
                         new
                         {
-                            Id = new Guid("185fc980-7013-4447-9573-b6e821218565"),
+                            Id = new Guid("c96f532a-311d-41b2-a16d-9be9f243ea49"),
                             Code = "12F",
                             Description = "NHS Wirral CCG",
                             Hub = "Q75"
@@ -86,37 +86,37 @@ namespace IAPT.EK.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("49ea76ae-2749-4494-b360-dda9c7a6bea4"),
+                            Id = new Guid("d88ef3e0-6220-4456-b2cb-93243493b23a"),
                             Name = "Liverpool"
                         },
                         new
                         {
-                            Id = new Guid("c7848308-565a-438d-978e-d46a44617e95"),
+                            Id = new Guid("31d1ed50-5a1b-4075-b421-19b994a27708"),
                             Name = "Manchester"
                         },
                         new
                         {
-                            Id = new Guid("618b7307-038e-4921-ad02-2f3bb8a33ad5"),
+                            Id = new Guid("bdf5f74d-ebb0-499f-8c57-1187a15a4d57"),
                             Name = "Salfor"
                         },
                         new
                         {
-                            Id = new Guid("11dbde9d-ae19-4835-9996-e2ea9be4c1b4"),
+                            Id = new Guid("456b019b-0cbd-472b-9524-e33dc3742072"),
                             Name = "York"
                         },
                         new
                         {
-                            Id = new Guid("b025b784-8c23-489a-9b04-ccc6e71998b3"),
+                            Id = new Guid("49601309-7fa3-4bec-b771-3792bdc0f5e1"),
                             Name = "Leeds"
                         },
                         new
                         {
-                            Id = new Guid("77afa471-9031-449c-b118-df84efd86fbd"),
+                            Id = new Guid("6a0ccee9-7b79-4ddd-bfcc-603c6264abd1"),
                             Name = "Chester"
                         },
                         new
                         {
-                            Id = new Guid("f5c23c87-b9e2-4ea6-9087-cf789c9bdcc5"),
+                            Id = new Guid("e8450931-eef2-4c58-9bdc-fb0f7743e5e6"),
                             Name = "Oldhan"
                         });
                 });
@@ -144,37 +144,37 @@ namespace IAPT.EK.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("6f5f310c-2020-451c-935b-985caead9951"),
+                            Id = new Guid("59020817-0b62-4dd1-a43c-fea3b912f5ac"),
                             Code = "01",
                             Description = "Behaviour and Emotional"
                         },
                         new
                         {
-                            Id = new Guid("1237fd0c-4f2d-401d-b71b-ffd5a57f8602"),
+                            Id = new Guid("fd13a8f2-245a-4984-ae5f-33f5c7ab5670"),
                             Code = "02",
                             Description = "Hearing"
                         },
                         new
                         {
-                            Id = new Guid("3ff48331-d5db-409e-9b5d-a258375880f3"),
+                            Id = new Guid("00d8f0a0-641a-4324-850b-43d1caaf8ba8"),
                             Code = "03",
                             Description = "Manual Dexterity"
                         },
                         new
                         {
-                            Id = new Guid("76f67c82-1b8d-4879-88fa-2f440c5770da"),
+                            Id = new Guid("a20933b9-8ce2-4bf6-8a93-a06133763dbb"),
                             Code = "04",
                             Description = "Memory or ability to concentrate, learn or understand (Learning Disability)"
                         },
                         new
                         {
-                            Id = new Guid("7c962c3f-808e-432b-bed3-c562379b4940"),
+                            Id = new Guid("c087eaff-5739-48de-a740-8d530753da7e"),
                             Code = "XX",
                             Description = "Other"
                         },
                         new
                         {
-                            Id = new Guid("11108e16-58a6-4ec7-888c-75d163b13187"),
+                            Id = new Guid("ab2e674d-9640-4b8c-82dc-cebb34874de5"),
                             Code = "NN",
                             Description = "No Disability"
                         });
@@ -206,53 +206,91 @@ namespace IAPT.EK.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("bf80022c-c615-4dc9-97e4-3a1e1ffb94f5"),
+                            Id = new Guid("c21e3982-9d49-4df8-bfd8-b393ec78045f"),
                             Code = "A",
                             Description = "White -British",
                             Sequence = 15
                         },
                         new
                         {
-                            Id = new Guid("b49bce45-8392-49ef-b45d-3fc42e329ed0"),
+                            Id = new Guid("cf833fab-1aa7-4b26-89f7-978baecb2203"),
                             Code = "B",
                             Description = "White - Irish",
                             Sequence = 20
                         },
                         new
                         {
-                            Id = new Guid("1cecd654-55ea-46fc-bd33-4321687a9dbb"),
+                            Id = new Guid("6bad26f1-5efc-4c8d-adaa-6c4c22d94544"),
                             Code = "C",
                             Description = "White - Any other White background",
                             Sequence = 23
                         },
                         new
                         {
-                            Id = new Guid("7e894fc5-6efe-4ff1-8621-8474555d06db"),
+                            Id = new Guid("5061fe58-f0af-4289-b882-61a9aad56d2e"),
                             Code = "D",
                             Description = "Mixed - White and Black Caribbean",
                             Sequence = 25
                         },
                         new
                         {
-                            Id = new Guid("d9ed2048-d3a5-4684-83fb-5556008d0d10"),
+                            Id = new Guid("5157c9f6-a930-4db3-81e5-aa1770e24a8e"),
                             Code = "E",
                             Description = "Mixed - White and Black African",
                             Sequence = 30
                         },
                         new
                         {
-                            Id = new Guid("9c355351-9e96-409b-a557-4f6096014fce"),
+                            Id = new Guid("4e7a2afc-644f-41c3-b4c1-baf9bf8f6436"),
                             Code = "F",
                             Description = "Mixed - White and Asian",
                             Sequence = 35
                         },
                         new
                         {
-                            Id = new Guid("45c17927-b80d-4684-9457-aaa07626ebb9"),
+                            Id = new Guid("00224bb7-d6ac-4267-8f44-e286e14246b3"),
                             Code = "G",
                             Description = "Mixed - Any mixed backgroundn",
                             Sequence = 40
                         });
+                });
+
+            modelBuilder.Entity("IAPT.EK.Business.Models.GPPractice", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("AddressLine1");
+
+                    b.Property<string>("AddressLine2");
+
+                    b.Property<string>("AddressLine3");
+
+                    b.Property<string>("AddressLine4");
+
+                    b.Property<string>("AddressLine5");
+
+                    b.Property<Guid>("CCGCodeId");
+
+                    b.Property<string>("Code")
+                        .IsRequired()
+                        .HasColumnType("varchar(6)");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("varchar(100)");
+
+                    b.Property<string>("PostCode")
+                        .HasColumnType("varchar(8)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CCGCodeId");
+
+                    b.HasIndex("Code")
+                        .IsUnique();
+
+                    b.ToTable("GPPractices");
                 });
 
             modelBuilder.Entity("IAPT.EK.Business.Models.ReligiousGroup", b =>
@@ -278,88 +316,96 @@ namespace IAPT.EK.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("e2d355cf-263d-4004-bdba-437d63faaa6a"),
+                            Id = new Guid("84ec1d3c-0332-40a4-91df-94f5ad8c6501"),
                             Code = "A",
                             Description = "Baha'i"
                         },
                         new
                         {
-                            Id = new Guid("eb2fbe4f-16af-4eca-ac71-f0afde64e8bb"),
+                            Id = new Guid("fccddfa8-30c6-4afc-90a6-74e8a2c80153"),
                             Code = "B",
                             Description = "Buddhist"
                         },
                         new
                         {
-                            Id = new Guid("848d4cb1-085d-4e9d-b65d-cf01c20a083b"),
+                            Id = new Guid("d8a70e38-2c0c-451e-9650-cfc6adabc46f"),
                             Code = "C",
                             Description = "Christian"
                         },
                         new
                         {
-                            Id = new Guid("0ed436e1-86c7-4488-8373-1e0a4feb38de"),
+                            Id = new Guid("5a448806-b59f-47b5-bc6e-01acc5a6adbf"),
                             Code = "D",
                             Description = "Hindu"
                         },
                         new
                         {
-                            Id = new Guid("d3d8539e-3ecb-48b5-92ad-2e8163408083"),
+                            Id = new Guid("55a3e5a4-d3b3-4b46-a8ab-0a7abf289060"),
                             Code = "E",
                             Description = "Jain"
                         },
                         new
                         {
-                            Id = new Guid("1518b6d2-9471-47b7-bc9a-2b5bb34f2f99"),
+                            Id = new Guid("c679c2bc-9d15-4a54-b0b3-0cb1849cdd82"),
                             Code = "F",
                             Description = "Jewish"
                         },
                         new
                         {
-                            Id = new Guid("f0e5cc84-49ef-4178-a20f-aafd01b257da"),
+                            Id = new Guid("cfd1120c-6c8f-4436-953a-74f7c24d4716"),
                             Code = "G",
                             Description = "Muslim"
                         },
                         new
                         {
-                            Id = new Guid("9be8b04e-fe30-49ff-8b4c-49c3c60285da"),
+                            Id = new Guid("2e1bec74-ffc3-4ceb-99f4-122716afe5c8"),
                             Code = "H",
                             Description = "Pagan"
                         },
                         new
                         {
-                            Id = new Guid("567f1cae-a14c-4812-a919-615539473b10"),
+                            Id = new Guid("866ab01d-0f49-4b6c-b424-2b6a45832c0b"),
                             Code = "I",
                             Description = "Sikh"
                         },
                         new
                         {
-                            Id = new Guid("598e766c-9f01-4255-8988-1ef8d98607c6"),
+                            Id = new Guid("c9cf6709-0001-45b1-853e-6e3a3dc00034"),
                             Code = "J",
                             Description = "Zoroastrian"
                         },
                         new
                         {
-                            Id = new Guid("94f08c31-f5de-4d32-8178-916e5a7b206c"),
+                            Id = new Guid("88fbb7f9-5045-4d55-bd19-19433260ef48"),
                             Code = "K",
                             Description = "Other"
                         },
                         new
                         {
-                            Id = new Guid("0efc089c-09e5-4c84-9049-31c31be6760e"),
+                            Id = new Guid("3325dc9b-77fb-4aa6-93d2-3a346e8d91e7"),
                             Code = "L",
                             Description = "None"
                         },
                         new
                         {
-                            Id = new Guid("5ecc0588-8f6f-4fc1-9f93-beabefcbd60b"),
+                            Id = new Guid("e204ccfc-aa53-4c85-8039-4a5a11503c69"),
                             Code = "M",
                             Description = "Declines to Disclose"
                         },
                         new
                         {
-                            Id = new Guid("a0948204-2b15-4793-a1a6-18fef62e59f6"),
+                            Id = new Guid("ef411c33-d27e-494c-bb44-5db1fca8daf8"),
                             Code = "N",
                             Description = "Patient Religion Unknown"
                         });
+                });
+
+            modelBuilder.Entity("IAPT.EK.Business.Models.GPPractice", b =>
+                {
+                    b.HasOne("IAPT.EK.Business.Models.CCGCode", "CCGCode")
+                        .WithMany("GPPractices")
+                        .HasForeignKey("CCGCodeId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }

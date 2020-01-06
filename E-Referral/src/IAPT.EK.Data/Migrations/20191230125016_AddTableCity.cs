@@ -8,32 +8,32 @@ namespace IAPT.EK.Data.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DeleteData(
-                table: "DisabilityCode",
+                table: "DisabilityCodes",
                 keyColumn: "Id",
                 keyValue: new Guid("120e9c07-3dba-4b4a-8d13-cd26ce7e5add"));
 
             migrationBuilder.DeleteData(
-                table: "DisabilityCode",
+                table: "DisabilityCodes",
                 keyColumn: "Id",
                 keyValue: new Guid("22e17f4d-4c62-461a-81b7-d3f1950bff25"));
 
             migrationBuilder.DeleteData(
-                table: "DisabilityCode",
+                table: "DisabilityCodes",
                 keyColumn: "Id",
                 keyValue: new Guid("3c571839-ddc2-461d-ae15-bb1da1839972"));
 
             migrationBuilder.DeleteData(
-                table: "DisabilityCode",
+                table: "DisabilityCodes",
                 keyColumn: "Id",
                 keyValue: new Guid("513885d6-2a62-41b5-b2e0-9972ca6fa93f"));
 
             migrationBuilder.DeleteData(
-                table: "DisabilityCode",
+                table: "DisabilityCodes",
                 keyColumn: "Id",
                 keyValue: new Guid("cdcf851a-2800-43af-9410-ac54f98d8b21"));
 
             migrationBuilder.DeleteData(
-                table: "DisabilityCode",
+                table: "DisabilityCodes",
                 keyColumn: "Id",
                 keyValue: new Guid("fa56b2a8-5ef2-4caa-b7e6-f50ca8cae2e9"));
 
@@ -169,7 +169,7 @@ namespace IAPT.EK.Data.Migrations
                 });
 
             migrationBuilder.InsertData(
-                table: "DisabilityCode",
+                table: "DisabilityCodes",
                 columns: new[] { "Id", "Code", "Description" },
                 values: new object[,]
                 {
@@ -223,32 +223,32 @@ namespace IAPT.EK.Data.Migrations
                 name: "Cities");
 
             migrationBuilder.DeleteData(
-                table: "DisabilityCode",
+                table: "DisabilityCodes",
                 keyColumn: "Id",
                 keyValue: new Guid("02a1e4f1-159e-4067-b0e8-e49cd5fff424"));
 
             migrationBuilder.DeleteData(
-                table: "DisabilityCode",
+                table: "DisabilityCodes",
                 keyColumn: "Id",
                 keyValue: new Guid("13a1e748-e2a8-4799-ba80-94f80cccbbd1"));
 
             migrationBuilder.DeleteData(
-                table: "DisabilityCode",
+                table: "DisabilityCodes",
                 keyColumn: "Id",
                 keyValue: new Guid("201cf3ea-0bf2-46d2-aa30-bea138a3a749"));
 
             migrationBuilder.DeleteData(
-                table: "DisabilityCode",
+                table: "DisabilityCodes",
                 keyColumn: "Id",
                 keyValue: new Guid("4c2390d1-10ad-405e-a36f-6e3103420a44"));
 
             migrationBuilder.DeleteData(
-                table: "DisabilityCode",
+                table: "DisabilityCodes",
                 keyColumn: "Id",
                 keyValue: new Guid("7eaff7c7-ddba-489c-8953-104380c33beb"));
 
             migrationBuilder.DeleteData(
-                table: "DisabilityCode",
+                table: "DisabilityCodes",
                 keyColumn: "Id",
                 keyValue: new Guid("f28fa5e8-a351-480b-8edb-422165da0d9a"));
 
@@ -358,7 +358,7 @@ namespace IAPT.EK.Data.Migrations
                 keyValue: new Guid("f1de199d-044e-443b-91e6-704e65580fdc"));
 
             migrationBuilder.InsertData(
-                table: "DisabilityCode",
+                table: "DisabilityCodes",
                 columns: new[] { "Id", "Code", "Description" },
                 values: new object[,]
                 {

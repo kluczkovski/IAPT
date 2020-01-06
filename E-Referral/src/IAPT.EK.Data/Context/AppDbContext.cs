@@ -12,9 +12,10 @@ namespace IAPT.EK.Data.Context
 
         public DbSet<EthnicCategory> EthnicCategories { get; set; }
         public DbSet<ReligiousGroup> ReligiousGroups { get; set; }
+        public DbSet<DisabilityCode> DisabilityCodes { get; set; }
         public DbSet<City> Cities { get; set; }
-        public DbSet<CCGCode> cCGCodes { get; set; }
-
+        public DbSet<CCGCode> CCGCodes { get; set; }
+        public DbSet<GPPractice> GPPractices { get; set; }
 
         protected override void OnModelCreating(ModelBuilder  modelBuilder)
         {

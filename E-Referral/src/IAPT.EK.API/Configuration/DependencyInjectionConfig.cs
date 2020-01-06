@@ -21,7 +21,9 @@ namespace IAPT.EK.API.Configuration
             services.AddScoped<ICityRepository, CityRepository>();
             services.AddScoped<ICityServices, CityServices>();
             services.AddScoped<ICCGCodeRepository, CCGCodeRepository>();
-            services.AddScoped<ICCGCodeServices, CCGCodeServices>();
+            services.AddScoped<ICCGCodeSerices, CCGCodeServices>();
+            services.AddScoped<IGPPracticeRepository, GPPracticeRepository>();
+            services.AddScoped<IGPPracticeServices, GPPracticeServices>();
             services.AddScoped<INotify, Notify>();
 
             return services;

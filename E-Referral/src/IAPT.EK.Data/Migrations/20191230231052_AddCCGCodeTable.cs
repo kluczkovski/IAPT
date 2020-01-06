@@ -43,32 +43,32 @@ namespace IAPT.EK.Data.Migrations
                 keyValue: new Guid("c66c8f74-0edb-4130-a6e1-8282dc74acd1"));
 
             migrationBuilder.DeleteData(
-                table: "DisabilityCode",
+                table: "DisabilityCodes",
                 keyColumn: "Id",
                 keyValue: new Guid("02a1e4f1-159e-4067-b0e8-e49cd5fff424"));
 
             migrationBuilder.DeleteData(
-                table: "DisabilityCode",
+                table: "DisabilityCodes",
                 keyColumn: "Id",
                 keyValue: new Guid("13a1e748-e2a8-4799-ba80-94f80cccbbd1"));
 
             migrationBuilder.DeleteData(
-                table: "DisabilityCode",
+                table: "DisabilityCodes",
                 keyColumn: "Id",
                 keyValue: new Guid("201cf3ea-0bf2-46d2-aa30-bea138a3a749"));
 
             migrationBuilder.DeleteData(
-                table: "DisabilityCode",
+                table: "DisabilityCodes",
                 keyColumn: "Id",
                 keyValue: new Guid("4c2390d1-10ad-405e-a36f-6e3103420a44"));
 
             migrationBuilder.DeleteData(
-                table: "DisabilityCode",
+                table: "DisabilityCodes",
                 keyColumn: "Id",
                 keyValue: new Guid("7eaff7c7-ddba-489c-8953-104380c33beb"));
 
             migrationBuilder.DeleteData(
-                table: "DisabilityCode",
+                table: "DisabilityCodes",
                 keyColumn: "Id",
                 keyValue: new Guid("f28fa5e8-a351-480b-8edb-422165da0d9a"));
 
@@ -178,7 +178,7 @@ namespace IAPT.EK.Data.Migrations
                 keyValue: new Guid("f1de199d-044e-443b-91e6-704e65580fdc"));
 
             migrationBuilder.CreateTable(
-                name: "cCGCodes",
+                name: "CCGCodes",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(nullable: false),
@@ -188,7 +188,7 @@ namespace IAPT.EK.Data.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_cCGCodes", x => x.Id);
+                    table.PrimaryKey("PK_CCGCodes", x => x.Id);
                 });
 
             migrationBuilder.InsertData(
@@ -206,7 +206,7 @@ namespace IAPT.EK.Data.Migrations
                 });
 
             migrationBuilder.InsertData(
-                table: "DisabilityCode",
+                table: "DisabilityCodes",
                 columns: new[] { "Id", "Code", "Description" },
                 values: new object[,]
                 {
@@ -254,7 +254,7 @@ namespace IAPT.EK.Data.Migrations
                 });
 
             migrationBuilder.InsertData(
-                table: "cCGCodes",
+                table: "CCGCodes",
                 columns: new[] { "Id", "Code", "Description", "Hub" },
                 values: new object[,]
                 {
@@ -265,8 +265,8 @@ namespace IAPT.EK.Data.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_cCGCodes_Code",
-                table: "cCGCodes",
+                name: "IX_CCGCodes_Code",
+                table: "CCGCodes",
                 column: "Code",
                 unique: true);
         }
@@ -274,7 +274,7 @@ namespace IAPT.EK.Data.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "cCGCodes");
+                name: "CCGCodes");
 
             migrationBuilder.DeleteData(
                 table: "Cities",
@@ -312,32 +312,32 @@ namespace IAPT.EK.Data.Migrations
                 keyValue: new Guid("f5c23c87-b9e2-4ea6-9087-cf789c9bdcc5"));
 
             migrationBuilder.DeleteData(
-                table: "DisabilityCode",
+                table: "DisabilityCodes",
                 keyColumn: "Id",
                 keyValue: new Guid("11108e16-58a6-4ec7-888c-75d163b13187"));
 
             migrationBuilder.DeleteData(
-                table: "DisabilityCode",
+                table: "DisabilityCodes",
                 keyColumn: "Id",
                 keyValue: new Guid("1237fd0c-4f2d-401d-b71b-ffd5a57f8602"));
 
             migrationBuilder.DeleteData(
-                table: "DisabilityCode",
+                table: "DisabilityCodes",
                 keyColumn: "Id",
                 keyValue: new Guid("3ff48331-d5db-409e-9b5d-a258375880f3"));
 
             migrationBuilder.DeleteData(
-                table: "DisabilityCode",
+                table: "DisabilityCodes",
                 keyColumn: "Id",
                 keyValue: new Guid("6f5f310c-2020-451c-935b-985caead9951"));
 
             migrationBuilder.DeleteData(
-                table: "DisabilityCode",
+                table: "DisabilityCodes",
                 keyColumn: "Id",
                 keyValue: new Guid("76f67c82-1b8d-4879-88fa-2f440c5770da"));
 
             migrationBuilder.DeleteData(
-                table: "DisabilityCode",
+                table: "DisabilityCodes",
                 keyColumn: "Id",
                 keyValue: new Guid("7c962c3f-808e-432b-bed3-c562379b4940"));
 

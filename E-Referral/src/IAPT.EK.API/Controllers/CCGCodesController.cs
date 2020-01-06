@@ -14,11 +14,11 @@ namespace IAPT.EK.API.Controllers
     [Route("api/[controller]")]
     public class CCGCodesController : MainController
     {
-        private readonly ICCGCodeServices _cServices;
+        private readonly ICCGCodeSerices _cServices;
         private readonly IMapper _mapper;
        
 
-        public CCGCodesController(ICCGCodeServices  ccgCodeServices,
+        public CCGCodesController(ICCGCodeSerices ccgCodeServices,
                                   IMapper mapper,
                                   INotify notify) :base (notify)
         {
