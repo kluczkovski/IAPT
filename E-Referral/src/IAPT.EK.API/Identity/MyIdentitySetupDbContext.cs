@@ -1,9 +1,12 @@
 ﻿using System;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
+
 namespace IAPT.EK.API.Identity
 {
-    public class IdentitySetupDbContext
+    public class MyIdentitySetupDbContext : IdentityDbContext
     {
-        public IdentitySetupDbContext()
+        public MyIdentitySetupDbContext(DbContextOptions<MyIdentitySetupDbContext> options) : base (options)
         {
         }
     }

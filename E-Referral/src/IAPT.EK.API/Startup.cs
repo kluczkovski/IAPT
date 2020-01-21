@@ -25,6 +25,7 @@ namespace IAPT.EK.API
 
         public Startup(IHostingEnvironment hostingEnvironment)
         {
+            // Working with more than one environment.
             var builder = new ConfigurationBuilder()
                 .SetBasePath(hostingEnvironment.ContentRootPath)
                 .AddJsonFile("appsettings.json", true, true)
@@ -38,7 +39,6 @@ namespace IAPT.EK.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddAutoMapper(typeof(Startup));
 
             services.AddMvc()
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
@@ -46,18 +46,34 @@ namespace IAPT.EK.API
                 {
                     options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
                 });
-               
 
             services.Configure<ApiBehaviorOptions>(options =>
             {
-               options.SuppressModelStateInvalidFilter = true;
+                options.SuppressModelStateInvalidFilter = true;
             });
 
-            // Setup App Context - System Tables
-            services.AddDbContext<AppDbContext>(options =>
-                options.UseMySql(Configuration.GetConnectionString("DefaultConnection"), builder =>
-                builder.MigrationsAssembly(typeof(AppDbContext).Assembly.FullName)));
 
+            services.AddCors(options =>
+            {
+                options.AddPolicy("Development", builder =>
+                    builder.AllowAnyOrigin()
+                            .AllowAnyMethod()
+                            .AllowAnyHeader()
+                            .AllowCredentials());
+            });
+
+
+            // Auto Mapper Setup
+            services.AddAutoMapper(typeof(Startup));
+
+
+            // Identity Setup
+            services.AddIdentityConfiguration(Configuration);
+
+            // Setup App Context - System Tables
+            services.AppContextConfiguration(Configuration);
+
+            // Dependency Injection Setup
             services.DIConfiguration();
       
         }
@@ -69,15 +85,17 @@ namespace IAPT.EK.API
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                app.UseCors("Development");
             }
             else
             {
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
 
             app.UseHttpsRedirection();
+            app.UseAuthentication();
             app.UseMvc();
+          
             
         }
     }

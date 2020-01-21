@@ -1,25 +1,17 @@
-﻿<Properties StartupConfiguration="{B95D2C88-DC43-4742-A2DB-FC20169257D0}|IAPT.EK.API">
-  <MonoDevelop.Ide.Workbench ActiveDocument="src/IAPT.EK.API/DTO/GPPracticeDTO.cs">
+﻿<Properties StartupConfiguration="{B95D2C88-DC43-4742-A2DB-FC20169257D0}|Self-Host-Prod">
+  <MonoDevelop.Ide.Workbench ActiveDocument="src/IAPT.EK.API/Controllers/AuthController.cs">
     <Files>
-      <File FileName="src/IAPT.EK.API/Controllers/GPPracticesController.cs" Line="32" Column="41" />
-      <File FileName="src/IAPT.EK.Business/Interfaces/IGPPracticeRepository.cs" Line="9" Column="9" />
-      <File FileName="src/IAPT.EK.Business/Interfaces/ICCGCodeRepository.cs" Line="1" Column="1" />
-      <File FileName="src/IAPT.EK.Business/Interfaces/ICCGCodeServices.cs" Line="1" Column="1" />
-      <File FileName="src/IAPT.EK.API/Startup.cs" Line="47" Column="47" />
-      <File FileName="src/IAPT.EK.API/DTO/GPPracticeDTO.cs" Line="33" Column="26" />
-      <File FileName="src/IAPT.EK.API/DTO/CCGCodeDTO.cs" Line="1" Column="1" />
+      <File FileName="src/IAPT.EK.API/Startup.cs" Line="89" Column="1" />
+      <File FileName="src/IAPT.EK.API/Controllers/AuthController.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="E-Referral" expanded="True">
             <Node name="IAPT.EK.API" expanded="True">
-              <Node name="DTO" expanded="True">
-                <Node name="GPPracticeDTO.cs" selected="True" />
+              <Node name="Controllers" expanded="True">
+                <Node name="AuthController.cs" selected="True" />
               </Node>
-            </Node>
-            <Node name="IAPT.EK.Business" expanded="True">
-              <Node name="Interfaces" expanded="True" />
             </Node>
           </Node>
         </State>
@@ -32,7 +24,7 @@
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Breakpoint file="/Users/ekluczkovski/Projects/IAPT/E-Referral/src/IAPT.EK.API/Controllers/ReligiousGroupsController.cs" relfile="src/IAPT.EK.API/Controllers/ReligiousGroupsController.cs" line="61" column="1" />
-      <Breakpoint file="/Users/ekluczkovski/Projects/IAPT/E-Referral/src/IAPT.EK.API/Controllers/GPPracticesController.cs" relfile="src/IAPT.EK.API/Controllers/GPPracticesController.cs" line="35" column="1" />
+      <Breakpoint file="/Users/ekluczkovski/Projects/IAPT/E-Referral/src/IAPT.EK.API/Controllers/CitiesController.cs" relfile="src/IAPT.EK.API/Controllers/CitiesController.cs" line="117" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />

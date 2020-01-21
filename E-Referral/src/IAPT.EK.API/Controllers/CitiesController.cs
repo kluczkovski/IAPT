@@ -4,13 +4,16 @@ using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using IAPT.EK.API.DTO;
+using IAPT.EK.API.Extensions;
 using IAPT.EK.Business.Interfaces;
 using IAPT.EK.Business.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 
 namespace IAPT.EK.API.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     public class CitiesController : MainController
     {
@@ -28,6 +31,7 @@ namespace IAPT.EK.API.Controllers
 
 
         // GET: api/cities
+        [AllowAnonymous]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<CityDTO>>> GetAll()
         {
@@ -39,6 +43,7 @@ namespace IAPT.EK.API.Controllers
 
 
         // GET api/cities/5
+        [AllowAnonymous]
         [HttpGet("{id:guid}")]
         public async Task<ActionResult<CityDTO>> GetById(Guid id)
         {
@@ -55,6 +60,7 @@ namespace IAPT.EK.API.Controllers
         }
 
         // POST api/cities
+        [ClaimsAuthorize("City", "Add")]
         [HttpPost]
         public async Task<ActionResult<CityDTO>> Add(CityDTO cityDTO)
         {
@@ -75,8 +81,9 @@ namespace IAPT.EK.API.Controllers
         }
 
         // PUT api/cities/5
+        [ClaimsAuthorize("City", "Update")]
         [HttpPut("{id:guid}")]
-        public async Task<ActionResult<CityDTO>> Put(Guid id, CityDTO cityDTO)
+        public async Task<ActionResult<CityDTO>> Update(Guid id, CityDTO cityDTO)
         {
             if (id != cityDTO.Id)
             {
@@ -105,6 +112,7 @@ namespace IAPT.EK.API.Controllers
         }
 
         // DELETE api/disabilitycodes/5
+        [ClaimsAuthorize("City", "Delete")]
         [HttpDelete("{id:guid}")]
         public async Task<ActionResult<CityDTO>>  Delete(Guid id)
         {

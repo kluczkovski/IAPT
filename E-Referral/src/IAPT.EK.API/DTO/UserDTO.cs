@@ -1,7 +1,7 @@
 ﻿using System;
 namespace IAPT.EK.API.DTO
 {
-    public class UserDTO
+    public class UserSigDTO
     {
         public UserDTO()
         {

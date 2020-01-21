@@ -5,10 +5,18 @@
     <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
   </PropertyGroup>
 
-  <PropertyGroup Condition=" '$(RunConfiguration)' == 'IAPT.EK.API' ">
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'Self-Host-Dev' ">
     <StartAction>Project</StartAction>
     <LaunchUrl>api/values</LaunchUrl>
-    <ApplicationURL>https://localhost:5001;http://localhost:5000</ApplicationURL>
+    <ApplicationURL>https://localhost:5001</ApplicationURL>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'Self-Host-Prod' ">
+    <StartAction>Project</StartAction>
+    <EnvironmentVariables>
+      <Variable name="ASPNETCORE_ENVIRONMENT" value="Production" />
+    </EnvironmentVariables>
+    <ApplicationURL>https://localhost:5001</ApplicationURL>
+    <LaunchBrowser>false</LaunchBrowser>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App">
@@ -35,5 +43,13 @@
   <ItemGroup>
     <Folder Include="DTO\" />
     <Folder Include="Configuration\" />
+    <Folder Include="Identity\" />
+    <Folder Include="Extensions\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="Configuration\IdentityConfig.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="DTO\UserDTO.cs" />
   </ItemGroup>
 </Project>

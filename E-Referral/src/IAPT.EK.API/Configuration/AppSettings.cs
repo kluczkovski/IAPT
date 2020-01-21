@@ -1,7 +1,7 @@
 ﻿using System;
 namespace IAPT.EK.API.Configuration
 {
-    public class AppSettingsJWT
+    public class AppSettings
     {
         public string Secret { get; set; }
 
@@ -11,7 +11,7 @@ namespace IAPT.EK.API.Configuration
 
         public string Audience { get; set; }
 
-        public AppSettingsJWT()
+        public AppSettings()
         {
         }
     }

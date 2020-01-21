@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace IAPT.EK.API.DTO
 {
-    public class LoginUserDTO
+    public class UserLoginDTO
     {
         [Required(ErrorMessage = "The field {0} must be informed.")]
         [EmailAddress(ErrorMessage = "The field {0} shoud be valid email")]
@@ -13,7 +13,7 @@ namespace IAPT.EK.API.DTO
         public string Password { get; set; }
 
 
-        public LoginUserDTO()
+        public UserLoginDTO()
         {
         }
     }
