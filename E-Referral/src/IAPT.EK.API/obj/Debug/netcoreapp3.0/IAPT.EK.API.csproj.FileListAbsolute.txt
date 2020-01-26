@@ -1,0 +1,7 @@
+/Users/ekluczkovski/Projects/IAPT/E-Referral/src/IAPT.EK.API/obj/Debug/netcoreapp3.0/IAPT.EK.API.csprojAssemblyReference.cache
+/Users/ekluczkovski/Projects/IAPT/E-Referral/src/IAPT.EK.API/obj/Debug/netcoreapp3.0/staticwebassets/IAPT.EK.API.StaticWebAssets.Manifest.cache
+/Users/ekluczkovski/Projects/IAPT/E-Referral/src/IAPT.EK.API/obj/Debug/netcoreapp3.0/staticwebassets/IAPT.EK.API.StaticWebAssets.xml
+/Users/ekluczkovski/Projects/IAPT/E-Referral/src/IAPT.EK.API/obj/Debug/netcoreapp3.0/IAPT.EK.API.MvcApplicationPartsAssemblyInfo.cs
+/Users/ekluczkovski/Projects/IAPT/E-Referral/src/IAPT.EK.API/obj/Debug/netcoreapp3.0/IAPT.EK.API.MvcApplicationPartsAssemblyInfo.cache
+/Users/ekluczkovski/Projects/IAPT/E-Referral/src/IAPT.EK.API/obj/Debug/netcoreapp3.0/IAPT.EK.API.AssemblyInfoInputs.cache
+/Users/ekluczkovski/Projects/IAPT/E-Referral/src/IAPT.EK.API/obj/Debug/netcoreapp3.0/IAPT.EK.API.AssemblyInfo.cs

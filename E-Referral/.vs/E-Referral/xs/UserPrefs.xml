@@ -1,17 +1,13 @@
-﻿<Properties StartupConfiguration="{B95D2C88-DC43-4742-A2DB-FC20169257D0}|Self-Host-Prod">
-  <MonoDevelop.Ide.Workbench ActiveDocument="src/IAPT.EK.API/Controllers/AuthController.cs">
-    <Files>
-      <File FileName="src/IAPT.EK.API/Startup.cs" Line="89" Column="1" />
-      <File FileName="src/IAPT.EK.API/Controllers/AuthController.cs" Line="1" Column="1" />
-    </Files>
+﻿<Properties StartupConfiguration="{B95D2C88-DC43-4742-A2DB-FC20169257D0}|Self-Host-Dev">
+  <MonoDevelop.Ide.Workbench>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="E-Referral" expanded="True">
             <Node name="IAPT.EK.API" expanded="True">
-              <Node name="Controllers" expanded="True">
-                <Node name="AuthController.cs" selected="True" />
-              </Node>
+              <Node name="Configuration" expanded="True" />
+              <Node name="Properties" expanded="True" />
+              <Node name="Startup.cs" selected="True" />
             </Node>
           </Node>
         </State>
@@ -22,10 +18,7 @@
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="/Users/ekluczkovski/Projects/IAPT/E-Referral/src/IAPT.EK.API/Controllers/ReligiousGroupsController.cs" relfile="src/IAPT.EK.API/Controllers/ReligiousGroupsController.cs" line="61" column="1" />
-      <Breakpoint file="/Users/ekluczkovski/Projects/IAPT/E-Referral/src/IAPT.EK.API/Controllers/CitiesController.cs" relfile="src/IAPT.EK.API/Controllers/CitiesController.cs" line="117" column="1" />
-    </BreakpointStore>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
 </Properties>
