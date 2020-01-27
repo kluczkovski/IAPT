@@ -5,9 +5,14 @@
         <State name="__root__">
           <Node name="E-Referral" expanded="True">
             <Node name="IAPT.EK.API" expanded="True">
-              <Node name="Configuration" expanded="True" />
-              <Node name="Properties" expanded="True" />
-              <Node name="Startup.cs" selected="True" />
+              <Node name="Properties" expanded="True">
+                <Node name="launchSettings.json" selected="True" />
+              </Node>
+              <Node name="V1" expanded="True">
+                <Node name="Controllers" expanded="True" />
+              </Node>
+              <Node name="V2" expanded="True" />
+              <Node name="appsettings.json" expanded="True" />
             </Node>
           </Node>
         </State>
@@ -18,7 +23,10 @@
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/Users/ekluczkovski/Projects/IAPT/E-Referral/src/IAPT.EK.API/V1/Controllers/AuthController.cs" relfile="src/IAPT.EK.API/V1/Controllers/AuthController.cs" line="41" column="1" />
+      <Breakpoint file="/Users/ekluczkovski/Projects/IAPT/E-Referral/src/IAPT.EK.API/V2/ValuesController.cs" relfile="src/IAPT.EK.API/V2/ValuesController.cs" line="12" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
 </Properties>

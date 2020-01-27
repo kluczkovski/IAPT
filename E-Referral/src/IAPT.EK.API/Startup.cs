@@ -31,25 +31,12 @@ namespace IAPT.EK.API
         public void ConfigureServices(IServiceCollection services)
         {
 
-            services.AddControllers()
-                .AddNewtonsoftJson(options =>
-                {
-                    options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
-                });
+            services.WebApiConfig();
 
-            services.Configure<ApiBehaviorOptions>(options =>
-            {
-                options.SuppressModelStateInvalidFilter = true;
-            });
-
-
-           
             services.AddCors();
-
 
             // Auto Mapper Setup
             services.AddAutoMapper(typeof(Startup));
-
 
             // Identity Setup
             services.AddIdentityConfiguration(Configuration);
