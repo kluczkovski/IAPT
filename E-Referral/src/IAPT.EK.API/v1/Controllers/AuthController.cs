@@ -23,11 +23,11 @@ namespace IAPT.EK.API.V1.Controllers
         private readonly UserManager<IdentityUser> _userManager;
         private readonly AppSettings _appSettings;
 
-            
-        public AuthController(  INotify notify,
+
+        public AuthController(INotify notify,
                                 SignInManager<IdentityUser> signInManager,
-                                UserManager<IdentityUser>   userManager,
-                                IOptions<AppSettings> appSettings) : base (notify)
+                                UserManager<IdentityUser> userManager,
+                                IOptions<AppSettings> appSettings) : base(notify)
         {
             _signInManager = signInManager;
             _userManager = userManager;
@@ -55,7 +55,8 @@ namespace IAPT.EK.API.V1.Controllers
             {
                 await _signInManager.SignInAsync(user, false);
                 return CustomResponse(await GeneratorOfJWT(user.Email));
-            } else
+            }
+            else
             {
                 foreach (var error in result.Errors)
                 {
@@ -102,7 +103,7 @@ namespace IAPT.EK.API.V1.Controllers
             claims.Add(new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()));
             claims.Add(new Claim(JwtRegisteredClaimNames.Nbf, ToUnixEpochDate(DateTime.UtcNow).ToString()));
             claims.Add(new Claim(JwtRegisteredClaimNames.Iat, ToUnixEpochDate(DateTime.UtcNow).ToString(), ClaimValueTypes.UInteger64));
-            foreach(var userRole in userRoles)
+            foreach (var userRole in userRoles)
             {
                 claims.Add(new Claim("role", userRole));
             }
@@ -142,7 +143,7 @@ namespace IAPT.EK.API.V1.Controllers
         }
 
         private static long ToUnixEpochDate(DateTime date)
-            => (long)Math.Round((date.ToUniversalTime() - new DateTimeOffset(1970,1,1,0,0,0,TimeSpan.Zero)).TotalMilliseconds);
-       
+            => (long)Math.Round((date.ToUniversalTime() - new DateTimeOffset(1970, 1, 1, 0, 0, 0, TimeSpan.Zero)).TotalMilliseconds);
+
     }
 }

@@ -31,7 +31,7 @@ namespace IAPT.EK.API.Configuration
             //Api Explorer
             services.AddVersionedApiExplorer(options =>
             {
-                options.GroupNameFormat = "v'VVV";
+                options.GroupNameFormat = "'v'VVV";
                 options.SubstituteApiVersionInUrl = true;
 
             });

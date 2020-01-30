@@ -12,16 +12,17 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace IAPT.EK.API.V1.Controllers
 {
-    [Route("api/[controller]")]
+    [ApiVersion("1.0")]
+    [Route("api/v{version:apiVersion}/[controller]")]
     public class CCGCodesController : MainController
     {
         private readonly ICCGCodeSerices _cServices;
         private readonly IMapper _mapper;
-       
+
 
         public CCGCodesController(ICCGCodeSerices ccgCodeServices,
                                   IMapper mapper,
-                                  INotify notify) :base (notify)
+                                  INotify notify) : base(notify)
         {
             _cServices = ccgCodeServices;
             _mapper = mapper;
@@ -95,7 +96,7 @@ namespace IAPT.EK.API.V1.Controllers
             var ccgCode = _mapper.Map<CCGCode>(ccgCodeDTO);
             try
             {
-                  await _cServices.Update(ccgCode);
+                await _cServices.Update(ccgCode);
             }
             catch (Exception ex)
             {
@@ -107,7 +108,7 @@ namespace IAPT.EK.API.V1.Controllers
 
         // DELETE api/ccgcodes/5
         [HttpDelete("{id:guid}")]
-        public async Task<ActionResult<CCGCodeDTO>>  Delete(Guid id)
+        public async Task<ActionResult<CCGCodeDTO>> Delete(Guid id)
         {
             if (!await _cServices.HasAnyAsync(id))
             {

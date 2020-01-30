@@ -13,16 +13,17 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace IAPT.EK.API.V1.Controllers
 {
-    [Route("api/[controller]")]
+    [ApiVersion("1.0")]
+    [Route("api/v{version:apiVersion}/[controller]")]
     public class ReligiousGroupsController : MainController
     {
         private readonly IReligiousGroupServices _religGroupServ;
         private readonly IMapper _mapper;
-       
+
 
         public ReligiousGroupsController(IReligiousGroupServices religiousGroupServices,
                                          IMapper mapper,
-                                         INotify notify) :base (notify)
+                                         INotify notify) : base(notify)
         {
             _religGroupServ = religiousGroupServices;
             _mapper = mapper;
@@ -96,7 +97,7 @@ namespace IAPT.EK.API.V1.Controllers
             var religiousGroup = _mapper.Map<ReligiousGroup>(religiousGroupDTO);
             try
             {
-                  await _religGroupServ.Update(religiousGroup);
+                await _religGroupServ.Update(religiousGroup);
             }
             catch (Exception ex)
             {
@@ -108,7 +109,7 @@ namespace IAPT.EK.API.V1.Controllers
 
         // DELETE api/values/5
         [HttpDelete("{id:guid}")]
-        public async Task<ActionResult<ReligiousGroupDTO>>  Delete(Guid id)
+        public async Task<ActionResult<ReligiousGroupDTO>> Delete(Guid id)
         {
             if (!await _religGroupServ.HasAnyAsync(id))
             {

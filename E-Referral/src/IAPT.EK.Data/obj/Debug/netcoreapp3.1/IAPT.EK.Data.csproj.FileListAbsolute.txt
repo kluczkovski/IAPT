@@ -1,0 +1,13 @@
+/Users/ekluczkovski/Projects/IAPT/E-Referral/src/IAPT.EK.Data/bin/Debug/netcoreapp3.1/IAPT.EK.Data.deps.json
+/Users/ekluczkovski/Projects/IAPT/E-Referral/src/IAPT.EK.Data/bin/Debug/netcoreapp3.1/IAPT.EK.Data.runtimeconfig.json
+/Users/ekluczkovski/Projects/IAPT/E-Referral/src/IAPT.EK.Data/bin/Debug/netcoreapp3.1/IAPT.EK.Data.runtimeconfig.dev.json
+/Users/ekluczkovski/Projects/IAPT/E-Referral/src/IAPT.EK.Data/bin/Debug/netcoreapp3.1/IAPT.EK.Data.dll
+/Users/ekluczkovski/Projects/IAPT/E-Referral/src/IAPT.EK.Data/bin/Debug/netcoreapp3.1/IAPT.EK.Data.pdb
+/Users/ekluczkovski/Projects/IAPT/E-Referral/src/IAPT.EK.Data/bin/Debug/netcoreapp3.1/IAPT.EK.Business.dll
+/Users/ekluczkovski/Projects/IAPT/E-Referral/src/IAPT.EK.Data/bin/Debug/netcoreapp3.1/IAPT.EK.Business.pdb
+/Users/ekluczkovski/Projects/IAPT/E-Referral/src/IAPT.EK.Data/obj/Debug/netcoreapp3.1/IAPT.EK.Data.csprojAssemblyReference.cache
+/Users/ekluczkovski/Projects/IAPT/E-Referral/src/IAPT.EK.Data/obj/Debug/netcoreapp3.1/IAPT.EK.Data.AssemblyInfoInputs.cache
+/Users/ekluczkovski/Projects/IAPT/E-Referral/src/IAPT.EK.Data/obj/Debug/netcoreapp3.1/IAPT.EK.Data.AssemblyInfo.cs
+/Users/ekluczkovski/Projects/IAPT/E-Referral/src/IAPT.EK.Data/obj/Debug/netcoreapp3.1/IAPT.EK.Data.csproj.CopyComplete
+/Users/ekluczkovski/Projects/IAPT/E-Referral/src/IAPT.EK.Data/obj/Debug/netcoreapp3.1/IAPT.EK.Data.dll
+/Users/ekluczkovski/Projects/IAPT/E-Referral/src/IAPT.EK.Data/obj/Debug/netcoreapp3.1/IAPT.EK.Data.pdb

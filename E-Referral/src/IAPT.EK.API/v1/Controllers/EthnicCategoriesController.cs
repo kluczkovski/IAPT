@@ -13,7 +13,8 @@ using IAPT.EK.Business.Models;
 
 namespace IAPT.EK.API.V1.Controllers
 {
-    [Route("api/[controller]")]
+    [ApiVersion("1.0")]
+    [Route("api/v{version:apiVersion}/[controller]")]
     public class EthnicCategoriesController : MainController
     {
         private readonly IEthnicCategoryRepository _ethnicCategoryRespository;
@@ -30,7 +31,7 @@ namespace IAPT.EK.API.V1.Controllers
             _mapper = mapper;
         }
 
-        
+
         // GET: DataSet/EthnicCategories
         [HttpGet]
         public async Task<ActionResult<IEnumerable<EthnicCategoryDTO>>> GetAllEcthnics()
@@ -51,7 +52,7 @@ namespace IAPT.EK.API.V1.Controllers
                 ModelState.AddModelError("", $"Not found EthnicCategory for {id}");
                 return CustomResponse(ModelState);
             }
-           
+
             var ecthnicsDTO = _mapper.Map<EthnicCategoryDTO>(ethnic);
             return Ok(ecthnicsDTO);
         }

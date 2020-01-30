@@ -12,16 +12,17 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace IAPT.EK.API.V1.Controllers
 {
-    [Route("api/[controller]")]
+    [ApiVersion("1.0")]
+    [Route("api/v{version:apiVersion}/[controller]")]
     public class GPPracticesController : MainController
     {
         private readonly IGPPracticeServices _gpServices;
         private readonly IMapper _mapper;
-       
 
-        public GPPracticesController(   IGPPracticeServices  gPPracticeServices,
+
+        public GPPracticesController(IGPPracticeServices gPPracticeServices,
                                         IMapper mapper,
-                                        INotify notify) :base (notify)
+                                        INotify notify) : base(notify)
         {
             _gpServices = gPPracticeServices;
             _mapper = mapper;
@@ -95,7 +96,7 @@ namespace IAPT.EK.API.V1.Controllers
             var gpPractice = _mapper.Map<GPPractice>(gpPracticeDTO);
             try
             {
-                  await _gpServices.Update(gpPractice);
+                await _gpServices.Update(gpPractice);
             }
             catch (Exception ex)
             {
@@ -107,7 +108,7 @@ namespace IAPT.EK.API.V1.Controllers
 
         // DELETE api/ccgcodes/5
         [HttpDelete("{id:guid}")]
-        public async Task<ActionResult<GPPracticeDTO>>  Delete(Guid id)
+        public async Task<ActionResult<GPPracticeDTO>> Delete(Guid id)
         {
             if (!await _gpServices.HasAnyAsync(id))
             {

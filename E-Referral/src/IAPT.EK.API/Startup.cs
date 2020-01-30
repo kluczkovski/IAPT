@@ -6,6 +6,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using IAPT.EK.API.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.OpenApi.Models;
+using Microsoft.AspNetCore.Mvc.ApiExplorer;
 
 namespace IAPT.EK.API
 {
@@ -44,6 +46,9 @@ namespace IAPT.EK.API
             // Setup App Context - System Tables
             services.AppContextConfiguration(Configuration);
 
+            // Swagger Setup
+            services.AddSwaggerConfig();
+
             // Dependency Injection Setup
             services.DIConfiguration();
       
@@ -51,7 +56,7 @@ namespace IAPT.EK.API
 
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IApiVersionDescriptionProvider provider)
         {
             if (env.IsDevelopment())
             {
@@ -68,13 +73,16 @@ namespace IAPT.EK.API
                 app.UseHsts();
             }
 
+
+            app.UseSwaggerConfig(provider);
+
             app.UseHttpsRedirection();
 
             app.UseRouting();
 
             app.UseAuthentication();
             app.UseAuthorization();
-
+           
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();

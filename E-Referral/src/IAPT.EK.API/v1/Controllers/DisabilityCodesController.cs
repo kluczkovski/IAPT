@@ -12,16 +12,17 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace IAPT.EK.API.V1.Controllers
 {
-    [Route("api/[controller]")]
+    [ApiVersion("1.0")]
+    [Route("api/v{version:apiVersion}/[controller]")]
     public class DisabilityCodesController : MainController
     {
         private readonly IDisabilityCodeServices _dcServices;
         private readonly IMapper _mapper;
-       
+
 
         public DisabilityCodesController(IDisabilityCodeServices disabilityCodeServices,
                                          IMapper mapper,
-                                         INotify notify) :base (notify)
+                                         INotify notify) : base(notify)
         {
             _dcServices = disabilityCodeServices;
             _mapper = mapper;
@@ -95,7 +96,7 @@ namespace IAPT.EK.API.V1.Controllers
             var disabilityCode = _mapper.Map<DisabilityCode>(disabilityCodeDTO);
             try
             {
-                  await _dcServices.Update(disabilityCode);
+                await _dcServices.Update(disabilityCode);
             }
             catch (Exception ex)
             {
@@ -107,7 +108,7 @@ namespace IAPT.EK.API.V1.Controllers
 
         // DELETE api/disabilitycodes/5
         [HttpDelete("{id:guid}")]
-        public async Task<ActionResult<DisabilityCodeDTO>>  Delete(Guid id)
+        public async Task<ActionResult<DisabilityCodeDTO>> Delete(Guid id)
         {
             if (!await _dcServices.HasAnyAsync(id))
             {

@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace IAPT.EK.API.V2.Controllers
 {
     [ApiVersion("2.0")]
-    [Route("api/v{version:apiVersion}/values")]
+    [Route("api/v{version:apiVersion}/[controller]")]
     [ApiController]
     public class ValuesController : ControllerBase
     {

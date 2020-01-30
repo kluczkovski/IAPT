@@ -4,6 +4,8 @@ using IAPT.EK.Business.Interfaces;
 using IAPT.EK.Business.Notifications;
 using IAPT.EK.Business.Services;
 using IAPT.EK.Data.Repository;
+using Microsoft.Extensions.Options;
+using Swashbuckle.AspNetCore.SwaggerGen;
 
 namespace IAPT.EK.API.Configuration
 {
@@ -25,6 +27,8 @@ namespace IAPT.EK.API.Configuration
             services.AddScoped<IGPPracticeRepository, GPPracticeRepository>();
             services.AddScoped<IGPPracticeServices, GPPracticeServices>();
             services.AddScoped<INotify, Notify>();
+
+            services.AddTransient<IConfigureOptions<SwaggerGenOptions>, ConfigureSwaggerOptions>();
 
             return services;
         }

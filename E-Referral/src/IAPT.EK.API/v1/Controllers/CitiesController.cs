@@ -21,10 +21,10 @@ namespace IAPT.EK.API.V1.Controllers
     {
         private readonly ICityServices _cServices;
         private readonly IMapper _mapper;
-       
-        public CitiesController(    ICityServices cityServices,
+
+        public CitiesController(ICityServices cityServices,
                                     IMapper mapper,
-                                    INotify notify) :base (notify)
+                                    INotify notify) : base(notify)
         {
             _cServices = cityServices;
             _mapper = mapper;
@@ -102,7 +102,7 @@ namespace IAPT.EK.API.V1.Controllers
             var city = _mapper.Map<City>(cityDTO);
             try
             {
-                  await _cServices.Update(city);
+                await _cServices.Update(city);
             }
             catch (Exception ex)
             {
@@ -115,7 +115,7 @@ namespace IAPT.EK.API.V1.Controllers
         // DELETE api/disabilitycodes/5
         [ClaimsAuthorize("City", "Delete")]
         [HttpDelete("{id:guid}")]
-        public async Task<ActionResult<CityDTO>>  Delete(Guid id)
+        public async Task<ActionResult<CityDTO>> Delete(Guid id)
         {
             if (!await _cServices.HasAnyAsync(id))
             {
