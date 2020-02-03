@@ -1,9 +1,18 @@
 ﻿<Properties StartupConfiguration="{B95D2C88-DC43-4742-A2DB-FC20169257D0}|Self-Host-Dev">
-  <MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench ActiveDocument="src/IAPT.EK.API/Startup.cs">
+    <Files>
+      <File FileName="src/IAPT.EK.API/Startup.cs" Line="41" Column="17" />
+    </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="E-Referral" expanded="True" />
+          <Node name="E-Referral" expanded="True">
+            <Node name="IAPT.EK.API" expanded="True">
+              <Node name="Extensions" expanded="True" />
+              <Node name="appsettings.json" expanded="True" />
+              <Node name="Startup.cs" selected="True" />
+            </Node>
+          </Node>
         </State>
       </Pad>
     </Pads>

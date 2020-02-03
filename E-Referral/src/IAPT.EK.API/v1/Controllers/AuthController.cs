@@ -10,6 +10,7 @@ using IAPT.EK.API.DTO;
 using IAPT.EK.Business.Interfaces;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 
@@ -22,16 +23,19 @@ namespace IAPT.EK.API.V1.Controllers
         private readonly SignInManager<IdentityUser> _signInManager;
         private readonly UserManager<IdentityUser> _userManager;
         private readonly AppSettings _appSettings;
+        private readonly ILogger _logger;
 
 
         public AuthController(INotify notify,
-                                SignInManager<IdentityUser> signInManager,
-                                UserManager<IdentityUser> userManager,
-                                IOptions<AppSettings> appSettings) : base(notify)
+                              SignInManager<IdentityUser> signInManager,
+                              UserManager<IdentityUser> userManager,
+                              IOptions<AppSettings> appSettings,
+                              ILogger<AuthController> logger)  : base(notify)
         {
             _signInManager = signInManager;
             _userManager = userManager;
             _appSettings = appSettings.Value;
+            _logger = logger;
         }
 
 
@@ -78,6 +82,7 @@ namespace IAPT.EK.API.V1.Controllers
             var result = await _signInManager.PasswordSignInAsync(userLoginDTO.Email, userLoginDTO.Password, false, true);
             if (result.Succeeded)
             {
+                _logger.LogInformation($"The user {userLoginDTO.Email} has been login...");
                 return CustomResponse(await GeneratorOfJWT(userLoginDTO.Email));
             }
 

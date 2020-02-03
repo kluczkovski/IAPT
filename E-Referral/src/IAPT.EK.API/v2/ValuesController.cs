@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 
 namespace IAPT.EK.API.V2.Controllers
 {
@@ -11,10 +12,23 @@ namespace IAPT.EK.API.V2.Controllers
     [ApiController]
     public class ValuesController : ControllerBase
     {
+        private readonly ILogger _logger;
+
+        public ValuesController(ILogger<ValuesController> logger)
+        {
+            _logger = logger;
+        }
+
         // GET api/values
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
         {
+            _logger.LogDebug("Log de Debug");
+            _logger.LogInformation("Log de Informação");
+            _logger.LogWarning("Log de Aviso");
+            _logger.LogError("Log de Erro");
+            _logger.LogCritical("Log de Problema Critico");
+
             return new string[] { "value1 V2", "value2 V2" };
         }
 
