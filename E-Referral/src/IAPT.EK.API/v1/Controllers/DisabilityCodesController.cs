@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using IAPT.EK.API.Controllers;
 using IAPT.EK.API.DTO;
+using IAPT.EK.API.Extensions;
 using IAPT.EK.Business.Interfaces;
 using IAPT.EK.Business.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -57,6 +58,7 @@ namespace IAPT.EK.API.V1.Controllers
         }
 
         // POST api/disabilitycodes
+        [ClaimsAuthorize("Disability", "Add")]
         [HttpPost]
         public async Task<ActionResult<DisabilityCodeDTO>> Add(DisabilityCodeDTO disabilityCodeDTO)
         {

@@ -83,3 +83,4 @@
 /Users/ekluczkovski/Projects/IAPT/E-Referral/src/IAPT.EK.API/obj/Debug/netcoreapp3.1/IAPT.EK.API.csproj.CopyComplete
 /Users/ekluczkovski/Projects/IAPT/E-Referral/src/IAPT.EK.API/obj/Debug/netcoreapp3.1/IAPT.EK.API.dll
 /Users/ekluczkovski/Projects/IAPT/E-Referral/src/IAPT.EK.API/obj/Debug/netcoreapp3.1/IAPT.EK.API.pdb
+/Users/ekluczkovski/Projects/IAPT/E-Referral/src/IAPT.EK.API/obj/Debug/netcoreapp3.1/IAPT.EK.API.csprojAssemblyReference.cache
