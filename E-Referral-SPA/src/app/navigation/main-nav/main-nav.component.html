@@ -1,0 +1,103 @@
+<mat-sidenav-container class="sidenav-container">
+
+  <mat-sidenav 
+      #drawer 
+      class="sidenav" 
+      [ngClass]="{hidden: !(isHandset$ | async)}"
+      fixedInViewport = "false"
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === false"> 
+    <mat-toolbar color="primary">Menu</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item 
+        [routerLink]="['/e-referral']" 
+        (click)="drawer.close()">
+        <mat-icon class="mr-3">assignment</mat-icon>
+        <span>E-Referral</span>
+      </a>
+      <a mat-list-item 
+        [routerLink]="['/user']" 
+        (click)="drawer.close()">
+        <mat-icon class="mr-3">group_work</mat-icon> 
+        <span>Users</span>
+      </a>
+      <a mat-list-item
+         [matMenuTriggerFor]="modules" >
+        <mat-icon class="mr-3">view_module</mat-icon>
+        <span>Resources</span>
+        
+        <mat-menu #modules="matMenu">
+          <button mat-menu-item [matMenuTriggerFor]="setting">Setting</button>
+        </mat-menu>
+
+        <mat-menu #setting="matMenu">
+          <button 
+            mat-menu-item
+            [routerLink]="['/city']"
+            (click)="drawer.close()">
+              Cities
+          </button>
+          <button mat-menu-item
+            mat-menu-item
+            [routerLink]="['/gp-practice']"
+            (click)="drawer.close()">
+              GP Practices</button>
+          <button mat-menu-item>Ethnicities</button>
+          <button mat-menu-item>Religions Group</button>
+          <button mat-menu-item>Disabilityes Codes</button>
+        </mat-menu>
+      </a>
+
+
+    </mat-nav-list>
+  </mat-sidenav>
+  
+  <mat-sidenav-content class="d-flex flex-column">
+    
+    <mat-toolbar color="primary" class="d-flex flex-row bd-highlight mb-2">
+      <div class="p-2 bd-highlight">
+        <button
+          type="button"
+          aria-label="Toggle sidenav"
+          mat-icon-button
+          (click)="drawer.toggle()">
+          <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+        </button>
+      </div>
+
+      <div class="p-1 bd-highlight">
+        <span></span>
+      </div>
+
+      <div class="mr-auto p-2 bd-highlight"> 
+        <button mat-icon-button> 
+          <mat-icon svgIcon="sm-logo" class="svg_icons"></mat-icon>
+        </button>
+      </div>
+
+      <div class="p-2 bd-highlight">
+        <button mat-icon-button [matMenuTriggerFor]="userMenu"><mat-icon>account_circle</mat-icon></button>
+        <mat-menu #userMenu="matMenu">
+        <button mat-menu-item> 
+          <mat-icon>account_circle</mat-icon>
+          <span>User Profile</span>
+        </button>
+        <button mat-menu-item>
+          <mat-icon>exit_to_app</mat-icon>
+            <span>Logout</span>
+          </button>
+        </mat-menu>
+      </div>
+      
+    </mat-toolbar>
+
+    <main class="flex-grow-1 p-3 p-sm-5" >
+      <div class="container">
+        <ng-content></ng-content>
+      </div>
+    </main>
+
+    <app-footer></app-footer>
+  </mat-sidenav-content>
+</mat-sidenav-container>
