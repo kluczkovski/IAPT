@@ -3,21 +3,26 @@ import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Routes, Router, RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { MaterialModule } from './material.module';
 import { GpPracticeModule } from './areas/gp-practice/gp-practice.module';
-import { CityModule} from './areas/city/city.module';
+import { CityModule} from './areas/cities/city.module';
 
 import { AppComponent } from './app.component';
 import { MainNavComponent } from './navigation/main-nav/main-nav.component';
 import { rootRouterConfig } from './app.routers';
 import { FooterComponent } from './navigation/footer/footer.component';
+import { CityService } from './areas/cities/city.service';
+import { NotificationService } from './shared/notification.service';
+import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainNavComponent,
-    FooterComponent
+    FooterComponent,
+    ConfirmDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -26,9 +31,11 @@ import { FooterComponent } from './navigation/footer/footer.component';
     GpPracticeModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
     [RouterModule.forRoot(rootRouterConfig, {useHash: false})]
   ],
-  providers: [],
+  providers: [CityService, NotificationService],
   bootstrap: [AppComponent],
   schemas: []
 })

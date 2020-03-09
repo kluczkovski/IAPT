@@ -1,0 +1,20 @@
+<div style="display: flex-row;">
+    <mat-toolbar>
+        <span> {{cityService.cityForm.controls['id'].value?"Update City" : "Add City"}}</span>
+    </mat-toolbar>
+    <br>
+    <form [formGroup]="cityService.cityForm" (ngSubmit)="onSubmit()">
+        <div>
+            <input type="hidden" formControlName="id">
+            <mat-form-field class="cityColumn">
+                <input formControlName="name" matInput placeholder="Name of City*">
+                <mat-error *ngIf="cityService.cityForm.controls['name'].errors?.required">This field is mandatory</mat-error>
+                <mat-error *ngIf="cityService.cityForm.controls['name'].errors?.minlength">Minimium 3 charactor needed</mat-error>
+            </mat-form-field>
+        </div>
+        <div class="button-row filterPlusAdd">
+            <button mat-raised-button color="primary" [disabled]="cityService.cityForm.invalid" type="submit">Save</button>
+            <button mat-raised-button color="accent" (click)="onClose()">Cancel</button>    
+        </div>  
+    </form>
+</div>

@@ -5,7 +5,7 @@ namespace IAPT.EK.API.DTO
 {
     public class EthnicCategoryDTO
     {
-        public Guid Id { get; set; }
+        public Guid? Id { get; set; }
 
         [Required(ErrorMessage = "The field {0} must be informed.")]
         public string Code { get; set; }

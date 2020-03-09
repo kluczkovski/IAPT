@@ -56,11 +56,11 @@ namespace IAPT.EK.API
             services.DIConfiguration();
 
             // Heath Check
-            services.AddHealthChecks()
-                    .AddCheck("Cities", new MySqlHealthCheck(Configuration.GetConnectionString("DefaultConnection")))
-                    .AddMySql(Configuration.GetConnectionString("DefaultConnection"), name:"MySql");
+            //services.AddHealthChecks()
+            //        .AddCheck("Cities", new MySqlHealthCheck(Configuration.GetConnectionString("DefaultConnection")))
+            //        .AddMySql(Configuration.GetConnectionString("DefaultConnection"), name:"MySql");
 
-            services.AddHealthChecksUI();
+            //services.AddHealthChecksUI();
 
         }
 
@@ -93,16 +93,16 @@ namespace IAPT.EK.API
             app.UseAuthentication();
             app.UseAuthorization();
 
-            app.UseHealthChecks("/hc", new HealthCheckOptions()
-            {
-                Predicate = _ => true,
-                ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
-            }); 
+            //app.UseHealthChecks("/hc", new HealthCheckOptions()
+            //{
+            //    Predicate = _ => true,
+            //    ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
+            //}); 
 
-            app.UseHealthChecksUI(options =>
-            {
-                options.UIPath = "/hc-ui";
-            });
+            //app.UseHealthChecksUI(options =>
+            //{
+            //    options.UIPath = "/hc-ui";
+            //});
 
             app.UseEndpoints(endpoints =>
             {
