@@ -45,7 +45,10 @@
               GP Practices</button>
           <button mat-menu-item>Ethnicities</button>
           <button mat-menu-item>Religions Group</button>
-          <button mat-menu-item>Disabilityes Codes</button>
+          <button 
+            mat-menu-item
+            [routerLink]="['/disability']" 
+            (click)="drawer.close()">Disabilityes</button>
         </mat-menu>
       </a>
 

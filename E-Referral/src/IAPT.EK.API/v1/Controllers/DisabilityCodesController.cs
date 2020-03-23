@@ -58,7 +58,7 @@ namespace IAPT.EK.API.V1.Controllers
         }
 
         // POST api/disabilitycodes
-        [ClaimsAuthorize("Disability", "Add")]
+        //[ClaimsAuthorize("Disability", "Add")]
         [HttpPost]
         public async Task<ActionResult<DisabilityCodeDTO>> Add(DisabilityCodeDTO disabilityCodeDTO)
         {

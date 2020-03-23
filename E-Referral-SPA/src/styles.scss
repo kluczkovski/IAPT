@@ -37,3 +37,39 @@ snack-bar-container.error{
     background-color: #F44336;
     color:#fff;
 }
+
+.filterPlusAdd{
+    display: flex;
+    justify-content: space-between;    
+
+}
+
+.filter {
+    width: 40%;
+}
+
+.pointer{
+    cursor: pointer;
+}
+
+.full-width-input {
+    width: 100%;
+}
+
+.my-flex-container {
+    border: 2px solid green;
+    height: 100px;
+    margin-bottom: 20px;
+}
+
+.my-flex-container-column {
+    border: 2px solid green;
+    height: 200px;
+    margin-bottom: 20px;
+}
+
+.my-flex-item {
+    background-color: lightgrey;
+    border: 1px dotted grey;
+    height: 48px;
+}

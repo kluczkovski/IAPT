@@ -20,10 +20,10 @@ import { DialogService } from 'src/app/shared/dialog.service';
 
 export class CityListComponent implements OnInit {
 
-  displayedColumns: string[] = ['name', 'actions'];
-  dataSource =  new MatTableDataSource<City>();
   @ViewChild(MatSort, {static: true}) sort: MatSort;
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
+  displayedColumns: string[] = ['name', 'actions'];
+  dataSource =  new MatTableDataSource<City>();
   dialogConfig = new MatDialogConfig();
 
   constructor(private cityService: CityService,
@@ -38,7 +38,7 @@ export class CityListComponent implements OnInit {
     // Setup DialogConfig;
     this.dialogConfig.disableClose = true;
     this.dialogConfig.autoFocus = true;
-    this.dialogConfig.width = '40%';
+    this.dialogConfig.width = '45%';
   }
 
 
@@ -79,12 +79,6 @@ export class CityListComponent implements OnInit {
             );
         }
       });
-
-    // this.cityService.deleteCity(data.id)
-    //   .subscribe(
-    //     () => this.notification.success('The city was deleted.'),
-    //     (error) => this.notification.error('The City was not deleted, error: ' + error)
-    //   );
   }
 
 
@@ -96,7 +90,8 @@ export class CityListComponent implements OnInit {
         (error) => {
           this.notification.error(error);
         }
-    );    // Add Sorte and Paginator to data
+    );
+    // Add Sorte and Paginator to data
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
   }

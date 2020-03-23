@@ -23,11 +23,11 @@ export class CityComponent implements OnInit {
 
 
   onSubmit() {
-    if (this.cityService.cityForm.valid) {
+    if (this.cityService.Form.valid) {
 
-      if (!this.cityService.cityForm.get('id').value) {
+      if (!this.cityService.Form.get('id').value) {
         // Add
-        this.city = Object.assign({}, this.cityService.cityForm.value);
+        this.city = Object.assign({}, this.cityService.Form.value);
         this.cityService
               .addCity(this.city)
               .subscribe(
@@ -39,7 +39,7 @@ export class CityComponent implements OnInit {
               });
       } else {
         // Update
-        this.city = Object.assign({}, this.cityService.cityForm.value);
+        this.city = Object.assign({}, this.cityService.Form.value);
         this.cityService
               .updateCity(this.city)
               .subscribe(
@@ -54,7 +54,7 @@ export class CityComponent implements OnInit {
   }
 
   onClose() {
-    this.cityService.cityForm.reset();
+    this.cityService.Form.reset();
     this.cityService.initializeCityForm();
     this.dialogRef.close();
   }

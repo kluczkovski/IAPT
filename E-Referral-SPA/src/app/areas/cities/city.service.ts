@@ -11,13 +11,11 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 @Injectable({
     providedIn: 'root'
 })
-
-
 export class CityService {
 
     baseUrl = environment.apiUrl + ('/v1/cities');
 
-    cityForm: FormGroup = new FormGroup({
+    Form: FormGroup = new FormGroup({
         id: new FormControl(null),
         name: new FormControl('', [Validators.required, Validators.minLength(3)])
     });
@@ -28,7 +26,7 @@ export class CityService {
 
     // Initialize the City Form
     initializeCityForm() {
-        this.cityForm.setValue({
+        this.Form.setValue({
             id: null,
             name: '',
         });
@@ -37,7 +35,7 @@ export class CityService {
 
     // Put Data to Form
     populateCityForm(data: City) {
-        this.cityForm.setValue(data);
+        this.Form.setValue(data);
     }
 
     // Get All cities from API // full response!!!

@@ -1,0 +1,38 @@
+<div class="d-flex flex-column">
+    
+    <mat-toolbar class="mb-2">
+        <span> 
+            {{disabilityService.Form.controls['id'].value? "Update Disability" : "Add Disability"}}
+        </span>
+    </mat-toolbar>
+
+    <form [formGroup]="disabilityService.Form" (ngSubmit)="onSubmit()">
+        <input type="hidden" formControlName="id">
+        <div class="row">
+           <div class="col-md-2">
+                <mat-form-field class="full-width-input">
+                    <input matInput formControlName="code" placeholder="* Code">
+                    <mat-error *ngIf="disabilityService.Form.controls['code'].errors?.required">This field is mandatory</mat-error>
+                    <mat-error *ngIf="disabilityService.Form.controls['code'].errors?.minlength">Minimum 2 character needed</mat-error>
+                </mat-form-field>
+           </div> 
+           <div class="col-md-10">
+                <mat-form-field class="full-width-input">
+                    <input matInput formControlName="description" placeholder="* Description">
+                    <mat-error *ngIf="disabilityService.Form.controls['description'].errors?.required">This field is mandatory</mat-error>
+                    <mat-error *ngIf="disabilityService.Form.controls['description'].errors?.minlength">Minimum 5 character needed</mat-error>
+                </mat-form-field>
+           </div>
+        </div>
+
+        <div class="d-flex flex-row justify-content-end">
+            <button mat-raised-button color="primary" [disabled]="disabilityService.Form.invalid" class="mr-2">Save</button>
+            <button mat-raised-button color="accent" (click)="onCancel()" >Cancel</button>
+        </div>
+     </form>
+
+  
+
+</div>
+
+

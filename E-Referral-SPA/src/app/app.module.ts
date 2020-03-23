@@ -16,6 +16,8 @@ import { FooterComponent } from './navigation/footer/footer.component';
 import { CityService } from './areas/cities/city.service';
 import { NotificationService } from './shared/notification.service';
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
+import { DisabilityModule } from './areas/disabilities/disability.module';
+import { DisabilityService } from './areas/disabilities/disability.service';
 
 @NgModule({
   declarations: [
@@ -28,14 +30,18 @@ import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.componen
     BrowserModule,
     MaterialModule,
     CityModule,
-    GpPracticeModule,
+    DisabilityModule,
     BrowserAnimationsModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
     [RouterModule.forRoot(rootRouterConfig, {useHash: false})]
   ],
-  providers: [CityService, NotificationService],
+  providers: [
+    CityService,
+    DisabilityService,
+    NotificationService
+  ],
   bootstrap: [AppComponent],
   schemas: []
 })
