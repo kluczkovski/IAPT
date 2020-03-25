@@ -1,0 +1,32 @@
+<div class="d-flex flex-column">
+
+    <mat-toolbar class="mb-2">
+        <span>{{religionService.Form.controls['id'].value? "Update Religion" : "Add Religions"}}</span>
+    </mat-toolbar>
+
+    <form [formGroup]="religionService.Form" (ngSubmit)="onSubmit()">
+        <input type="hidden" formControlName="id">
+        <div class="row">
+            <div class="col-md-2">
+                <mat-form-field class="full-width-input">
+                    <input matInput formControlName="code" placeholder="* Code">
+                    <mat-error *ngIf="religionService.Form.controls['code'].errors?.required">This field is mandatory</mat-error>
+                    <mat-error *ngIf="religionService.Form.controls['code'].errors?.minlength">Minimum 1 character needed</mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-md-10">
+                <mat-form-field class="full-width-input">
+                    <input matInput formControlName="description" placeholder="* Description">
+                    <mat-error *ngIf="religionService.Form.controls['description'].errors?.required">This field is mandatory</mat-error>
+                    <mat-error *ngIf="religionService.Form.controls['description'].errors?.minlength">Minimum 3 character needed</mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="d-flex flex-row justify-content-end">
+            <button mat-raised-button color="primary" [disabled]="religionService.Form.invalid" class="mr-2">Save</button>
+            <button mat-raised-button color="accent"  (click)="onClose()">Cancel</button>
+        </div>
+ 
+    </form>
+
+</div>

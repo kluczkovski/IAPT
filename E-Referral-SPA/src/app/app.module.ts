@@ -18,6 +18,8 @@ import { NotificationService } from './shared/notification.service';
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
 import { DisabilityModule } from './areas/disabilities/disability.module';
 import { DisabilityService } from './areas/disabilities/disability.service';
+import { ReligionModule } from './areas/religious-group/religion.module';
+import { CcgModule } from './areas/ccgs/ccg.module';
 
 @NgModule({
   declarations: [
@@ -31,6 +33,8 @@ import { DisabilityService } from './areas/disabilities/disability.service';
     MaterialModule,
     CityModule,
     DisabilityModule,
+    ReligionModule,
+    CcgModule,
     BrowserAnimationsModule,
     HttpClientModule,
     FormsModule,

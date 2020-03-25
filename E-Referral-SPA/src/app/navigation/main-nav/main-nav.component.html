@@ -34,17 +34,32 @@
         <mat-menu #setting="matMenu">
           <button 
             mat-menu-item
-            [routerLink]="['/city']"
+            [routerLink]="['/ccg']"
             (click)="drawer.close()">
-              Cities
+              CCGs
           </button>
           <button mat-menu-item
             mat-menu-item
             [routerLink]="['/city-add']"
             (click)="drawer.close()">
-              GP Practices</button>
-          <button mat-menu-item>Ethnicities</button>
-          <button mat-menu-item>Religions Group</button>
+              GP Practices
+          </button>
+          <button 
+            mat-menu-item
+            [routerLink]="['/city']"
+            (click)="drawer.close()">
+              Cities
+          </button>
+          <button 
+            mat-menu-item
+            [routerLink]="['/religion']" 
+            (click)="drawer.close()"> 
+            Religions Group
+          </button>
+          <button 
+            mat-menu-item>
+              Ethnicities
+          </button>
           <button 
             mat-menu-item
             [routerLink]="['/disability']" 

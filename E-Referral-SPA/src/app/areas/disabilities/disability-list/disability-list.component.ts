@@ -67,7 +67,7 @@ export class DisabilityListComponent implements OnInit {
                   this.notificationService.success('The Disability Code was deleted.');
                   this.loadDisabilities();
               },
-              (error) => this.notificationService.error('The Disability Code was not deleted, error: ' + error)
+              (error) => this.notificationService.error('The Disability Code was not deleted, error: ' + error),
             );
         }
       });

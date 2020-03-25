@@ -38,14 +38,13 @@ snack-bar-container.error{
     color:#fff;
 }
 
-.filterPlusAdd{
-    display: flex;
-    justify-content: space-between;    
-
+.filter {
+    width: 50%;
 }
 
-.filter {
-    width: 40%;
+.align-righ-action {
+    justify-content: flex-end;
+    text-align: right;
 }
 
 .pointer{

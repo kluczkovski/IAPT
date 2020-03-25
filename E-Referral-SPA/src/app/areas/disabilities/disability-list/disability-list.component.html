@@ -1,11 +1,10 @@
 <mat-card>
 
-  <mat-toolbar>
+  <mat-toolbar class="mb-2">
     <span>Disabilities</span>
   </mat-toolbar>
-  <br>
-
-  <div class="filterPlusAdd">
+ 
+  <div class="d-flex flex-row justify-content-between">
     <mat-form-field class="filter">
       <input matInput placeholder="Filter" (keyup)="applyFilter($event.target.value)">
     </mat-form-field>
@@ -30,7 +29,7 @@
         <!-- Action-->
         <ng-container matColumnDef="actions">
           <th mat-header-cell *matHeaderCellDef></th>
-          <td mat-cell *matCellDef="let row" class="align-right">
+          <td mat-cell *matCellDef="let row" class="align-righ-action">
             <mat-icon class="pointer" (click)="onUpdate(row)">edit</mat-icon>
             &nbsp;
             <mat-icon class="pointer" (click)="onDelete(row)">delete</mat-icon>
