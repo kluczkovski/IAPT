@@ -1,0 +1,39 @@
+<div class="d-flex flex-column">
+
+    <mat-toolbar class="mb-2">
+        <span>{{ccgService.Form.controls['id'].value? "Update" : "Add CCG"}}</span>
+    </mat-toolbar>
+
+    <form [formGroup]="ccgService.Form" (ngSubmit)="onSubmit()">
+
+        <input type="hidden" formControlName="id">
+        <div class="row">
+            <div class="col-md-2">
+                <mat-form-field class="full-width-input">
+                    <input matInput placeholder="* Code" formControlName="code">
+                    <mat-error *ngIf="ccgService.Form.controls['code'].errors?.required">This field is mandatory</mat-error>
+                    <mat-error *ngIf="ccgService.Form.controls['code'].errors?.minlength">Minimum 3 character needed</mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-md-8">
+                <mat-form-field class="full-width-input">
+                    <input matInput placeholder="* Description" formControlName="description" >
+                    <mat-error *ngIf="ccgService.Form.controls['description'].errors?.required">This field is mandatory</mat-error>
+                    <mat-error *ngIf="ccgService.Form.controls['description'].errors?.minlength">Minimum 5 character needed</mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-md-2">
+                <mat-form-field class="full-width-input">
+                    <input matInput placeholder="Hub" formControlName="hub">
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div class="d-flex flex-row justify-content-end">
+            <button type="submit" mat-raised-button color="primary" [disabled]="ccgService.Form.invalid" class="mr-2">Save</button>
+            <button type="button" mat-raised-button color="accent" (click)="onCancel()">Cancel</button>
+        </div>
+
+    </form>
+
+</div>

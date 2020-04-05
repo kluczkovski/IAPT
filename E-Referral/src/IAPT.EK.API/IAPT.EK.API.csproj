@@ -6,11 +6,13 @@
 
   <PropertyGroup Condition=" '$(RunConfiguration)' == 'Self-Host-Dev' ">
     <StartAction>Project</StartAction>
+    <ExternalConsole>true</ExternalConsole>
     <LaunchUrl>swagger</LaunchUrl>
     <ApplicationURL>https://localhost:5000</ApplicationURL>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(RunConfiguration)' == 'Self-Host-Prod' ">
     <StartAction>Project</StartAction>
+    <ExternalConsole>true</ExternalConsole>
     <ApplicationURL>https://localhost:5002</ApplicationURL>
   </PropertyGroup>
   <ItemGroup>
@@ -46,6 +48,7 @@
     <Folder Include="V1\Controllers\" />
     <Folder Include="Controllers\" />
     <Folder Include="Properties\" />
+    <Folder Include="Migrations\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="Configuration\IdentityConfig.json" />

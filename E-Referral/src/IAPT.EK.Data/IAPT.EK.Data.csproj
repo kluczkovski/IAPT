@@ -8,6 +8,7 @@
     <Folder Include="Repository\" />
     <Folder Include="Context\" />
     <Folder Include="Mappings\" />
+    <Folder Include="Migrations\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\IAPT.EK.Business\IAPT.EK.Business.csproj" />

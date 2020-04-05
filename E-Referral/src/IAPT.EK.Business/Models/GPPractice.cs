@@ -19,7 +19,7 @@ namespace IAPT.EK.Business.Models
 
         public string PostCode { get; set; }
 
-        public Guid CCGCodeId { get; set; }
+        public Guid? CCGCodeId { get; set; }
         public CCGCode CCGCode { get; set; }
         
 

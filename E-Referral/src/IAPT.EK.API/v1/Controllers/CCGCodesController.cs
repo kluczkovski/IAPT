@@ -56,7 +56,7 @@ namespace IAPT.EK.API.V1.Controllers
             return CustomResponse(ccgCodeDTO);
         }
 
-        // POST api/cities
+        // POST api/ccgs
         [HttpPost]
         public async Task<ActionResult<CCGCodeDTO>> Add(CCGCodeDTO ccgCodeDTO)
         {

@@ -9,7 +9,7 @@ namespace IAPT.EK.API.DTO
         public Guid? Id { get; set; }
 
         [Required(ErrorMessage = "The field {0} must be informed.")]
-        [StringLength(5, ErrorMessage = "The field {0} shoud be between {2} and {1} caracters.", MinimumLength = 3)]
+        [StringLength(6, ErrorMessage = "The field must have {1} caracters.")]
         public string Code { get; set; }
 
         [Required(ErrorMessage = "The field {0} must be informed.")]
@@ -17,7 +17,6 @@ namespace IAPT.EK.API.DTO
         public string Description { get; set; }
 
         [Required(ErrorMessage = "The field {0} must be informed.")]
-        [StringLength(8, ErrorMessage = "The field {0} should have {1} caracters.", MinimumLength = 3)]
         public string PostCode { get; set; }
 
         public string AddressLine1 { get; set; }

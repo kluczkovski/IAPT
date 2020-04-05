@@ -1,0 +1,85 @@
+<div class="d-flex flex-column">
+
+    <div class="mb-2">
+        <mat-toolbar>
+            <span>{{data.action}} - GP-Practice</span>
+        </mat-toolbar>
+    </div>
+
+    <form [formGroup]="gpPracticeService.Form" (ngSubmit)="onSubmit()"> 
+
+        <input formControlName="id" type="hidden">
+        <div class="row">
+            <div class="col-md-6">
+                <mat-form-field class="full-width-input">
+                    <input matInput formControlName="code" placeholder="* Code">
+                    <mat-error *ngIf="gpPracticeService.Form.controls['code'].errors?.required">This field is mandatory</mat-error>
+                    <mat-error *ngIf="gpPracticeService.Form.controls['code'].errors?.minlength">Minimum 6 character needed</mat-error>
+                    <mat-error *ngIf="gpPracticeService.Form.controls['code'].errors?.maxlength">Maximum 6 character needed</mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-md-6">
+                <mat-form-field class="full-width-input">
+                    <input matInput formControlName="description" placeholder="* Description">
+                    <mat-error *ngIf="gpPracticeService.Form.controls['description'].errors?.required">This field is mandatory</mat-error>
+                    <mat-error *ngIf="gpPracticeService.Form.controls['description'].errors?.minlength">Minimum 5 character needed</mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <mat-form-field class="full-width-input">
+                    <input matInput formControlName="addressLine1" placeholder="* Address Line 1">
+                    <mat-error *ngIf="gpPracticeService.Form.controls['addressLine1'].errors?.required">This field is mandatory</mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-md-6">
+                <mat-form-field class="full-width-input">
+                    <input matInput formControlName="addressLine2" placeholder="* Address Line 2">
+                    <mat-error *ngIf="gpPracticeService.Form.controls['addressLine2'].errors?.required">This field is mandatory</mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <mat-form-field class="full-width-input">
+                    <input matInput formControlName="addressLine3" placeholder="Address Line 3">
+                </mat-form-field>
+            </div>
+            <div class="col-md-6">
+                <mat-form-field class="full-width-input">
+                    <input matInput formControlName="addressLine4" placeholder="Address Line 4">
+                </mat-form-field>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-6">
+                <mat-form-field class="full-width-input">
+                    <input matInput formControlName="postCode" placeholder="* PostCode">
+                    <mat-error *ngIf="gpPracticeService.Form.controls['description'].errors?.required">This field is mandatory</mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-md-6">
+                <mat-form-field class="full-width-input">
+                    <mat-label>* CCG Group</mat-label>
+                    <mat-select [(value)]="CCGid" formControlName="ccgCodeId">
+                        <mat-option *ngFor="let ccg of listCCG" [value]="ccg.id">
+                            {{ccg.description}}
+                        </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="gpPracticeService.Form.controls['ccgCodeId'].errors?.required">This field is mandadory</mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+    
+        <div class="d-flex flex-row justify-content-end">
+            <button type="submit" mat-raised-button color="primary"  [disabled]="gpPracticeService.Form.invalid || data.action==='Detail'" class="mr-2">Save</button>
+            <button type="button" mat-raised-button color="accent" (click)="onCancel()">Cancel</button>
+        </div>
+
+    </form>
+ 
+</div>

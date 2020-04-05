@@ -3,8 +3,8 @@
 /Users/ekluczkovski/Projects/IAPT/E-Referral/src/IAPT.EK.Business/bin/Debug/netcoreapp3.1/IAPT.EK.Business.runtimeconfig.dev.json
 /Users/ekluczkovski/Projects/IAPT/E-Referral/src/IAPT.EK.Business/bin/Debug/netcoreapp3.1/IAPT.EK.Business.dll
 /Users/ekluczkovski/Projects/IAPT/E-Referral/src/IAPT.EK.Business/bin/Debug/netcoreapp3.1/IAPT.EK.Business.pdb
+/Users/ekluczkovski/Projects/IAPT/E-Referral/src/IAPT.EK.Business/obj/Debug/netcoreapp3.1/IAPT.EK.Business.csprojAssemblyReference.cache
 /Users/ekluczkovski/Projects/IAPT/E-Referral/src/IAPT.EK.Business/obj/Debug/netcoreapp3.1/IAPT.EK.Business.AssemblyInfoInputs.cache
 /Users/ekluczkovski/Projects/IAPT/E-Referral/src/IAPT.EK.Business/obj/Debug/netcoreapp3.1/IAPT.EK.Business.AssemblyInfo.cs
 /Users/ekluczkovski/Projects/IAPT/E-Referral/src/IAPT.EK.Business/obj/Debug/netcoreapp3.1/IAPT.EK.Business.dll
 /Users/ekluczkovski/Projects/IAPT/E-Referral/src/IAPT.EK.Business/obj/Debug/netcoreapp3.1/IAPT.EK.Business.pdb
-/Users/ekluczkovski/Projects/IAPT/E-Referral/src/IAPT.EK.Business/obj/Debug/netcoreapp3.1/IAPT.EK.Business.csprojAssemblyReference.cache

@@ -39,11 +39,15 @@ export class ReligiousGrupListComponent implements OnInit {
   }
 
   loadReligiousGrup() {
-    this.religionService.getAllReligousGroup()
+    this.religionService
+      .getAllReligousGroup()
       .subscribe(
-        (data: Religion[] ) => this.dataSource.data = data,
-        error => this.notification.error(error)
+        (data: Religion[]) => this.dataSource.data = data,
+        error => this.notification.error('Error to get all Religious-Group: ' + error)
       );
+    // Add Sorte and Paginator to data
+    this.dataSource.sort = this.sort;
+    this.dataSource.paginator = this.paginator;
   }
 
   onCreate() {

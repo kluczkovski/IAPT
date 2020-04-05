@@ -16,7 +16,8 @@ namespace IAPT.EK.Data.Mappings
                   .IsUnique();
 
             builder.HasOne(gp => gp.CCGCode)
-                    .WithMany(ccg => ccg.GPPractices);
+                    .WithMany(ccg => ccg.GPPractices)
+                    .OnDelete(DeleteBehavior.SetNull);
 
             builder.Property(c => c.Code)
                     .IsRequired()

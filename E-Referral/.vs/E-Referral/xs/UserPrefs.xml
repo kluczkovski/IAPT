@@ -1,16 +1,8 @@
 ﻿<Properties StartupConfiguration="{B95D2C88-DC43-4742-A2DB-FC20169257D0}|Self-Host-Dev">
   <MonoDevelop.Ide.Workbench ActiveDocument="src/IAPT.EK.Data/Mappings/CCGCodeMapping.cs">
     <Files>
-      <File FileName="src/IAPT.EK.API/DTO/CityDTO.cs" Line="1" Column="1" />
-      <File FileName="src/IAPT.EK.API/V1/Controllers/CitiesController.cs" />
-      <File FileName="src/IAPT.EK.API/V1/Controllers/DisabilityCodesController.cs" />
-      <File FileName="src/IAPT.EK.API/DTO/ReligiousGroupDTO.cs" />
-      <File FileName="src/IAPT.EK.API/V1/Controllers/ReligiousGroupsController.cs" Line="18" Column="43" />
-      <File FileName="src/IAPT.EK.Business/Models/GPPractice.cs" Line="23" Column="31" />
-      <File FileName="src/IAPT.EK.Business/Models/ReligiousGroup.cs" Line="1" Column="1" />
-      <File FileName="src/IAPT.EK.Business/Models/CCGCode.cs" Line="12" Column="26" />
-      <File FileName="src/IAPT.EK.API/V1/Controllers/CCGCodesController.cs" Line="1" Column="1" />
-      <File FileName="src/IAPT.EK.Business/Services/CCGCodeServices.cs" Line="1" Column="1" />
+      <File FileName="src/IAPT.EK.Business/Models/GPPractice.cs" Line="22" Column="21" IsPinned="True" />
+      <File FileName="src/IAPT.EK.API/V1/Controllers/CCGCodesController.cs" Line="65" Column="58" />
       <File FileName="src/IAPT.EK.Data/Mappings/CCGCodeMapping.cs" Line="1" Column="1" />
     </Files>
     <Pads>
@@ -18,15 +10,17 @@
         <State name="__root__">
           <Node name="E-Referral" expanded="True">
             <Node name="IAPT.EK.API" expanded="True">
-              <Node name="V1" expanded="True">
-                <Node name="Controllers" expanded="True" />
-              </Node>
+              <Node name="Identity" expanded="True" />
+              <Node name="Migrations" expanded="True" />
             </Node>
-            <Node name="IAPT.EK.Business" expanded="True" />
+            <Node name="IAPT.EK.Business" expanded="True">
+              <Node name="Models" expanded="True" />
+            </Node>
             <Node name="IAPT.EK.Data" expanded="True">
               <Node name="Mappings" expanded="True">
                 <Node name="CCGCodeMapping.cs" selected="True" />
               </Node>
+              <Node name="Migrations" expanded="True" />
             </Node>
           </Node>
         </State>

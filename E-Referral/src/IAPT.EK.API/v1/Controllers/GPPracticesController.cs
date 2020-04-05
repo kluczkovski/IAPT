@@ -17,14 +17,17 @@ namespace IAPT.EK.API.V1.Controllers
     public class GPPracticesController : MainController
     {
         private readonly IGPPracticeServices _gpServices;
+        private readonly ICCGCodeSerices _ccgServices;
         private readonly IMapper _mapper;
 
 
         public GPPracticesController(IGPPracticeServices gPPracticeServices,
-                                        IMapper mapper,
-                                        INotify notify) : base(notify)
+                                     ICCGCodeSerices cCGCodeSerices,
+                                     IMapper mapper,
+                                     INotify notify) : base(notify)
         {
             _gpServices = gPPracticeServices;
+            _ccgServices = cCGCodeSerices;
             _mapper = mapper;
         }
 
@@ -65,6 +68,7 @@ namespace IAPT.EK.API.V1.Controllers
             var gpPractice = _mapper.Map<GPPractice>(gpPracticeDTO);
             try
             {
+                gpPractice.CCGCode = await _ccgServices.GetById(gpPracticeDTO.CCGCode.Id.Value);
                 await _gpServices.Add(gpPractice);
                 gpPracticeDTO.Id = gpPractice.Id;
             }

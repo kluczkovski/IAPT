@@ -6,7 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { MaterialModule } from './material.module';
-import { GpPracticeModule } from './areas/gp-practice/gp-practice.module';
+import { GpPracticeModule } from './areas/gp-practices/gp-practice.module';
 import { CityModule} from './areas/cities/city.module';
 
 import { AppComponent } from './app.component';
@@ -35,6 +35,7 @@ import { CcgModule } from './areas/ccgs/ccg.module';
     DisabilityModule,
     ReligionModule,
     CcgModule,
+    GpPracticeModule,
     BrowserAnimationsModule,
     HttpClientModule,
     FormsModule,

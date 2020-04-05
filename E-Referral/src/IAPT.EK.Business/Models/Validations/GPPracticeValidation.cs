@@ -15,8 +15,7 @@ namespace IAPT.EK.Business.Models.Validations
                 .Length(3, 50).WithMessage("The field {PropertyName} shoud be between {MinLength} and {MaxLength} caracters.");
 
             RuleFor(c => c.PostCode)
-                .NotEmpty().WithMessage("The field {PropertyName} must be informed")
-                .Length(8).WithMessage("The field {PropertyName} must have {Lenght} caracters.");
+                .NotEmpty().WithMessage("The field {PropertyName} must be informed");
         }
     }
 }

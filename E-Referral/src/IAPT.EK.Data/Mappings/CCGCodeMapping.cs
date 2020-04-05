@@ -44,7 +44,7 @@ namespace IAPT.EK.Data.Mappings
                     {
                         Id = Guid.NewGuid(),
                         Code = "01N",
-                        Description = "NHS North Manchester CCG",
+                        Description = "NHS South Manchester CCG",
                         Hub = "Q73"
                     },
                     new CCGCode
