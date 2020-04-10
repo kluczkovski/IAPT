@@ -1,0 +1,42 @@
+<div class="d-flex flex-column">
+
+    <div class="mb-2">
+        <mat-toolbar>
+            <span>{{data.action}} - Ethnic</span>
+        </mat-toolbar>
+    </div>
+
+    <form [formGroup]="ethnicService.Form" (ngSubmit)="onSubmit()"> 
+
+        <input formControlName="id" type="hidden">
+        <div class="row">
+            <div class="col-md-2">
+                <mat-form-field class="full-width-input">
+                    <input matInput formControlName="sequence" placeholder="* Sequence">
+                    <mat-error *ngIf="ethnicService.Form.controls['sequence'].errors?.required">This field is mandatory</mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-md-2">
+                <mat-form-field class="full-width-input">
+                    <input matInput formControlName="code" placeholder="* Code">
+                    <mat-error *ngIf="ethnicService.Form.controls['code'].errors?.required">This field is mandatory</mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-md-8">
+                <mat-form-field class="full-width-input">
+                    <input matInput formControlName="description" placeholder="* Description">
+                    <mat-error *ngIf="ethnicService.Form.controls['description'].errors?.required">This field is mandatory</mat-error>
+                    <mat-error *ngIf="ethnicService.Form.controls['description'].errors?.minlength">Minimum 5 character needed</mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+
+    
+        <div class="d-flex flex-row justify-content-end">
+            <button type="submit" mat-raised-button color="primary"  [disabled]="ethnicService.Form.invalid || data.action==='Detail'" class="mr-2">Save</button>
+            <button type="button" mat-raised-button color="accent" (click)="onCancel()">Cancel</button>
+        </div>
+
+    </form>
+ 
+</div>

@@ -1,26 +1,26 @@
 ﻿<Properties StartupConfiguration="{B95D2C88-DC43-4742-A2DB-FC20169257D0}|Self-Host-Dev">
-  <MonoDevelop.Ide.Workbench ActiveDocument="src/IAPT.EK.Data/Mappings/CCGCodeMapping.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="src/IAPT.EK.API/DTO/EthnicCategoryDTO.cs">
     <Files>
-      <File FileName="src/IAPT.EK.Business/Models/GPPractice.cs" Line="22" Column="21" IsPinned="True" />
-      <File FileName="src/IAPT.EK.API/V1/Controllers/CCGCodesController.cs" Line="65" Column="58" />
-      <File FileName="src/IAPT.EK.Data/Mappings/CCGCodeMapping.cs" Line="1" Column="1" />
+      <File FileName="src/IAPT.EK.Business/Models/Validations/EthnicCategoryValidation.cs" Line="1" Column="1" />
+      <File FileName="src/IAPT.EK.API/V1/Controllers/EthnicCategoriesController.cs" Line="63" Column="80" />
+      <File FileName="src/IAPT.EK.API/V1/Controllers/GPPracticesController.cs" Line="1" Column="1" />
+      <File FileName="src/IAPT.EK.API/DTO/EthnicCategoryDTO.cs" Line="18" Column="28" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="E-Referral" expanded="True">
             <Node name="IAPT.EK.API" expanded="True">
-              <Node name="Identity" expanded="True" />
-              <Node name="Migrations" expanded="True" />
-            </Node>
-            <Node name="IAPT.EK.Business" expanded="True">
-              <Node name="Models" expanded="True" />
-            </Node>
-            <Node name="IAPT.EK.Data" expanded="True">
-              <Node name="Mappings" expanded="True">
-                <Node name="CCGCodeMapping.cs" selected="True" />
+              <Node name="DTO" expanded="True">
+                <Node name="EthnicCategoryDTO.cs" selected="True" />
               </Node>
-              <Node name="Migrations" expanded="True" />
+              <Node name="V1" expanded="True">
+                <Node name="Controllers" expanded="True" />
+              </Node>
+            </Node>
+            <Node name="IAPT.EK.Business" expanded="True" />
+            <Node name="IAPT.EK.Data" expanded="True">
+              <Node name="Mappings" expanded="True" />
             </Node>
           </Node>
         </State>

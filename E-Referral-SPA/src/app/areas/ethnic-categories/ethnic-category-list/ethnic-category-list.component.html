@@ -1,0 +1,55 @@
+<mat-card>
+    <mat-toolbar class="mb-2">
+      <span>Ethnic Categories</span>
+    </mat-toolbar>
+   
+    <div class="d-flex flex-row justify-content-between">
+      <mat-form-field class="filter">
+        <input (keyup)="applyFilter($event.target.value)" matInput placeholder="Filter" class="filter">
+      </mat-form-field>
+      <button mat-mini-fab color="primary" (click)="onCreate()"><mat-icon>add</mat-icon></button>
+    </div>
+      
+    <mat-card-content>
+     
+      <div class="mat-elevation-z8">
+        <table mat-table [dataSource]="dataSource" matSort class="table">
+
+             <!-- Code Column -->
+             <ng-container matColumnDef="sequence">
+                <th mat-header-cell mat-sort-header *matHeaderCellDef> Sequence </th>
+                <td mat-cell *matCellDef="let element"> {{element.sequence}} </td>
+            </ng-container>
+
+            <!-- Code Column -->
+            <ng-container matColumnDef="code">
+                <th mat-header-cell mat-sort-header *matHeaderCellDef> Code </th>
+                <td mat-cell *matCellDef="let element"> {{element.code}} </td>
+            </ng-container>
+  
+            <!-- Description Column -->
+            <ng-container matColumnDef="description">
+                <th mat-header-cell mat-sort-header *matHeaderCellDef> Description </th>
+                <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+            </ng-container>
+  
+            <!-- Action Column -->
+            <ng-container matColumnDef="actions">
+                <th mat-header-cell *matHeaderCellDef>  </th>
+                <td mat-cell *matCellDef="let element" class="align-righ-action">
+                    <mat-icon (click)="onEdit(element)" class="pointer mr-1">edit</mat-icon>
+                    <mat-icon (click)="onDelete(element)" class="pointer">delete</mat-icon>
+                </td>
+            </ng-container>
+  
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row  *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+        
+        <mat-paginator [pageSizeOptions]="[10, 20, 30, 100]" showFirstLastButtons></mat-paginator>
+      </div>
+  
+    </mat-card-content>
+  </mat-card>
+  
+  

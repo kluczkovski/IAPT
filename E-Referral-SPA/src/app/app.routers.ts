@@ -8,6 +8,7 @@ import { ReligiousGrupListComponent } from './areas/religious-group/religious-gr
 import { CcgListComponent } from './areas/ccgs/ccg-list/ccg-list.component';
 import { GpPracticeComponent } from './areas/gp-practices/gp-practice/gp-practice.component';
 import { GpPracticeListComponent } from './areas/gp-practices/gp-practice-list/gp-practice-list.component';
+import { EthnicCategoryListComponent } from './areas/ethnic-categories/ethnic-category-list/ethnic-category-list.component';
 
 export const rootRouterConfig: Routes = [
     { path: ' ', redirectTo: '/home', pathMatch: 'full'},
@@ -17,5 +18,6 @@ export const rootRouterConfig: Routes = [
     { path: 'disability', component: DisabilityListComponent},
     { path: 'religion', component: ReligiousGrupListComponent},
     { path: 'ccg', component: CcgListComponent},
-    { path: 'gppractice', component: GpPracticeListComponent}
+    { path: 'gppractice', component: GpPracticeListComponent},
+    { path: 'ehnicCategory', component: EthnicCategoryListComponent}
 ];

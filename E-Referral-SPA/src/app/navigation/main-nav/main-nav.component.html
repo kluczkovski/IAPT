@@ -57,8 +57,10 @@
             Religions Group
           </button>
           <button 
-            mat-menu-item>
-              Ethnicities
+            mat-menu-item
+            [routerLink]="['/ehnicCategory']"
+            (click)="drawer.close()">
+              Ethnic Categories
           </button>
           <button 
             mat-menu-item

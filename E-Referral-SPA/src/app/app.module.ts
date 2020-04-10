@@ -20,6 +20,7 @@ import { DisabilityModule } from './areas/disabilities/disability.module';
 import { DisabilityService } from './areas/disabilities/disability.service';
 import { ReligionModule } from './areas/religious-group/religion.module';
 import { CcgModule } from './areas/ccgs/ccg.module';
+import { EthnicCategoryModule } from './areas/ethnic-categories/ethnic-category.module';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { CcgModule } from './areas/ccgs/ccg.module';
     ReligionModule,
     CcgModule,
     GpPracticeModule,
+    EthnicCategoryModule,
     BrowserAnimationsModule,
     HttpClientModule,
     FormsModule,
@@ -45,7 +47,7 @@ import { CcgModule } from './areas/ccgs/ccg.module';
   providers: [
     CityService,
     DisabilityService,
-    NotificationService
+    NotificationService,
   ],
   bootstrap: [AppComponent],
   schemas: []
