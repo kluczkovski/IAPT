@@ -18,7 +18,11 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSelectModule } from '@angular/material/select';
-
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 @NgModule({
     imports: [
@@ -39,7 +43,13 @@ import { MatSelectModule } from '@angular/material/select';
         MatGridListModule,
         MatSnackBarModule,
         MatDialogModule,
-        MatSelectModule
+        MatSelectModule,
+        MatStepperModule,
+        MatRadioModule,
+        MatDatepickerModule,
+        MatNativeDateModule,
+        MatCheckboxModule,
+        MatSliderModule
     ],
     exports: [
         MatSliderModule,
@@ -59,7 +69,13 @@ import { MatSelectModule } from '@angular/material/select';
         MatGridListModule,
         MatSnackBarModule,
         MatDialogModule,
-        MatSelectModule
+        MatSelectModule,
+        MatStepperModule,
+        MatRadioModule,
+        MatDatepickerModule,
+        MatNativeDateModule,
+        MatCheckboxModule,
+        MatSliderModule
    ]
 })
 

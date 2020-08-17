@@ -1,0 +1,52 @@
+
+<mat-card class="mat-elevation-z5">
+    <h3>List of Services</h3>
+    <mat-divider></mat-divider>
+    
+    <div *ngFor="let mhs of mentalHealthServiceArray.controls; index as i">
+        <mat-divider></mat-divider><br>
+        <ng-container [formGroup]="mhs">
+            <div class="row">
+                <div class="col-md-3">
+                    <mat-form-field class="full-width-input">
+                        <input matInput placeholder="Service"  formControlName="service">
+                    </mat-form-field>
+                </div>
+                <div class="col-md-3">
+                    <mat-form-field class="full-width-input">
+                        <input matInput placeholder="Type of treatment" formControlName="treatmentProvided">
+                    </mat-form-field>
+                </div>
+                <div class="col-md-2">
+                    <mat-form-field class="full-width-input">
+                        <input matInput placeholder="Start Treatment" formControlName="startMonthYear">
+                    </mat-form-field>
+                </div>
+                <div class="col-md-2">
+                    <mat-form-field class="full-width-input">
+                        <input matInput placeholder="End Treatment" formControlName="endMonthYear">
+                    </mat-form-field>
+                </div>
+                
+                <div class="col-md-2">
+                    <button mat-icon-button color="warn"(click)="onDelete(i)">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                </div>
+            </div>
+        </ng-container>
+    </div>
+
+    <mat-divider></mat-divider>
+    <mat-card-actions>
+        <button class="button mb-2 ml-2 mt-2" type="button" mat-raised-button color="primary"  (click)="addRecord()">
+            <mat-icon>add box</mat-icon>
+            Add New Skill
+        </button>
+        <button class="button" type="button" mat-raised-button color="warn" (click)="onDeleteAll()">
+            <mat-icon>remove_circle</mat-icon>
+            Remove All
+        </button>
+    </mat-card-actions>
+   
+</mat-card>

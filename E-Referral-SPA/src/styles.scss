@@ -12,6 +12,7 @@
 
 html, body{
     height: 100%;
+    font-family: 'Roboto', sans-serif;
 }
 
 body{
@@ -72,3 +73,7 @@ snack-bar-container.error{
     border: 1px dotted grey;
     height: 48px;
 }
+
+.mat-radio-button ~ .mat-radio-button {
+    margin-left: 16px;
+  }

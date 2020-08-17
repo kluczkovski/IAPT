@@ -22,6 +22,6 @@ import { CityComponent } from './city/city.component';
   ],
   entryComponents: [
     CityComponent
-  ],
+  ]
 })
 export class CityModule {}

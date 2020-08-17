@@ -1,0 +1,133 @@
+<div class="d-flex flex-column mt-2" [formGroup]="form">
+
+    <div formGroupName="contactDetail">
+        <div class="row">
+            <div class="col-md-6">
+                <mat-form-field class="full-width-input">
+                    <input matInput placeholder="NHS Number" formControlName="NHSnumber">
+                </mat-form-field>
+            </div>
+            <div class="col-md-6">
+                <mat-form-field class="full-width-input">
+                    <mat-label>GP Surgery</mat-label>
+                    <mat-select formControlName="gpSurgeryId" required>
+                        <mat-option>---</mat-option>
+                        <mat-option *ngFor="let gpSurgery of listofGPs" [value]="gpSurgery.id">
+                            {{gpSurgery.description}}
+                        </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="form.controls['contactDetail']controls['gpSurgeryId'].errors?.required">This field is mandatory</mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row mb-2">
+            <div class="col-md-6">
+                <mat-form-field class="full-width-input">
+                    <input matInput placeholder="First Name" formControlName="firstName" required > 
+                    <mat-error *ngIf="form.controls['contactDetail']controls['firstName'].errors?.required">This field is mandatory</mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-md-6">
+                <mat-form-field class="full-width-input">
+                    <input matInput placeholder="Last Name" formControlName="lastName" required>
+                    <mat-error *ngIf="form.controls['contactDetail']controls['lastName'].errors?.required">This field is mandatory</mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+       
+        <div class="row mb-2">
+            <div class="col-md-6">
+                <mat-form-field class="full-width-input">
+                    <mat-label>Date of Birth</mat-label>
+                    <input matInput [matDatepicker]="picker" required formControlName="dateOfBirth">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                    <mat-hint align="end">dd / mm / yyyy</mat-hint>
+                    <mat-error *ngIf="form.controls['contactDetail']controls['dateOfBirth'].errors?.required">This field is mandatory</mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-md-6">
+                <mat-form-field class="full-width-input">
+                    <input matInput placeholder="Post Code" required formControlName="postCode">
+                    <mat-error *ngIf="form.controls['contactDetail']controls['postCode'].errors?.required">This field is mandatory</mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+        
+        <div class="row mb-2">
+            <div class="col-md-6">
+                <mat-form-field class="full-width-input">
+                    <input matInput placeholder="Address 1" formControlName="address1" required>
+                    <mat-error *ngIf="form.controls['contactDetail']controls['address1'].errors?.required">This field is mandatory</mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-md-6">
+                <mat-form-field class="full-width-input">
+                    <input matInput placeholder="Address 2" formControlName="address2">
+                </mat-form-field>
+            </div>
+        </div>
+    
+        <div class="row mb-2">
+            <div class="col-md-6">
+                <mat-form-field class="full-width-input">
+                    <mat-label>City</mat-label>
+                    <mat-select formControlName="cityId" required>
+                        <mat-option>---</mat-option>
+                        <mat-option *ngFor="let city of listOfCities" [value]="city.id">
+                            {{city.name}}
+                        </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="form.controls['contactDetail']controls['cityId'].errors?.required">This field is mandatory</mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-md-6" *ngIf="selectedCity?.name=='Other'">
+                <mat-form-field class="full-width-input">
+                    <input matInput placeholder="Please state the City" formControlName="stateCity" required>
+                    <mat-error *ngIf="form.controls['contactDetail']controls['stateCity'].errors?.required">This field is mandatory</mat-error> 
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div class="row mb-2">
+            <div class="col-md-6">
+                <mat-form-field class="full-width-input">
+                    <input matInput placeholder="Telephone" formControlName="telephone">
+                </mat-form-field>
+            </div>
+            <div class="col-md-6">
+                <mat-form-field class="full-width-input">
+                    <input matInput placeholder="mobile" formControlName="mobile">
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div class="row mb-2">
+            <div class="col-md-6">
+                <mat-form-field class="full-width-input">
+                    <input matInput placeholder="Email" formControlName="email">
+                    <mat-error *ngIf="form.controls['contactDetail']controls['email'].errors?.email">The email is invalid</mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-md-6">
+                <mat-form-field class="full-width-input">
+                    <mat-label>which methods you are happy for us to contact you by</mat-label>
+                    <mat-select  formControlName="communicationMethods" multiple required>
+                        <mat-option *ngFor="let method of listOfCommunicantioMethod" [value]="method">
+                            {{method}}
+                        </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="form.controls['contactDetail']controls['communicationMethods'].errors?.required">This field is mandatory</mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+   
+     
+    </div>
+    
+</div>
+
+<div class="mt-2">
+    <button class="mr-2" mat-raised-button color="primary" matStepperPrevious type="button">Back</button>
+    <button mat-raised-button color="primary" matStepperNext type="button">Next</button>  
+</div>

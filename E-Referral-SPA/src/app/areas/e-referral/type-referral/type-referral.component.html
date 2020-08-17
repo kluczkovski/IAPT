@@ -1,0 +1,89 @@
+<div class="d-flex flex-column" [formGroup]="form">
+
+    <div formGroupName="typeReferral">
+        <div class="flex-row"> 
+            <mat-form-field>
+                <mat-label>Type of Referral</mat-label>
+                <mat-select  formControlName="type" required>
+                    <mat-option>--</mat-option>
+                    <mat-option *ngFor="let type of referralTypeOptions" [value]="type">
+                        {{type}}
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="form.controls['typeReferral']controls['type'].errors?.required">This field is mandatory</mat-error>
+            </mat-form-field>   
+        </div>
+   
+        <!-- Self Referral-->
+        <div class="flex-row">
+            <div *ngIf="form.get('typeReferral.type').value=='Self'">
+                <div class="row">
+                    <div class="col-md-6">
+                        <mat-form-field class="full-width-input">
+                            <input matInput placeholder="Where did you hear about us?" formControlName="source">
+                            <mat-error *ngIf="form.controls['typeReferral']controls['source'].errors?.required">This field is mandatory</mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Prof Referral-->
+        <div *ngIf="form.get('typeReferral.type').value=='Prof'">
+            <mat-card>
+                <mat-card-header class="d-flex flex-row justify-content-center">
+                    <mat-card-title>Agency Information</mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <div formGroupName="agencyInformation">
+                        <div class="row mb-2">
+                            <div class="col-md-6">
+                                <mat-form-field class="full-width-input">
+                                    <input matInput placeholder="Agency" formControlName="agency">
+                                    <mat-error *ngIf="form.controls['typeReferral']controls['agencyInformation']controls['agency'].errors?.required">
+                                        This field is mandatory
+                                    </mat-error> 
+                                </mat-form-field>
+                            </div>
+                            <div class="col-md-6">
+                                <mat-form-field class="full-width-input">
+                                    <input matInput placeholder="Contact Person"  formControlName="contactPerson">
+                                    <mat-error *ngIf="form.controls['typeReferral']controls['agencyInformation']controls['contactPerson'].errors?.required">
+                                        This field is mandatory
+                                    </mat-error> 
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="row mb-2">
+                            <div class="col-md-6">
+                                <mat-form-field class="full-width-input">
+                                    <input matInput placeholder="Phone" formControlName="phone">
+                                </mat-form-field>
+                            </div>
+                            <div class="col-md-6">
+                                <mat-form-field class="full-width-input">
+                                    <input matInput placeholder="Email" formControlName="email">
+                                    <mat-error *ngIf="form.controls['typeReferral']controls['agencyInformation']controls['contactPerson'].errors?.mail">
+                                        The email is invalid
+                                    </mat-error> 
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="row mb-2">
+                            <div class="col-md-12">
+                                <label class="mr-2">Has the client consented to a referral being made to Survivors Manchester?</label>
+                                <mat-radio-group aria-label="Select an option" formControlName="hasClientConsented">
+                                    <mat-radio-button value="true">Yes</mat-radio-button>
+                                    <mat-radio-button value="false">No</mat-radio-button>
+                                </mat-radio-group>
+                            </div>
+                        </div>         
+                    </div>          
+                </mat-card-content>
+            </mat-card>  
+        </div>
+    </div>
+   
+</div>
+
+<button class="mt-2" type="button" matStepperNext mat-raised-button color="primary">Next</button>

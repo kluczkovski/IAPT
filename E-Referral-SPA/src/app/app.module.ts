@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { Routes, Router, RouterModule } from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -21,13 +21,16 @@ import { DisabilityService } from './areas/disabilities/disability.service';
 import { ReligionModule } from './areas/religious-group/religion.module';
 import { CcgModule } from './areas/ccgs/ccg.module';
 import { EthnicCategoryModule } from './areas/ethnic-categories/ethnic-category.module';
+import { EReferralModule } from './areas/e-referral/e-referral.module';
+import { MAT_DATE_LOCALE, MAT_DATE_FORMATS, DateAdapter } from '@angular/material/core';
+import { CustomDateAdapter } from './shared/CustomDateAdapter';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainNavComponent,
     FooterComponent,
-    ConfirmDialogComponent
+    ConfirmDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,6 +41,7 @@ import { EthnicCategoryModule } from './areas/ethnic-categories/ethnic-category.
     CcgModule,
     GpPracticeModule,
     EthnicCategoryModule,
+    EReferralModule,
     BrowserAnimationsModule,
     HttpClientModule,
     FormsModule,
@@ -48,6 +52,8 @@ import { EthnicCategoryModule } from './areas/ethnic-categories/ethnic-category.
     CityService,
     DisabilityService,
     NotificationService,
+    {provide: MAT_DATE_LOCALE, useValue: 'en-GB'},
+    {provide: DateAdapter, useClass: CustomDateAdapter}
   ],
   bootstrap: [AppComponent],
   schemas: []

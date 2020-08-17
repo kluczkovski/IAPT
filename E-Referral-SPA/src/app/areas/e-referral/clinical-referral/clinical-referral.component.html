@@ -1,0 +1,110 @@
+<div class="d-flex flex-column mt-2" [formGroup]="form">
+    <div formGroupName="clinicalReferral">
+
+        <div class="row mb-2">
+            <div class="col-md-12">
+                <label>Are you referring into the clinical support services (Healing Steps, Trauma Focused Therapy, Group Work)?</label>
+                <mat-radio-group class="ml-2" aria-label="Select an option"  required  formControlName="clinicalSupportService">
+                    <mat-radio-button value="true">Yes</mat-radio-button>
+                    <mat-radio-button value="false">No</mat-radio-button>
+                </mat-radio-group>
+                <div *ngIf="form.controls['clinicalReferral'].touched && form.controls['clinicalReferral'].invalid">
+                    <div *ngIf="form.controls['clinicalReferral'].get('clinicalSupportService').errors?.required" class="error">
+                        <span>This field is mandatory</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-2">
+            <div class="col-md-6">
+                <mat-form-field class="full-width-input">
+                    <mat-label>Have you accessed Survivors Manchester before?</mat-label>
+                    <mat-select  formControlName="accessedSMBefore"required>
+                        <mat-option value="Yes">Yes</mat-option>
+                        <mat-option value="No">No</mat-option>
+                    </mat-select>
+                    <mat-error>This field is mandatory</mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-md-6" *ngIf="form.get('clinicalReferral.accessedSMBefore').value == 'Yes'">
+                <mat-form-field class="full-width-input">
+                    <input matInput placeholder="if so what/when?" required formControlName="smBeforeWhen">
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div class="row mb-2">
+            <div class="col-md-12">
+                <label>Do you have a mental health diagnosis, given recently or at any point in time by GP, Psychiatrist, etc??</label>
+                <mat-radio-group class="ml-2" aria-label="Select an option"  required  formControlName="hasMentalHealthDiag">
+                    <mat-radio-button value="Yes">Yes</mat-radio-button>
+                    <mat-radio-button value="No">No</mat-radio-button>
+                </mat-radio-group>
+                <div *ngIf="form.controls['clinicalReferral'].touched && form.controls['clinicalReferral'].invalid">
+                    <div *ngIf="form.controls['clinicalReferral'].get('hasMentalHealthDiag').errors?.required" class="error">
+                        <span>This field is mandatory</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-2">
+            <div class="col-md-10">
+                <div *ngIf="form.get('clinicalReferral.hasMentalHealthDiag').value=='Yes'">
+                    <mat-form-field class="full-width-input">
+                        <mat-label>Please provide details:</mat-label>
+                        <textarea matInput #message maxlength="256" rows="3" formControlName="statedMentalHealth"></textarea>
+                        <!-- <mat-hint>eg. Heart Conditions, epilepsy, etc</mat-hint> -->
+                        <mat-hint align="end">{{message.value.length}} / 256</mat-hint>     
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-2">
+            <div class="col-md-12">
+                <label>Have you previously accessed or are you currently accessing any other mental health service?</label>
+                <mat-radio-group class="ml-2" aria-label="Select an option"  required  formControlName="accessedCurrentlyOtherService">
+                    <mat-radio-button value="Yes">Yes</mat-radio-button>
+                    <mat-radio-button value="No">No</mat-radio-button>
+                </mat-radio-group>
+                <div *ngIf="form.controls['clinicalReferral'].touched && form.controls['clinicalReferral'].invalid">
+                    <div *ngIf="form.controls['clinicalReferral'].get('accessedCurrentlyOtherService').errors?.required" class="error">
+                        <span>This field is mandatory</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- <app-mental-health-service  *ngFor="let mentalHealthService of listOfMHS" [mentalHealthService]=mentalHealthService></app-mental-health-service> -->
+        <app-mental-health-service></app-mental-health-service>
+
+        <div class="row mb-1 mt-5">
+            <span class="ml-3">If you are currently acessing a service, please provide your workers details below:</span>
+        </div>
+        <div class="row mb-2">
+            <div class="col-md-4 ">
+                <mat-form-field class="full-width-input">
+                    <input matInput placeholder="Name"  formControlName="accessingServiceWorkName">
+                </mat-form-field>
+            </div>
+            <div class="col-md-4">
+                <mat-form-field class="full-width-input">
+                    <input matInput placeholder="Service"  formControlName="accessingServiceWorkService">
+                </mat-form-field>
+            </div>
+            <div class="col-md-4">
+                <mat-form-field class="full-width-input">
+                    <input matInput placeholder="Tel"  formControlName="accessingServiceWorkTel">
+                </mat-form-field>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="mt-2">
+    <button class="mr-2" mat-raised-button color="primary" matStepperPrevious type="button">Back</button>
+    <button mat-raised-button color="primary" matStepperNext  type="button">Next</button>  
+</div>

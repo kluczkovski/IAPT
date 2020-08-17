@@ -1,0 +1,154 @@
+<div class="d-flex flex-column mt-2" [formGroup]="form">
+
+    <div formGroupName="diversityDetail">
+
+        <div class="row mb-2">
+            <div class="col-md-6">
+                <mat-form-field class="full-width-input">
+                    <mat-label>Gender</mat-label>
+                    <mat-select formControlName="gender" required>
+                        <mat-option>---</mat-option>
+                        <mat-option *ngFor="let gender  of listOfGender" [value]='gender'>
+                            {{ gender }}
+                        </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="form.controls['diversityDetail']controls['gender'].errors?.required">This field is mandatory</mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-md-6">
+                <mat-form-field class="full-width-input">
+                    <mat-label>Is this Gener you were assigned at birth?</mat-label>
+                    <mat-select  formControlName="isgenderAssignedAtBirth"required>
+                        <mat-option value="Yes">Yes</mat-option>
+                        <mat-option value="No">No</mat-option>
+                        <mat-option value="Declined">Declined</mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="form.controls['diversityDetail']controls['isgenderAssignedAtBirth'].errors?.required">This field is mandatory</mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div class="row mb-2">
+            <div class="col-md-6">
+                <mat-form-field class="full-width-input">
+                    <mat-label>Ethnicity</mat-label>
+                    <mat-select formControlName="ethnicityId" required>
+                        <mat-option>---</mat-option>
+                        <mat-option *ngFor="let ethinic of listOfEthnic" [value]="ethinic.id">
+                            {{ ethinic.description }}
+                        </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="form.controls['diversityDetail']controls['ethnicityId'].errors?.required">This field is mandatory</mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-md-6">
+                <mat-form-field class="full-width-input">
+                    <mat-label>Sexuality</mat-label>
+                    <mat-select formControlName="sexuality" required>
+                        <mat-option>---</mat-option>
+                        <mat-option value="Heterosexual">Heterosexual</mat-option>
+                        <mat-option value="Gay/Lesbian">Gay/Lesbian</mat-option>
+                        <mat-option value="Bi-Sexual">Bi-Sexual</mat-option>
+                        <mat-option value="Unknown">Unknown</mat-option>
+                        <mat-option value="NotStated">Not Stated</mat-option>    
+                    </mat-select>
+                    <mat-error *ngIf="form.controls['diversityDetail']controls['sexuality'].errors?.required">This field is mandatory</mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div class="row mb-2">
+            <div class="col-md-6">
+                <mat-form-field class="full-width-input">
+                    <mat-label>Religion</mat-label>
+                    <mat-select formControlName="religionId" required>
+                        <mat-option>---</mat-option>
+                        <mat-option *ngFor="let religion of listOfReligion" [value]="religion.id">
+                            {{ religion.description}}
+                        </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="form.controls['diversityDetail']controls['religionId'].errors?.required">This field is mandatory</mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+      
+        <div class="row mb-2">
+            <div class="col-md-6">
+                <mat-form-field class="full-width-input">
+                    <mat-label>
+                        Marital Status
+                    </mat-label>
+                    <mat-select formControlName="maritalStatus">
+                        <mat-option>---</mat-option>
+                        <mat-option *ngFor="let maritalStatus of listOfMaritalStatus" [value]="maritalStatus" >
+                            {{ maritalStatus }}
+                        </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="form.controls['diversityDetail']controls['maritalStatus'].errors?.required">This field is mandatory</mat-error>
+  
+                </mat-form-field>
+            </div>
+            <div class="col-md-6">
+                <mat-form-field class="full-width-input">
+                    <mat-label>
+                        Paretanl Status
+                    </mat-label>
+                    <mat-select formControlName="parentalStatus" required>
+                        <mat-option>---</mat-option>
+                        <mat-option value="Not a Parent">Not a Parent</mat-option>
+                        <mat-option value="Yes, not live with">Yes, not live with</mat-option>
+                        <mat-option value="Yes, some live with">Yes, some live with</mat-option>
+                        <mat-option value="Yes, all live with">Yes, all live with</mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="form.controls['diversityDetail']controls['parentalStatus'].errors?.required">This field is mandatory</mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div class="row mb-2">
+            <div class="col-md-6">
+                <mat-form-field class="full-width-input">
+                    <mat-label>Do you consider yourself to have a physical disability?</mat-label>
+                    <mat-select  formControlName="physicalDisability"required>
+                        <mat-option value="Yes">Yes</mat-option>
+                        <mat-option value="No">No</mat-option>
+                        <mat-option value="Declined">Declined</mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="form.controls['diversityDetail']controls['physicalDisability'].errors?.required">This field is mandatory</mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-md-6" *ngIf="isDisability">
+                <mat-form-field class="full-width-input">
+                    <input matInput placeholder="Please state your disability" required formControlName="physicalDisabilityState">
+                    <mat-error *ngIf="form.controls['diversityDetail']controls['physicalDisabilityState'].errors?.required">This field is mandatory</mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div class="row mb-2">
+            <div class="col-md-6">
+                <mat-form-field class="full-width-input">
+                    <mat-label>Do you have any specific support needs?</mat-label>
+                    <mat-select  formControlName="specificSupportNeeds" required>
+                        <mat-option value="Yes">Yes</mat-option>
+                        <mat-option value="No">No</mat-option>
+                        <mat-option value="Declined">Declined</mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="form.controls['diversityDetail']controls['specificSupportNeeds'].errors?.required">This field is mandatory</mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-md-6" *ngIf="hasNeeds">
+                <mat-form-field class="full-width-input">
+                    <input matInput placeholder="Please state what you need"  required formControlName="specificSupportNeedState">
+                    <mat-hint align="end">e.g Communication</mat-hint>
+                </mat-form-field>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="mt-2">
+    <button class="mr-2" mat-raised-button color="primary" matStepperPrevious type="button">Back</button>
+    <button mat-raised-button color="primary" matStepperNext type="button">Next</button>  
+</div>

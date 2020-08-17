@@ -13,18 +13,18 @@
       <a mat-list-item 
         [routerLink]="['/e-referral']" 
         (click)="drawer.close()">
-        <mat-icon class="mr-3">assignment</mat-icon>
+        <mat-icon class="mr-2">assignment</mat-icon>
         <span>E-Referral</span>
       </a>
       <a mat-list-item 
         [routerLink]="['/user']" 
         (click)="drawer.close()">
-        <mat-icon class="mr-3">group_work</mat-icon> 
+        <mat-icon class="mr-2">group_work</mat-icon> 
         <span>Users</span>
       </a>
       <a mat-list-item
          [matMenuTriggerFor]="modules" >
-        <mat-icon class="mr-3">view_module</mat-icon>
+        <mat-icon class="mr-2">view_module</mat-icon>
         <span>Resources</span>
         
         <mat-menu #modules="matMenu">
@@ -69,13 +69,12 @@
         </mat-menu>
       </a>
 
-
     </mat-nav-list>
   </mat-sidenav>
   
   <mat-sidenav-content class="d-flex flex-column">
     
-    <mat-toolbar color="primary" class="d-flex flex-row bd-highlight mb-2">
+    <mat-toolbar color="primary" class="d-flex flex-row bd-highlight">
       <div class="p-2 bd-highlight">
         <button
           type="button"
@@ -112,7 +111,8 @@
       
     </mat-toolbar>
 
-    <main class="flex-grow-1 p-3 p-sm-5" >
+    <!-- p-3 p-sm-4 -->
+    <main class="flex-grow-1 p-4" style="background-color: #EAEAEA;">
       <div class="container">
         <ng-content></ng-content>
       </div>

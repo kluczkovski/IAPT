@@ -1,0 +1,57 @@
+<div class="d-flex flex-column mt-2" [formGroup]="form">
+
+    <div formGroupName="riskIndicatorInformation">
+        
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <mat-form-field class="full-width-input">
+                    <mat-label>Are there any risk indicators that you fell we need to know about?</mat-label>
+                    <mat-select  formControlName="hasClientLRisk"required>
+                        <mat-option value="Yes">Yes</mat-option>
+                        <mat-option value="No">No</mat-option>
+                        <mat-option value="Declined">Declined</mat-option>
+                    </mat-select>
+                    <mat-hint align="end">e.g suicidal thoughts / attempts, thoughts of or actual deliberate self harm</mat-hint>
+                    <mat-error *ngIf="form.controls['riskIndicatorInformation']controls['hasClientLRisk'].errors?.required">This field is mandatory</mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div *ngIf="form.get('riskIndicatorInformation.hasClientLRisk').value=='Yes'">
+
+            <div class="row mt-2">
+                <div class="col-md-12">
+                    <mat-form-field class="full-width-input">
+                        <mat-label>Please provide details:</mat-label>
+                        <textarea matInput #message maxlength="256" rows="3" formControlName="details"></textarea>
+                        <mat-hint align="end">{{message.value.length}} / 256</mat-hint>     
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div class="row mb-2">
+                <div class="col-md-12">
+                    <span><b>Please score the following two scale out of 10 based on present time</b> (10 = highly likely and 0 =  not likely at all)</span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <label >Suicide Risk:</label>
+                    <mat-slider class="full-width-input mt-3" min="0" max="10" step="1" thumbLabel tickInterval="1" formControlName="suicideRisk"></mat-slider>
+                </div>
+                <div class="col-md-6">
+                    <label >Self Harm Risk:</label>
+                    <mat-slider class="full-width-input mt-3" min="0" max="10" step="1" thumbLabel tickInterval="1" formControlName="selfHarmRisk"></mat-slider>
+                </div>
+            </div>
+           
+        </div>       
+ 
+    </div>
+</div>
+
+<div class="mt-2">
+    <button class="mr-2" mat-raised-button color="primary" matStepperPrevious type="button">Back</button>
+    <button mat-raised-button color="primary" matStepperNext type="button">Next</button>  
+</div>
