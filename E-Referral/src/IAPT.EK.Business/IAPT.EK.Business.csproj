@@ -8,17 +8,28 @@
     <Compile Remove="Class1.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Models\" />
-    <Folder Include="Interfaces\" />
     <Folder Include="Notifications\" />
-    <Folder Include="Services\" />
-    <Folder Include="Models\Validations\" />
+    <Folder Include="Core\" />
+    <Folder Include="E-Referral\" />
+    <Folder Include="Core\Models\" />
+    <Folder Include="Core\Interfaces\" />
+    <Folder Include="Core\Models\Enums\" />
+    <Folder Include="Core\Models\Validations\" />
+    <Folder Include="E-Referral\Interfaces\" />
+    <Folder Include="E-Referral\Models\" />
+    <Folder Include="Core\Interfaces\Respositorys\" />
+    <Folder Include="Core\Interfaces\Services\" />
+    <Folder Include="Core\Services\" />
+    <Folder Include="E-Referral\Interfaces\Repositorys\" />
+    <Folder Include="E-Referral\Interfaces\Services\" />
+    <Folder Include="E-Referral\Models\Validations\" />
+    <Folder Include="E-Referral\Services\" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.0">
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.7">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
-    <PackageReference Include="FluentValidation.AspNetCore" Version="8.6.1" />
+    <PackageReference Include="FluentValidation.AspNetCore" Version="9.2.0" />
   </ItemGroup>
 </Project>

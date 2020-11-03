@@ -19,7 +19,7 @@ export class TypeReferralComponent implements OnInit, OnChanges {
   ngOnInit(): void {
     // Get all the keys from ReferralTypeEnum
     this.referralTypeOptions = Object.keys(this.referralTypes);
-  }
+   }
 
   ngOnChanges(): void {
 
@@ -37,6 +37,10 @@ export class TypeReferralComponent implements OnInit, OnChanges {
         this.form.get('typeReferral.agencyInformation.agency').updateValueAndValidity();
         this.form.get('typeReferral.agencyInformation.contactPerson').setValidators(Validators.required);
         this.form.get('typeReferral.agencyInformation.contactPerson').updateValueAndValidity();
+        this.form.get('typeReferral.agencyInformation.agencyHasClientConsent').setValidators(Validators.required);
+        this.form.get('typeReferral.agencyInformation.agencyHasClientConsent').updateValueAndValidity();
+        // this.form.get('typeReferral.agencyInformation.agencyHasClientConsent').hasError();
+
         // Disable validator for Source
         this.form.get('typeReferral.source').setValidators(null);
         this.form.get('typeReferral.source').updateValueAndValidity();
@@ -52,6 +56,9 @@ export class TypeReferralComponent implements OnInit, OnChanges {
         this.form.get('typeReferral.agencyInformation.agency').updateValueAndValidity();
         this.form.get('typeReferral.agencyInformation.contactPerson').setValidators(null);
         this.form.get('typeReferral.agencyInformation.contactPerson').updateValueAndValidity();
+        this.form.get('typeReferral.agencyInformation.agencyHasClientConsent').setValidators(null);
+        this.form.get('typeReferral.agencyInformation.agencyHasClientConsent').updateValueAndValidity();
+
 
         this.form.patchValue({
           typeReferral: {
@@ -60,7 +67,7 @@ export class TypeReferralComponent implements OnInit, OnChanges {
               contactPerson: '',
               phone: '',
               email: '',
-              hasClientConsented: 'true',
+              agencyHasClientConsent: '',
             }
           }
         });
@@ -68,8 +75,9 @@ export class TypeReferralComponent implements OnInit, OnChanges {
 
       // reset the error
       this.form.get('typeReferral.source').markAsUntouched();
+      this.form.get('typeReferral.source').updateValueAndValidity();
       this.form.get('typeReferral.agencyInformation').markAsUntouched();
-      this.form.updateValueAndValidity();
+      this.form.get('typeReferral.agencyInformation').updateValueAndValidity();
     });
 
   }

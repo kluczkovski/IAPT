@@ -5,14 +5,15 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { CCG } from './Ccg';
 import { catchError } from 'rxjs/operators';
+import { BaseService } from 'src/app/shared/base.service';
 
 
 @Injectable({
   providedIn: 'root'
 })
-export class CcgService {
+export class CcgService extends BaseService {
 
-  private baseUrl: string = environment.apiUrl + ('/v1/ccgcodes');
+  private url: string = this.baseUrl + '/v1/ccgcodes';
 
   Form: FormGroup = new FormGroup({
     id: new FormControl(null),
@@ -22,7 +23,7 @@ export class CcgService {
   });
 
   constructor(private http: HttpClient) {
-    // console.log('CCG Service...');
+    super();
    }
 
   // Initialize the Form
@@ -43,49 +44,29 @@ export class CcgService {
   // Get All CCG Codes
   getAllCCGs(): Observable<CCG[]> {
     return this.http
-      .get<CCG[]>(this.baseUrl)
-      .pipe(catchError(this.handleError));
+      .get<CCG[]>(this.url)
+      .pipe(catchError(this.handlerError));
   }
 
   // Add new CCG Code
   addCCG(data: CCG): Observable<any> {
     return this.http
-      .post(this.baseUrl + '/', data)
-      .pipe(catchError(this.handleError));
+      .post(this.url + '/', data)
+      .pipe(catchError(this.handlerError));
   }
 
   // Update CCG Code
   updateCCG(data: CCG): Observable<any> {
     return this.http
-      .put(this.baseUrl + '/' + data.id, data)
-      .pipe(catchError(this.handleError));
+      .put(this.url + '/' + data.id, data)
+      .pipe(catchError(this.handlerError));
   }
 
   // Delete CCG Code
   deleteCCG(id: string): Observable<any> {
     return this.http
-      .delete(this.baseUrl + '/' + id)
-      .pipe(catchError(this.handleError));
-  }
-
-  // Handler Error
-  handleError(error: HttpErrorResponse) {
-    const messages: string[]  = [];
-    if (error.status === 400) {
-        if (!error.error.success) {
-            // Bad Request - Get erros from Back-end
-            const backEndValidations = error.error.erros;
-            backEndValidations.forEach(element => {
-                messages.push(element);
-                console.log(element);
-            });
-        }
-    } else {
-        messages.push(error.message);
-    }
-
-    console.log('ERROR OCCURED: ' + messages);
-    return throwError(messages);
+      .delete(this.url + '/' + id)
+      .pipe(catchError(this.handlerError));
   }
 
 }

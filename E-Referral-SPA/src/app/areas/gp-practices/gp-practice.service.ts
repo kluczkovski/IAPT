@@ -5,13 +5,14 @@ import { Observable, throwError } from 'rxjs';
 import { GpPractice } from './gpPractice';
 import { catchError } from 'rxjs/operators';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { BaseService } from 'src/app/shared/base.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class GpPracticeService {
+export class GpPracticeService extends BaseService {
 
-  baseUrl = environment.apiUrl + ('/v1/gppractices');
+  url =  this.baseUrl + '/v1/gppractices';
 
   Form: FormGroup = new FormGroup({
     id: new FormControl(null),
@@ -26,7 +27,9 @@ export class GpPracticeService {
   });
 
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+    super();
+   }
 
   // Initialize Form
   initializeForm() {
@@ -61,48 +64,29 @@ export class GpPracticeService {
   // Get all Gp Practices
   getAllGpPractices(): Observable<GpPractice[]> {
     return this.http
-      .get<GpPractice[]>(this.baseUrl)
-      .pipe(catchError(this.handleError));
+      .get<GpPractice[]>(this.url)
+      .pipe(catchError(this.handlerError));
   }
 
   // Add New GP Practice
   addGpPractice(data: GpPractice): Observable<any> {
     return this.http
-      .post(this.baseUrl, data)
-      .pipe(catchError(this.handleError));
+      .post(this.url, data)
+      .pipe(catchError(this.handlerError));
   }
 
   // Update GP Practice
   updateGpPractice(data: GpPractice): Observable<any> {
     return this.http
-      .put(this.baseUrl + '/' + data.id, data)
-      .pipe(catchError(this.handleError));
+      .put(this.url + '/' + data.id, data)
+      .pipe(catchError(this.handlerError));
   }
 
   // Delete GP Practice
   deleteGPPractice(id: string): Observable<any> {
     return this.http
-      .delete(this.baseUrl + '/' + id)
-      .pipe(catchError(this.handleError));
+      .delete(this.url + '/' + id)
+      .pipe(catchError(this.handlerError));
   }
 
-  // Handler Error
-  handleError(error: HttpErrorResponse) {
-    const messages: string[]  = [];
-    if (error.status === 400) {
-      if (!error.error.success) {
-          // Bad Request - Get erros from Back-end
-          const backEndValidations = error.error.erros;
-          backEndValidations.forEach(element => {
-            messages.push(element);
-            console.log(element);
-          });
-        }
-    } else {
-        messages.push(error.message);
-    }
-
-    console.log('ERROR OCCURED: ' + messages);
-    return throwError(messages);
-  }
 }

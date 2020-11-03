@@ -5,13 +5,14 @@ import { Observable, throwError } from 'rxjs';
 import { EthnicCategory } from './ethnicCategory';
 import { catchError } from 'rxjs/operators';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { BaseService } from 'src/app/shared/base.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class EthnicCategoryService {
+export class EthnicCategoryService  extends BaseService{
 
-  baseUrl: string = environment.apiUrl + ('/v1/ethniccategories');
+  url: string = this.baseUrl + '/v1/ethniccategories';
 
   Form: FormGroup = new FormGroup({
     id : new FormControl(null),
@@ -20,7 +21,9 @@ export class EthnicCategoryService {
     description: new FormControl('', [Validators.required, Validators.minLength(5)])
   });
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) { 
+    super();
+  }
 
   // Inizialize Form
   initializeForm() {
@@ -40,49 +43,31 @@ export class EthnicCategoryService {
   // Get all Ethnic Categories from db
   getAllEthnicCategories(): Observable<EthnicCategory[]> {
   return this.http
-    .get<EthnicCategory[]>(this.baseUrl)
-    .pipe(catchError(this.handleError));
+    .get<EthnicCategory[]>(this.url)
+    .pipe(catchError(this.handlerError));
   }
 
   // Insert Ethnic
   insertEthnicCategory(data: EthnicCategory): Observable<any> {
     return this.http
-      .post(this.baseUrl, data)
-      .pipe(catchError(this.handleError));
+      .post(this.url, data)
+      .pipe(catchError(this.handlerError));
   }
 
   // Update Ethnic
   updateEthnicCategory(data: EthnicCategory): Observable<any> {
     return this.http
-      .put(this.baseUrl + '/' + data.id, data)
-      .pipe(catchError(this.handleError));
+      .put(this.url + '/' + data.id, data)
+      .pipe(catchError(this.handlerError));
   }
 
   // Delete Ethnic
   deleteEthnicCategory(data: EthnicCategory): Observable<any> {
     return this.http
-      .delete(this.baseUrl + '/' + data.id)
-      .pipe(catchError(this.handleError));
+      .delete(this.url + '/' + data.id)
+      .pipe(catchError(this.handlerError));
   }
 
-  // Handler Error
-  handleError(error: HttpErrorResponse) {
-    const messages: string[]  = [];
-    if (error.status === 400) {
-      if (!error.error.success) {
-          // Bad Request - Get erros from Back-end
-          const backEndValidations = error.error.erros;
-          backEndValidations.forEach(element => {
-            messages.push(element);
-            console.log(element);
-          });
-        }
-    } else {
-        messages.push(error.message);
-    }
-    console.log('ERROR OCCURED: ' + messages);
-    return throwError(messages);
-  }
 
 }
 

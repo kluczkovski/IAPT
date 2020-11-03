@@ -5,13 +5,14 @@ import { Religion } from './religion';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { BaseService } from 'src/app/shared/base.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ReligionService {
+export class ReligionService extends BaseService {
 
-  private baseUrl: string = environment.apiUrl + ('/v1/religiousgroups');
+  private url: string = this.baseUrl + '/v1/religiousgroups';
 
   Form: FormGroup = new FormGroup( {
     id: new FormControl(null),
@@ -19,7 +20,9 @@ export class ReligionService {
     description: new FormControl('', [Validators.required, Validators.minLength(3)]),
   });
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) { 
+    super();
+  }
 
   // Initialize Religion Group
   initializeForm() {
@@ -38,47 +41,29 @@ export class ReligionService {
   // Get All Religious Group
   getAllReligousGroup(): Observable<Religion[]> {
     return this.http
-      .get<Religion[]>(this.baseUrl)
+      .get<Religion[]>(this.url)
       .pipe(catchError(this.handlerError));
   }
 
   // Add Religion
   addReligion(data: Religion): Observable<any> {
     return this.http
-      .post(this.baseUrl, data)
+      .post(this.url, data)
       .pipe(catchError(this.handlerError));
   }
 
   // Update Religion
   updateReligion(data: Religion): Observable<any> {
     return this.http
-      .put(this.baseUrl + '/' + data.id, data)
+      .put(this.url + '/' + data.id, data)
       .pipe(catchError(this.handlerError));
   }
 
   // Delete Religion
   deleteReligion(id: string): Observable<any> {
     return this.http
-      .delete(this.baseUrl + '/' + id)
+      .delete(this.url + '/' + id)
       .pipe(catchError(this.handlerError));
-  }
-
-  // Handler Error
-  handlerError(error: HttpErrorResponse) {
-    const messages: string[] = [];
-    if (error.status === 400) {
-      if (!error.error.success) {
-        // Bad request - Get error 
-        const backEndValidations = error.error.erros;
-        backEndValidations.forEach(element => {
-          messages.push(element);
-          console.log(element);
-        });
-      }
-    } else {
-      messages.push(error.message);
-    }
-    return throwError(messages);
   }
 
 }

@@ -17,6 +17,12 @@
         <span>E-Referral</span>
       </a>
       <a mat-list-item 
+        [routerLink]="['/referral']" 
+        (click)="drawer.close()">
+        <mat-icon class="mr-2">list</mat-icon>
+        <span>Referrals</span>
+      </a>
+      <a mat-list-item 
         [routerLink]="['/user']" 
         (click)="drawer.close()">
         <mat-icon class="mr-2">group_work</mat-icon> 
@@ -112,7 +118,7 @@
     </mat-toolbar>
 
     <!-- p-3 p-sm-4 -->
-    <main class="flex-grow-1 p-4" style="background-color: #EAEAEA;">
+    <main class="flex-grow-1 p-4" style="background-color: #f2f2f2;">
       <div class="container">
         <ng-content></ng-content>
       </div>

@@ -3,7 +3,7 @@
 
         <div class="row mb-2">
             <div class="col-md-12">
-                <label>Are you referring into the clinical support services (Healing Steps, Trauma Focused Therapy, Group Work)?</label>
+                <label>Are you referring into the clinical support services (<i>Healing Steps, Trauma Focused Therapy, Group Work</i>)?</label>
                 <mat-radio-group class="ml-2" aria-label="Select an option"  required  formControlName="clinicalSupportService">
                     <mat-radio-button value="true">Yes</mat-radio-button>
                     <mat-radio-button value="false">No</mat-radio-button>
@@ -29,7 +29,8 @@
             </div>
             <div class="col-md-6" *ngIf="form.get('clinicalReferral.accessedSMBefore').value == 'Yes'">
                 <mat-form-field class="full-width-input">
-                    <input matInput placeholder="if so what/when?" required formControlName="smBeforeWhen">
+                    <input matInput placeholder="if so what/when?" formControlName="smBeforeWhen">
+                    <mat-error>This field is mandatory</mat-error>
                 </mat-form-field>
             </div>
         </div>
@@ -62,7 +63,7 @@
             </div>
         </div>
 
-        <div class="row mb-2">
+        <div class="row mb-1">
             <div class="col-md-12">
                 <label>Have you previously accessed or are you currently accessing any other mental health service?</label>
                 <mat-radio-group class="ml-2" aria-label="Select an option"  required  formControlName="accessedCurrentlyOtherService">
@@ -77,10 +78,11 @@
             </div>
         </div>
 
-        <!-- <app-mental-health-service  *ngFor="let mentalHealthService of listOfMHS" [mentalHealthService]=mentalHealthService></app-mental-health-service> -->
-        <app-mental-health-service></app-mental-health-service>
-
-        <div class="row mb-1 mt-5">
+        <div *ngIf="form.get('clinicalReferral.accessedCurrentlyOtherService').value=='Yes'">
+            <app-mental-health-service  [mentalHealthServiceArray]= "form.controls['clinicalReferral'].get('listOfServices')"></app-mental-health-service>
+        </div>
+      
+        <div class="row mb-1 mt-3">
             <span class="ml-3">If you are currently acessing a service, please provide your workers details below:</span>
         </div>
         <div class="row mb-2">

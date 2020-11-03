@@ -5,15 +5,16 @@ import { map, tap, catchError } from 'rxjs/operators';
 import { City } from './city';
 import { environment } from 'src/environments/environment';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { BaseService } from 'src/app/shared/base.service';
 
 
 
 @Injectable({
     providedIn: 'root'
 })
-export class CityService {
+export class CityService  extends BaseService {
 
-    baseUrl = environment.apiUrl + ('/v1/cities');
+    url: string = this.baseUrl + '/v1/cities';
 
     Form: FormGroup = new FormGroup({
         id: new FormControl(null),
@@ -22,7 +23,7 @@ export class CityService {
 
 
     constructor(private http: HttpClient) {
-        // console.log('City constructor...');
+        super();
     }
 
 
@@ -40,22 +41,12 @@ export class CityService {
         this.Form.setValue(data);
     }
 
-    // Get All cities from API // full response!!!
-    // getAllCities(): Observable<City[]> {
-    //     return this.http.get<City[]>(this.baseUrl, {observe: 'response'})
-    //             .pipe(
-    //                 tap(response => console.log(response)),
-    //                 map(response => response.body)
-    //             );
-    // }
-
-
     // Get All cities from API //
     getAllCities(): Observable<City[]> {
         return this.http
-                .get<City[]>(this.baseUrl)
+                .get<City[]>(this.url)
                 .pipe(
-                    catchError(this.handleError)
+                    catchError(this.handlerError)
                 );
     }
 
@@ -63,45 +54,24 @@ export class CityService {
     // Post - Add
     addCity(data: City): Observable<any> {
         return this.http
-            .post(this.baseUrl, data)
-            .pipe(catchError(this.handleError));
+            .post(this.url, data)
+            .pipe(catchError(this.handlerError));
     }
 
 
     // Put - Edit
     updateCity(data: City): Observable<any> {
         return this.http
-            .put(this.baseUrl + '/' + data.id, data)
-            .pipe(catchError(this.handleError));
+            .put(this.url + '/' + data.id, data)
+            .pipe(catchError(this.handlerError));
     }
 
 
     // Delete
     deleteCity(id: string): Observable<any> {
         return this.http
-            .delete(this.baseUrl + '/' + id)
-            .pipe(catchError(this.handleError));
+            .delete(this.url + '/' + id)
+            .pipe(catchError(this.handlerError));
     }
 
-
-    // Handler Error
-    handleError(error: HttpErrorResponse) {
-        const messages: string[]  = [];
-        if (error.status === 400) {
-            if (!error.error.success) {
-                // tslint:disable-next-line: comment-format
-                //Bad Request - Get erros from Back-end
-                const backEndValidations = error.error.erros;
-                backEndValidations.forEach(element => {
-                    messages.push(element);
-                    console.log(element);
-                });
-            }
-        } else {
-            messages.push(error.message);
-        }
-
-        console.log('ERROR OCCURED: ' + messages);
-        return throwError(messages);
-    }
 }

@@ -9,10 +9,12 @@ import { CcgListComponent } from './areas/ccgs/ccg-list/ccg-list.component';
 import { GpPracticeComponent } from './areas/gp-practices/gp-practice/gp-practice.component';
 import { GpPracticeListComponent } from './areas/gp-practices/gp-practice-list/gp-practice-list.component';
 import { EthnicCategoryListComponent } from './areas/ethnic-categories/ethnic-category-list/ethnic-category-list.component';
+import { ReferralListComponent } from './areas/referrals/referral-list/referral-list.component';
 
 export const rootRouterConfig: Routes = [
     { path: ' ', redirectTo: '/home', pathMatch: 'full'},
     { path: 'e-referral', component: EReferralComponent},
+    { path: 'referral', component: ReferralListComponent},
     { path: 'user', component: UserAddComponent},
     { path: 'city', component: CityListComponent},
     { path: 'disability', component: DisabilityListComponent},

@@ -3,5 +3,5 @@ export interface AgencyInformation {
     contactPerson: string;
     phone: string;
     email: string;
-    hasClientConsented: boolean;
+    agencyHasClientConsent: boolean;
 }

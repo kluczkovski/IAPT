@@ -6,6 +6,7 @@ import { NotificationService } from 'src/app/shared/notification.service';
 import { CommunicationMethodEnum } from '../_models/enums/communicationMethodEnum';
 import { GpPractice } from '../../gp-practices/gpPractice';
 import { GpPracticeService } from '../../gp-practices/gp-practice.service';
+import { error } from 'console';
 
 @Component({
   selector: 'app-contact-detail',
@@ -14,13 +15,15 @@ import { GpPracticeService } from '../../gp-practices/gp-practice.service';
 })
 export class ContactDetailComponent implements OnInit, OnChanges {
 
+  myStringDate: string;
+  actualDate: Date;
+  myDate: Date;
   @Input() form: FormGroup;
   listOfCities: City[] = [];
   listofGPs: GpPractice[] = [];
   communicantioMethod = CommunicationMethodEnum;
   listOfCommunicantioMethod: string[];
   selectedCity: City = null;
-  public chosenDate: Date;
 
   constructor(private cityService: CityService,
               private gpService: GpPracticeService,
@@ -31,7 +34,6 @@ export class ContactDetailComponent implements OnInit, OnChanges {
     this.loadAllCities();
     // Load the GPs
     this.loadAllGps();
-
     // List of Communication Methods from Enum
     this.listOfCommunicantioMethod = Object.keys(this.communicantioMethod);
   }
@@ -54,22 +56,40 @@ export class ContactDetailComponent implements OnInit, OnChanges {
       );
   }
 
-  ngOnChanges(): void {
 
-    // Get the name of Ciy which was seleced.
+  ngOnChanges(): void {
+  // Get the name of Ciy which was seleced.
     this.form.get('contactDetail.cityId').valueChanges.subscribe( (idValue) => {
       if (idValue) {
         this.selectedCity = this.listOfCities.find( val => val.id === idValue);
 
         // Check if would set the Required on State City
-        this.form.get('contactDetail.stateCity').setValidators(null);
+        this.form.get('contactDetail.anotherCity').setValidators(null);
         if (this.selectedCity.name === 'Other') {
-          this.form.get('contactDetail.stateCity').setValidators(Validators.required);
+          this.form.get('contactDetail.anotherCity').setValidators(Validators.required);
         }
-        this.form.get('contactDetail.stateCity').updateValueAndValidity();
+        this.form.get('contactDetail.anotherCity').updateValueAndValidity();
       }
     });
-
-
   }
+
+  checkDate() {
+    // actual date
+    this.actualDate = new Date();
+    // Check date
+    this.myStringDate = this.form.get('contactDetail.birthDay').value;
+    try {
+      this.myDate = new Date(this.myStringDate);
+      if (this.myDate.getFullYear() <= 1900) {
+        this.form.get('contactDetail.birthDay').setErrors({'incorrect': true});
+      } else {
+        if ( this.myDate.getFullYear() > this.actualDate.getFullYear() -1 ) {
+          this.form.get('contactDetail.birthDay').setErrors({'incorrect': true});
+        }
+      }
+    } catch (error) {
+      this.form.get('contactDetail.birthDay').setErrors({'incorrect': true});
+    }
+  }
+
 }

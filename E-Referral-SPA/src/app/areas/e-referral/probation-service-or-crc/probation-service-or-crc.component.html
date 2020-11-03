@@ -1,0 +1,57 @@
+
+<mat-card class="mat-elevation-z5">
+    <h3>List of Probation Service or CRC</h3>
+    <mat-divider></mat-divider>
+    
+    <div *ngFor="let psc of probationServiceCRCArray.controls; index as i">
+        <mat-divider></mat-divider><br>
+        <ng-container [formGroup]="psc">
+            <div class="row">
+                <div class="col-md-3">
+                    <mat-form-field class="full-width-input">
+                        <input matInput placeholder="Name"  formControlName="name">
+                    </mat-form-field>
+                </div>
+                <div class="col-md-3">
+                    <mat-form-field class="full-width-input">
+                        <input matInput placeholder="Service" formControlName="service">
+                    </mat-form-field>
+                </div>
+                <div class="col-md-2">
+                    <mat-form-field class="full-width-input">
+                        <input matInput placeholder="Telephone" formControlName="telephone">
+                   </mat-form-field>
+                </div>
+                <div class="col-md-3">
+                    <mat-form-field class="full-width-input">
+                        <mat-label>Consent to Contact?</mat-label>
+                        <mat-select  formControlName="consentToContact"required>
+                            <mat-option value="Yes">Yes</mat-option>
+                            <mat-option value="No">No</mat-option>
+                        </mat-select>
+                        <mat-error>This field is mandatory</mat-error>
+                    </mat-form-field>
+                </div>
+                
+                <div class="col-md-1">
+                    <button mat-icon-button color="warn"(click)="onDelete(i)">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                </div>
+            </div>
+        </ng-container>
+    </div>
+
+    <mat-divider></mat-divider>
+    <mat-card-actions>
+        <button class="button mb-2 ml-2 mt-2" type="button" mat-raised-button color="primary"  (click)="addRecord()">
+            <mat-icon>add box</mat-icon>
+            Add New Service
+        </button>
+        <button class="button" type="button" mat-raised-button color="warn" (click)="onDeleteAll()">
+            <mat-icon>remove_circle</mat-icon>
+            Remove All
+        </button>
+    </mat-card-actions>
+   
+</mat-card>

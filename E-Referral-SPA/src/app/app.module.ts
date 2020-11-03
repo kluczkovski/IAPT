@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
@@ -8,6 +8,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from './material.module';
 import { GpPracticeModule } from './areas/gp-practices/gp-practice.module';
 import { CityModule} from './areas/cities/city.module';
+
+// import { NgxSpinnerModule } from "ngx-spinner";
 
 import { AppComponent } from './app.component';
 import { MainNavComponent } from './navigation/main-nav/main-nav.component';
@@ -24,13 +26,14 @@ import { EthnicCategoryModule } from './areas/ethnic-categories/ethnic-category.
 import { EReferralModule } from './areas/e-referral/e-referral.module';
 import { MAT_DATE_LOCALE, MAT_DATE_FORMATS, DateAdapter } from '@angular/material/core';
 import { CustomDateAdapter } from './shared/CustomDateAdapter';
+import { ReferralModule } from './areas/referrals/referral.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainNavComponent,
     FooterComponent,
-    ConfirmDialogComponent,
+    ConfirmDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -42,16 +45,19 @@ import { CustomDateAdapter } from './shared/CustomDateAdapter';
     GpPracticeModule,
     EthnicCategoryModule,
     EReferralModule,
+    ReferralModule,
     BrowserAnimationsModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
     [RouterModule.forRoot(rootRouterConfig, {useHash: false})]
   ],
+
   providers: [
     CityService,
     DisabilityService,
     NotificationService,
+    {provide: LOCALE_ID, useValue: 'en-GB'},
     {provide: MAT_DATE_LOCALE, useValue: 'en-GB'},
     {provide: DateAdapter, useClass: CustomDateAdapter}
   ],

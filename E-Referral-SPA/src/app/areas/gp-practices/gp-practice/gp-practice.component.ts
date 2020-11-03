@@ -44,7 +44,6 @@ export class GpPracticeComponent implements OnInit {
           );
       } else {
         // Update
-        console.log(this.gpPractice);
         this.gpPracticeService
           .updateGpPractice(this.gpPractice)
           .subscribe(
@@ -59,7 +58,6 @@ export class GpPracticeComponent implements OnInit {
   }
 
   onCancel() {
-    console.log(this.data.action);
     this.gpPracticeService.Form.reset();
     this.gpPracticeService.initializeForm();
     this.dialogRef.close();

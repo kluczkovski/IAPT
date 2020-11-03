@@ -61,6 +61,12 @@ export class DiversityDetailComponent implements OnInit, OnChanges {
       this.hasNeeds = false;
       if (val === 'Yes') {
         this.hasNeeds = true;
+      } else {
+          this.form.patchValue({
+            diversityDetail: {
+              specificSupportNeedState: ''
+          }
+        });
       }
     });
   }

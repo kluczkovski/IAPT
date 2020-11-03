@@ -1,0 +1,149 @@
+<div class="d-flex flex-column mt-2" [formGroup]="form">
+    <div formGroupName="isvaReferral">
+
+        <div class="container">
+            <i>If the referral is for the Independent Sexual Violence Advisor service and the client also requires therapeutic support, 
+                this will be dealt with at ISVA assessment and an internal referral will be made if appropriate or if 
+                requested by the client. A full ISVA assessment will be undertaken to ensure clients receive a support package that meets their needs.
+            </i>
+            <i>Please note: Survivors Manchester believes that making a formal complaint to the 
+                Police is entirely the choice of the individual and we do not encourage nor discourage anyone from this procedure.
+            </i>
+        </div>
+
+       
+
+        <div class="row mb-2 mt-4">
+            <div class="col-md-12">
+                <label>Are you referring into the Independent Sexual Violence Advisor Service 
+                    (<i>Support for court, Police Reportin</i>)?</label>
+                <mat-radio-group class="ml-2" aria-label="Select an option"  required  formControlName="isvaSupportService">
+                    <mat-radio-button value="true">Yes</mat-radio-button>
+                    <mat-radio-button value="false">No</mat-radio-button>
+                </mat-radio-group>
+                <div *ngIf="form.controls['isvaReferral'].touched && form.controls['isvaReferral'].invalid">
+                    <div *ngIf="form.controls['isvaReferral'].get('isvaSupportService').errors?.required" class="error">
+                        <span>This field is mandatory</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <mat-divider></mat-divider><br>
+      
+
+        <div class="row mb-2">
+            <div class="col-md-12">
+                <label>Are you currently receiving support from another Independent Sexual Violance Advisor?</label>
+                <mat-radio-group class="ml-2" aria-label="Select an option"  required  formControlName="currentlyReceivingSupport">
+                    <mat-radio-button value="true">Yes</mat-radio-button>
+                    <mat-radio-button value="false">No</mat-radio-button>
+                </mat-radio-group>
+                <div *ngIf="form.controls['isvaReferral'].touched && form.controls['isvaReferral'].invalid">
+                    <div *ngIf="form.controls['isvaReferral'].get('currentlyReceivingSupport').errors?.required" class="error">
+                        <span>This field is mandatory</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <mat-divider></mat-divider><br>
+
+        
+        <div class="row mb-2">
+            <div class="col-md-12">
+                <label>Did you attend a Sexual Assault Referral Centre (SARC) about this referral reason?</label>
+                <mat-radio-group class="ml-2" aria-label="Select an option"  required  formControlName="attendSexualAssaultRefCenter">
+                    <mat-radio-button value="true">Yes</mat-radio-button>
+                    <mat-radio-button value="false">No</mat-radio-button>
+                    <mat-radio-button value="NA">N/A</mat-radio-button>
+                </mat-radio-group>
+                <div *ngIf="form.controls['isvaReferral'].touched && form.controls['isvaReferral'].invalid">
+                    <div *ngIf="form.controls['isvaReferral'].get('attendSexualAssaultRefCenter').errors?.required" class="error">
+                        <span>This field is mandatory</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <mat-divider></mat-divider><br>
+     
+    
+        <div class="row mb-2">
+            <div class="col-md-12">
+                <label>Have the Police been involved in any kind of investigation relating to the reason for this referral?</label>
+                <mat-radio-group class="ml-2" aria-label="Select an option"  required  formControlName="policeInvolved">
+                    <mat-radio-button value="true">Yes</mat-radio-button>
+                    <mat-radio-button value="false">No</mat-radio-button>
+                </mat-radio-group>
+                <div *ngIf="form.controls['isvaReferral'].touched && form.controls['isvaReferral'].invalid">
+                    <div *ngIf="form.controls['isvaReferral'].get('policeInvolved').errors?.required" class="error">
+                        <span>This field is mandatory</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <mat-divider></mat-divider><br>
+     
+
+        <div class="row mb-2">
+            <div class="col-md-12">
+                <label>If yes, is there a current open investigation relating to thre reason for this referral?</label>
+                <mat-radio-group class="ml-2" aria-label="Select an option"  required  formControlName="currentOpenInvestigation">
+                    <mat-radio-button value="true">Yes</mat-radio-button>
+                    <mat-radio-button value="false">No</mat-radio-button>
+                </mat-radio-group>
+                <div *ngIf="form.controls['isvaReferral'].touched && form.controls['isvaReferral'].invalid">
+                    <div *ngIf="form.controls['isvaReferral'].get('currentOpenInvestigation').errors?.required" class="error">
+                        <span>This field is mandatory</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div *ngIf="form.get('isvaReferral.currentOpenInvestigation').value=='true'">
+            <div class="row mb-1">
+                <span class="ml-3"> <i>If there is a current ongoing investigation, please provide contact details of the Office in Charge (OIC) below:</i></span>
+            </div>
+            <div class="row mb-2">
+                <div class="col-md-4 ">
+                    <mat-form-field class="full-width-input">
+                        <input matInput placeholder="Name"  formControlName="officerInChargeName">
+                    </mat-form-field>
+                </div>
+                <div class="col-md-4">
+                    <mat-form-field class="full-width-input">
+                        <input matInput placeholder="Service"  formControlName="officerInChargeService">
+                    </mat-form-field>
+                </div>
+                <div class="col-md-4">
+                    <mat-form-field class="full-width-input">
+                        <input matInput placeholder="Tel"  formControlName="officerInChargeTel">
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+        <mat-divider></mat-divider><br>
+   
+     
+        <div class="row mb-2">
+            <div class="col-md-12">
+                <label>Has Victim Support been in contact with you in relation to the reason for this referral?</label>
+                <mat-radio-group class="ml-2" aria-label="Select an option"  required  formControlName="victimSupportBeenContact">
+                    <mat-radio-button value="true">Yes</mat-radio-button>
+                    <mat-radio-button value="false">No</mat-radio-button>
+                </mat-radio-group>
+                <div *ngIf="form.controls['isvaReferral'].touched && form.controls['isvaReferral'].invalid">
+                    <div *ngIf="form.controls['isvaReferral'].get('victimSupportBeenContact').errors?.required" class="error">
+                        <span>This field is mandatory</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <mat-divider></mat-divider><br>
+     
+        
+    </div>
+</div>
+
+<div class="mt-2">
+    <button class="mr-2" mat-raised-button color="primary" matStepperPrevious type="button">Back</button>
+    <button mat-raised-button color="primary" matStepperNext  type="button">Next</button>  
+</div>

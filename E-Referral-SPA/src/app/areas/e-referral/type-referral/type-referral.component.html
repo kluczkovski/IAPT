@@ -1,4 +1,4 @@
-<div class="d-flex flex-column" [formGroup]="form">
+<div class="d-flex flex-column mt-2" [formGroup]="form">
 
     <div formGroupName="typeReferral">
         <div class="flex-row"> 
@@ -30,10 +30,12 @@
     
         <!-- Prof Referral-->
         <div *ngIf="form.get('typeReferral.type').value=='Prof'">
-            <mat-card>
+            <mat-card class="mat-elevation-z5">
+
                 <mat-card-header class="d-flex flex-row justify-content-center">
-                    <mat-card-title>Agency Information</mat-card-title>
+                    <mat-card-subtitle>Agency Information</mat-card-subtitle>
                 </mat-card-header>
+    
                 <mat-card-content>
                     <div formGroupName="agencyInformation">
                         <div class="row mb-2">
@@ -72,10 +74,21 @@
                         <div class="row mb-2">
                             <div class="col-md-12">
                                 <label class="mr-2">Has the client consented to a referral being made to Survivors Manchester?</label>
-                                <mat-radio-group aria-label="Select an option" formControlName="hasClientConsented">
+                                <mat-radio-group aria-label="Select an option" formControlName="agencyHasClientConsent">
                                     <mat-radio-button value="true">Yes</mat-radio-button>
                                     <mat-radio-button value="false">No</mat-radio-button>
                                 </mat-radio-group>
+                                <div *ngIf="form.controls['typeReferral'].get('agencyInformation').touched && 
+                                            form.controls['typeReferral'].get('agencyInformation').invalid">
+                                    <div *ngIf="form.controls['typeReferral'].get('agencyInformation.agencyHasClientConsent').errors?.required" class="error">
+                                        <span>This field is mandatory</span>
+                                    </div>
+                                </div>
+                                <!-- <div>
+                                    <p>valid form {{ form.controls['typeReferral'].get('agencyInformation').invalid }}</p>
+                                    <p>touched form {{ form.controls['typeReferral'].get('agencyInformation').touched }}</p>
+                                    <p>dirty form {{ form.dirty}}</p>
+                                </div> -->
                             </div>
                         </div>         
                     </div>          

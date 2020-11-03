@@ -1,0 +1,106 @@
+<div class="d-flex flex-column mt-2" [formGroup]="form">
+
+    <div formGroupName="referralInformation">
+    
+        <div class="row mb-2">
+            <div class="col-md-12">
+                <mat-form-field class="full-width-input">
+                    <mat-label>Please provide a brief summary of the reason for this Referral:</mat-label>
+                    <textarea matInput #message maxlength="500" rows="5" formControlName="briefSummary"></textarea>
+                    <mat-hint align="end">{{message.value.length}} / 500</mat-hint>   
+                    <mat-error>This field is mandatory</mat-error>  
+                </mat-form-field>
+            </div>
+        </div>
+
+        <section class="mb-3">
+            <span>
+                <i>Please complete offence information below. More than one box per item can be crossed if 
+                    appropriate (please note: CSE = child sex exploitation, CSA= childhood sexual abuse).</i>
+            </span>
+        </section>
+
+        <div class="row mb-2">
+            <div class="col-md-12">
+                <label>When was the offence(s) committed?</label>
+                <mat-radio-group class="ml-2" aria-label="Select an option"  required  formControlName="whenWasIt">
+                    <mat-radio-button value="less12" class="ml-2"> &lt;12 months ago (Current)</mat-radio-button>
+                    <mat-radio-button value="more13"> 13+ months (Non-Current)</mat-radio-button>
+                </mat-radio-group>
+                <div *ngIf="form.controls['referralInformation'].touched && form.controls['referralInformation'].invalid">
+                    <div *ngIf="form.controls['referralInformation'].get('whenWasIt').errors?.required" class="error">
+                        <span>This field is mandatory</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-3 mb-2">
+            <div class="col-md-6">
+                <mat-form-field class="full-width-input">
+                    <mat-label>Offence Type</mat-label>
+                    <mat-select  formControlName="offenceType" multiple required>
+                        <mat-option value='CSE'>CSE under 16</mat-option>
+                        <mat-option value='CSA'>CSA under 16</mat-option>
+                        <mat-option value='Rape'>Rape (+16)</mat-option>
+                        <mat-option value='SSO'>Serious Sexual Offence (+16)</mat-option>
+                        <mat-option value='SE'>Sexual Exploitation</mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="form.controls['referralInformation']controls['offenceType'].errors?.required">This field is mandatory</mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-md-6">
+                <mat-form-field class="full-width-input">
+                    <mat-label>Age at Time of Offence</mat-label>
+                    <mat-select  formControlName="ageAtTimeOfOffence" multiple required>
+                        <mat-option value='lessThan13'>&lt;13 years</mat-option>
+                        <mat-option value='13To16'>13 - 16 years</mat-option>
+                        <mat-option value='16To19'>16 - 19 years</mat-option>
+                        <mat-option value='20To29'>20 - 29 years</mat-option>
+                        <mat-option value='30To39'>30 - 39 years</mat-option>
+                        <mat-option value='40To49'>40 - 49 years</mat-option>
+                        <mat-option value='50To59'>50 - 59 years</mat-option>
+                        <mat-option value='60Plus'>60+ years</mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="form.controls['contactDetail']controls['ageAtTimeOfOffence'].errors?.required">This field is mandatory</mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+        
+        <div class="row mb-2">
+            <div class="col-md-6">
+                <mat-form-field class="full-width-input">
+                    <mat-label>What was the Gender of the Perpetrator</mat-label>
+                    <mat-select  formControlName="whatWasGenderOfPerpetror" multiple required>
+                        <mat-option value='Male'>Male</mat-option>
+                        <mat-option value='Female'>Female</mat-option>
+                        <mat-option value='MaleAndFemale'>Male and Female</mat-option>
+                        <mat-option value='GroupM'>Group of Males</mat-option>
+                        <mat-option value='GroupF'>Group of Females</mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="form.controls['referralInformation']controls['whatWasGenderOfPerpetror'].errors?.required">This field is mandatory</mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-md-6">
+                <mat-form-field class="full-width-input">
+                    <mat-label>What was the Relationship to the Perpetrator</mat-label>
+                    <mat-select  formControlName="whatWasRelationshipToPerpetror" multiple required>
+                        <mat-option value='Strange'>Strange</mat-option>
+                        <mat-option value='KnownAssociatePeripheral'>Known Associate: Peripheral Contact</mat-option>
+                        <mat-option value='KnownAssociate'>Known Associate</mat-option>
+                        <mat-option value='FamilyMember'>Family Member</mat-option>
+                        <mat-option value='Partner'>Partner</mat-option>
+                        <mat-option value='ExPartner'>Ex-Partner</mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="form.controls['contactDetail']controls['whatWasRelationshipToPerpetror'].errors?.required">This field is mandatory</mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+ 
+    </div>
+</div>
+
+<div class="mt-2">
+    <button class="mr-2" mat-raised-button color="primary" matStepperPrevious type="button">Back</button>
+    <button mat-raised-button color="primary" matStepperNext type="button">Next</button>  
+</div>

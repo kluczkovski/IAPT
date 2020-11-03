@@ -17,7 +17,7 @@ namespace IAPT.EK.API.DTO
 
         public eContactDetailDTO ContactDetail { get; set; }
 
-        public eDiversityDTO Diversity { get; set; }
+        public eDiversityDTO DiversityDetail { get; set; }
 
         public eReferralDTO()
         {

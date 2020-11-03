@@ -26,7 +26,6 @@ export class EthnicCategoryComponent implements OnInit {
       this.ethnic = Object.assign({}, this.ethnicService.Form.value);
       if (this.ethnic.id == null) {
         // Add
-        console.log(this.ethnic);
         this.ethnicService
           .insertEthnicCategory(this.ethnic)
           .subscribe(

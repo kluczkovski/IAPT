@@ -17,7 +17,7 @@
             </div>
             <div class="col-md-6">
                 <mat-form-field class="full-width-input">
-                    <mat-label>Is this Gener you were assigned at birth?</mat-label>
+                    <mat-label>Is this Gender you were assigned at birth?</mat-label>
                     <mat-select  formControlName="isgenderAssignedAtBirth"required>
                         <mat-option value="Yes">Yes</mat-option>
                         <mat-option value="No">No</mat-option>
@@ -46,11 +46,11 @@
                     <mat-label>Sexuality</mat-label>
                     <mat-select formControlName="sexuality" required>
                         <mat-option>---</mat-option>
-                        <mat-option value="Heterosexual">Heterosexual</mat-option>
-                        <mat-option value="Gay/Lesbian">Gay/Lesbian</mat-option>
-                        <mat-option value="Bi-Sexual">Bi-Sexual</mat-option>
-                        <mat-option value="Unknown">Unknown</mat-option>
-                        <mat-option value="NotStated">Not Stated</mat-option>    
+                        <mat-option value="0">Heterosexual</mat-option>
+                        <mat-option value="1">Gay/Lesbian</mat-option>
+                        <mat-option value="2">Bi-Sexual</mat-option>
+                        <mat-option value="3">Unknown</mat-option>
+                        <mat-option value="4">Not Stated</mat-option>    
                     </mat-select>
                     <mat-error *ngIf="form.controls['diversityDetail']controls['sexuality'].errors?.required">This field is mandatory</mat-error>
                 </mat-form-field>
@@ -80,9 +80,16 @@
                     </mat-label>
                     <mat-select formControlName="maritalStatus">
                         <mat-option>---</mat-option>
-                        <mat-option *ngFor="let maritalStatus of listOfMaritalStatus" [value]="maritalStatus" >
-                            {{ maritalStatus }}
-                        </mat-option>
+                        <mat-option value="10">Single</mat-option>
+                        <mat-option value="20">Married</mat-option>
+                        <mat-option value="30">Co Habiting</mat-option>
+                        <mat-option value="40">Widowed</mat-option>
+                        <mat-option value="50">Divorced</mat-option>
+                        <mat-option value="60">Declined</mat-option>
+                        <mat-option value="70">Seperated</mat-option>
+                        <mat-option value="80">Not Stated</mat-option>    
+                        <mat-option value="90">Partne</mat-option>
+                        <mat-option value="100">Engaged</mat-option>    
                     </mat-select>
                     <mat-error *ngIf="form.controls['diversityDetail']controls['maritalStatus'].errors?.required">This field is mandatory</mat-error>
   
@@ -95,10 +102,10 @@
                     </mat-label>
                     <mat-select formControlName="parentalStatus" required>
                         <mat-option>---</mat-option>
-                        <mat-option value="Not a Parent">Not a Parent</mat-option>
-                        <mat-option value="Yes, not live with">Yes, not live with</mat-option>
-                        <mat-option value="Yes, some live with">Yes, some live with</mat-option>
-                        <mat-option value="Yes, all live with">Yes, all live with</mat-option>
+                        <mat-option value="0">Not a Parent</mat-option>
+                        <mat-option value="1">Yes, not live with</mat-option>
+                        <mat-option value="2">Yes, some live with</mat-option>
+                        <mat-option value="3">Yes, all live with</mat-option>
                     </mat-select>
                     <mat-error *ngIf="form.controls['diversityDetail']controls['parentalStatus'].errors?.required">This field is mandatory</mat-error>
                 </mat-form-field>

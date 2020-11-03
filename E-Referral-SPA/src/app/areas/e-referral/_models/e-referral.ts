@@ -8,15 +8,13 @@ import { RiskIndicator } from './riskIndicator';
 import { ClinicalReferral } from './clinicalReferral';
 
 export interface Ereferral {
-    id: string;
-    date: Date;
     type: ReferralTypeEnum;
     source: string;
     agencyInformation: AgencyInformation;
     contactDetail: ContactDetails;
     diversityDetail: Diversity;
-    armedForce: ArmedForce;
-    longTermPhysicalHealth: LongTermPhysicalHealth;
-    riskIndicator: RiskIndicator;
-    clinicalReferral: ClinicalReferral;
+    // armedForce: ArmedForce;
+    // longTermPhysicalHealth: LongTermPhysicalHealth;
+    // riskIndicator: RiskIndicator;
+    // clinicalReferral: ClinicalReferral;
 }

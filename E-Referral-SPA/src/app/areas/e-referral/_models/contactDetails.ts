@@ -3,19 +3,18 @@ import { CommunicationMethodEnum } from './enums/communicationMethodEnum';
 import { GpPractice } from '../../gp-practices/gpPractice';
 
 export interface ContactDetails {
-    NHSnumber: string;
-    gpSurgery: GpPractice;
+    nhsnumber: string;
+    gpPractice: GpPractice;
     firstName: string;
     lastName: string;
-    dateOfBirth: Date;
+    birthDay: Date;
     address1: string;
     address2: string;
-    address3: string;
-    address4: string;
     city: City;
+    anotherCity: string;
     postCode: string;
-    telephone: string;
+    phone: string;
     mobile: string;
     email: string;
-    communicationMethods: CommunicationMethodEnum;
+    MethodsToContact: string;
 }

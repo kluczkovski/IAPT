@@ -4,19 +4,19 @@
         <div class="row">
             <div class="col-md-6">
                 <mat-form-field class="full-width-input">
-                    <input matInput placeholder="NHS Number" formControlName="NHSnumber">
+                    <input matInput placeholder="NHS Number" formControlName="nhsNumber">
                 </mat-form-field>
             </div>
             <div class="col-md-6">
                 <mat-form-field class="full-width-input">
                     <mat-label>GP Surgery</mat-label>
-                    <mat-select formControlName="gpSurgeryId" required>
+                    <mat-select formControlName="gpPracticeId" required>
                         <mat-option>---</mat-option>
                         <mat-option *ngFor="let gpSurgery of listofGPs" [value]="gpSurgery.id">
                             {{gpSurgery.description}}
                         </mat-option>
                     </mat-select>
-                    <mat-error *ngIf="form.controls['contactDetail']controls['gpSurgeryId'].errors?.required">This field is mandatory</mat-error>
+                    <mat-error *ngIf="form.controls['contactDetail']controls['gpPracticeId'].errors?.required">This field is mandatory</mat-error>
                 </mat-form-field>
             </div>
         </div>
@@ -39,11 +39,11 @@
             <div class="col-md-6">
                 <mat-form-field class="full-width-input">
                     <mat-label>Date of Birth</mat-label>
-                    <input matInput [matDatepicker]="picker" required formControlName="dateOfBirth">
+                    <input matInput [matDatepicker]="picker" required formControlName="birthDay" (blur)="checkDate()">
                     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                     <mat-datepicker #picker></mat-datepicker>
                     <mat-hint align="end">dd / mm / yyyy</mat-hint>
-                    <mat-error *ngIf="form.controls['contactDetail']controls['dateOfBirth'].errors?.required">This field is mandatory</mat-error>
+                    <mat-error *ngIf="form.controls['contactDetail']controls['birthDay'].errors?.required">This field is mandatory</mat-error>
                 </mat-form-field>
             </div>
             <div class="col-md-6">
@@ -83,8 +83,8 @@
             </div>
             <div class="col-md-6" *ngIf="selectedCity?.name=='Other'">
                 <mat-form-field class="full-width-input">
-                    <input matInput placeholder="Please state the City" formControlName="stateCity" required>
-                    <mat-error *ngIf="form.controls['contactDetail']controls['stateCity'].errors?.required">This field is mandatory</mat-error> 
+                    <input matInput placeholder="Please state the City" formControlName="anotherCity" required>
+                    <mat-error *ngIf="form.controls['contactDetail']controls['anotherCity'].errors?.required">This field is mandatory</mat-error> 
                 </mat-form-field>
             </div>
         </div>
@@ -92,7 +92,7 @@
         <div class="row mb-2">
             <div class="col-md-6">
                 <mat-form-field class="full-width-input">
-                    <input matInput placeholder="Telephone" formControlName="telephone">
+                    <input matInput placeholder="Telephone" formControlName="phone">
                 </mat-form-field>
             </div>
             <div class="col-md-6">
@@ -112,7 +112,7 @@
             <div class="col-md-6">
                 <mat-form-field class="full-width-input">
                     <mat-label>which methods you are happy for us to contact you by</mat-label>
-                    <mat-select  formControlName="communicationMethods" multiple required>
+                    <mat-select  formControlName="methodsToContact" multiple required>
                         <mat-option *ngFor="let method of listOfCommunicantioMethod" [value]="method">
                             {{method}}
                         </mat-option>

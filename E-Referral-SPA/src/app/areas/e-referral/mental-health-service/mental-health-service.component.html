@@ -20,11 +20,13 @@
                 <div class="col-md-2">
                     <mat-form-field class="full-width-input">
                         <input matInput placeholder="Start Treatment" formControlName="startMonthYear">
-                    </mat-form-field>
+                        <mat-hint align='end'>e.g. 01/2010</mat-hint>
+                  </mat-form-field>
                 </div>
                 <div class="col-md-2">
                     <mat-form-field class="full-width-input">
                         <input matInput placeholder="End Treatment" formControlName="endMonthYear">
+                        <mat-hint align='end'>eg. 05/2010</mat-hint>
                     </mat-form-field>
                 </div>
                 
@@ -41,7 +43,7 @@
     <mat-card-actions>
         <button class="button mb-2 ml-2 mt-2" type="button" mat-raised-button color="primary"  (click)="addRecord()">
             <mat-icon>add box</mat-icon>
-            Add New Skill
+            Add New Service
         </button>
         <button class="button" type="button" mat-raised-button color="warn" (click)="onDeleteAll()">
             <mat-icon>remove_circle</mat-icon>

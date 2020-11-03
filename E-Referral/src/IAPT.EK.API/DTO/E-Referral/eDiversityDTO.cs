@@ -17,7 +17,7 @@ namespace IAPT.EK.API.DTO
         [Required(ErrorMessage = "The field {0} must be informed on Diversity.")]
         public string IsgenderAssignedAtBirth { get; set; }
 
-        public Guid EthnicCategoryId { get; set; }
+        public Guid EthnicityId { get; set; }
 
         [Required(ErrorMessage = "The field {0} must be informed on Diversity.")]
         public string Sexuality { get; set; }

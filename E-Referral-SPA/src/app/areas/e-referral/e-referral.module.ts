@@ -13,6 +13,14 @@ import { LongTermPhysicalHealthComponent } from './long-term-physical-health/lon
 import { RiskIndicationComponent } from './risk-indication/risk-indication.component';
 import { ClinicalReferralComponent } from './clinical-referral/clinical-referral.component';
 import { MentalHealthServiceComponent } from './mental-health-service/mental-health-service.component';
+import { IsvaReferralComponent } from './isva-referral/isva-referral.component';
+import { ReferralInformationComponent } from './referral-information/referral-information.component';
+import { CommonSurvivorsImpactComponent } from './common-survivors-impact/common-survivors-impact.component';
+import { ProbationServiceOrCrcComponent } from './probation-service-or-crc/probation-service-or-crc.component';
+import { ListOfOffencesComponent } from './list-of-offences/list-of-offences.component';
+import { NumberDirective } from './numbers-only.directive';
+
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 
 
@@ -28,12 +36,19 @@ import { MentalHealthServiceComponent } from './mental-health-service/mental-hea
     LongTermPhysicalHealthComponent,
     RiskIndicationComponent,
     ClinicalReferralComponent,
-    MentalHealthServiceComponent
+    MentalHealthServiceComponent,
+    IsvaReferralComponent,
+    ReferralInformationComponent,
+    CommonSurvivorsImpactComponent,
+    ProbationServiceOrCrcComponent,
+    ListOfOffencesComponent,
+    NumberDirective
   ],
   imports: [
     CommonModule,
     MaterialModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxSpinnerModule
   ],
   exports: [
     FormsModule,
