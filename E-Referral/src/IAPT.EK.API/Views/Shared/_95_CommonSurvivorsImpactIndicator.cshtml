@@ -1,0 +1,62 @@
+﻿@namespace IAPT.EK.API.Views.Referral
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model IAPT.EK.Business.EReferral.Models.eIsvaReferralInfo
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="panel-title">Criminal Justice Support Referral Information - ISVA</h3>
+    </div>
+    <div class="panel-body">
+        <table class="table table-striped" width="100px">
+            <tbody>
+                <tr>
+                    <td width="10px">Are you referring into the Independent Sexual violence Advisor Service?</td>
+                    <td width="90px">@Model?.IsvaReferralService</td>
+                </tr>
+                <tr>
+                    <td width="10px">Are you currently receiving support from another ISVA Service?</td>
+                    <td width="90px">@Model?.CurrentlyReceivingSupport</td>
+                </tr>
+                <tr>
+                    <td width="10px">Did you attend a Sexual Assault Referral Centre (SARC) about this referral reason?</td>
+                    <td width="90px">@Model?.AttendSexualAssaultRefCenter</td>
+                </tr>
+                <tr>
+                    <td width="10px">Have the Police been involved in any kind of investigation relating to the reason for this referral?</td>
+                    <td width="90px">@Model?.PoliceInvolved</td>
+                </tr>
+
+                <tr>
+                    <td width="10px">Has Victim Support been in contact with you in relating to ther reason for this referral?</td>
+                    <td width="90px">@Model?.VictimSupportBeenContact</td>
+                </tr>
+                <tr>
+                    <td width="10px">Is there a current open investigation relating to the reason for this referral?:</td>
+                    <td width="90px">@Model?.CurrentOpenInvestigation</td>
+                </tr>
+
+                <tr>
+                    <td>if there is a currenty ongoing investigation, please provide contact details of the OIC below:</td>
+                </tr>
+                <tr>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <td>Name</td>
+                                <td>Service</td>
+                                <td>Tel</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>@Model?.OfficerInChargeName</td>
+                                <td>@Model?.OfficerInChargeService</td>
+                                <td>@Model?.OfficerInChargeTel</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

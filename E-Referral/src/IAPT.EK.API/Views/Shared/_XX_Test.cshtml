@@ -1,0 +1,139 @@
+﻿@namespace IAPT.EK.API.Views.Referral
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model IAPT.EK.Business.EReferral.Models.eCommonSurvivorImpact
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="panel-title">Common Surivor Impacto Indicator</h3>
+    </div>
+    <div class="panel-body">
+        <table class="table table-striped" width="100px">
+            <tbody>
+                <tr>
+                    <td width="10px">Do you feel you have, or have had, any issues with drugs (illicit or not), alcohol or both?</td>
+                    <td width="90px">@Model?.HasAnyIssuesWithDrugs</td>
+                </tr>
+                <tr>
+                    <td width="10px">If yes, please provide detail of substance, frequency of use, etc.</td>
+                    <td width="90px">@Model?.HasAnyIssuesWithDrugsDetail</td>
+                </tr>
+                <tr>
+                    <td width="10px">Are you now or ever been engaged with any durg or alcohol treatment provider?</td>
+                    <td width="90px">@Model?.HasOrHadEngagedAnyDrugTreatment</td>
+                </tr>
+                <tr>
+                    <td>if yes, please provide details below:</td>
+                </tr>
+                <tr>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <td>Name</td>
+                                <td>Treatment Provided</td>
+                                <td>Start Date</td>
+                                <td>End Date</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>2</td>
+                                <td>3</td>
+                                <td>4</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="container">
+            <div class="row">
+                <p>if you are currently accessing a service, please provide your worker details below</p>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-4">
+                    <p>Name:</p>
+                    <p>@Model?.CurrentTreatmentName</p>
+                </div>
+                <div class="col-xs-4">
+                    <p>Service:</p>
+                    <p>@Model?.CurrentTreatmentName</p>
+                </div>
+                <div class="col-xs-4">
+                    <p>Tel:</p>
+                    <p>@Model?.CurrentTreatmentTel</p>
+                </div>
+            </div>
+        </div>
+
+        <table class="table table-striped" width="100px">
+            <tbody>
+                <tr>
+                    <td width="10px">Have you been prescribed any mental health medication or anti-depressants</td>
+                    <td width="90px">@Model?.PrescribedAnyMedical</td>
+                </tr>
+                <tr>
+                    <td width="10px">if yes, please provide details of medication, dosage, etc.</td>
+                    <td width="90px">@Model?.PrescribedAnyMedicalDetails</td>
+                </tr>
+                <tr>
+                    <td width="10px">Have you ever service a custodial sentence, been on demand or currently under investigation</td>
+                    <td width="90px">@Model?.ServedOrCurrentlyUnderInvestigation</td>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <td>Offence</td>
+                                <td>Conviction (Y/N)</td>
+                                <td>Length of Sentence</td>
+                                <td>Date Served</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>2</td>
+                                <td>3</td>
+                                <td>4</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </tr>
+            </tbody>
+        </table>
+
+        <table class="table table-striped" width="100px">
+            <tbody>
+                <tr>
+                    <td width="10px">Are you now under the supervision of Probation Service or CRC?</td>
+                    <td width="90px">@Model?.ProbationServiceOrCRC</td>
+                </tr>
+                <tr>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <td>Name</td>
+                                <td>Service</td>
+                                <td>Tel</td>
+                                <td>Consent to Contact</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>2</td>
+                                <td>3</td>
+                                <td>4</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </tr>
+                <tr>
+                    <td>Other details or comments on this referral below</td>
+                    <td>@Model?.FinalComments</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
