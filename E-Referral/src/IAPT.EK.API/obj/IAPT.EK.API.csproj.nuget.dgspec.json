@@ -17,7 +17,7 @@
           "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "/Users/ekluczkovski/.nuget/NuGet/NuGet.Config"
+          "/Users/ekluczkovski/.config/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -27,6 +27,7 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
             "projectReferences": {
               "/Users/ekluczkovski/Projects/IAPT/E-Referral/src/IAPT.EK.Business/IAPT.EK.Business.csproj": {
                 "projectPath": "/Users/ekluczkovski/Projects/IAPT/E-Referral/src/IAPT.EK.Business/IAPT.EK.Business.csproj"
@@ -45,6 +46,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "dependencies": {
             "AspNetCore.HealthChecks.MySql": {
               "target": "Package",
@@ -89,6 +91,10 @@
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[5.5.1, )"
+            },
+            "Wkhtmltopdf.NetCore": {
+              "target": "Package",
+              "version": "[3.0.2, )"
             }
           },
           "imports": [
@@ -126,7 +132,7 @@
           "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "/Users/ekluczkovski/.nuget/NuGet/NuGet.Config"
+          "/Users/ekluczkovski/.config/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -136,6 +142,7 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
             "projectReferences": {}
           }
         },
@@ -147,6 +154,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "dependencies": {
             "FluentValidation.AspNetCore": {
               "target": "Package",
@@ -191,7 +199,7 @@
           "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "/Users/ekluczkovski/.nuget/NuGet/NuGet.Config"
+          "/Users/ekluczkovski/.config/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -201,6 +209,7 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
             "projectReferences": {
               "/Users/ekluczkovski/Projects/IAPT/E-Referral/src/IAPT.EK.Business/IAPT.EK.Business.csproj": {
                 "projectPath": "/Users/ekluczkovski/Projects/IAPT/E-Referral/src/IAPT.EK.Business/IAPT.EK.Business.csproj"
@@ -216,6 +225,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "dependencies": {
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",

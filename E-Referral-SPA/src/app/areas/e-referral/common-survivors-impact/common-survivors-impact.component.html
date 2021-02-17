@@ -1,20 +1,12 @@
 <div class="d-flex flex-column mb-2" [formGroup]="form">
     <div formGroupName="commonSurvivorImpactIndicators">
     
-<!--       
-        <section class="mb-3">
-            <span>
-                <i>Please complete offence information below. More than one box per item can be crossed if 
-                    appropriate (please note: CSE = child sex exploitation, CSA= childhood sexual abuse).</i>
-            </span>
-        </section> -->
-
-        <div class="row mb-2">
+       <div class="row mb-2">
             <div class="col-md-12">
                 <label>Do you feel you have, or have had, any issues with drugs (illicit or not), alcohol or both</label>
                 <mat-radio-group class="ml-2" aria-label="Select an option"  required  formControlName="hasAnyIssuesWithDrugs">
-                    <mat-radio-button value="Yes">Yes</mat-radio-button>
-                    <mat-radio-button value="No">No</mat-radio-button>
+                    <mat-radio-button value="true">Yes</mat-radio-button>
+                    <mat-radio-button value="false">No</mat-radio-button>
                 </mat-radio-group>
                 <div *ngIf="form.controls['commonSurvivorImpactIndicators'].touched && form.controls['commonSurvivorImpactIndicators'].invalid">
                     <div *ngIf="form.controls['commonSurvivorImpactIndicators'].get('hasAnyIssuesWithDrugs').errors?.required" class="error">
@@ -35,6 +27,7 @@
             </div>
         </div>
 
+
         <div class="row mb-2">
             <div class="col-md-12">
                 <label>Are you now or ever been engaged with any drug or alcohol treatment provider?</label>
@@ -49,12 +42,13 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div>  
         <div *ngIf="form.get('commonSurvivorImpactIndicators.hasOrHadEngagedAnyDrugTreatment').value=='Yes'">
-            <app-mental-health-service  [mentalHealthServiceArray]= "form.controls['commonSurvivorImpactIndicators'].get('listOfTreatments')"></app-mental-health-service>
+            <app-mental-health-service [mentalHealthServiceArray]= "form.controls['commonSurvivorImpactIndicators'].get('listOfTreatments')"></app-mental-health-service>
         </div>
 
-        <div class="row mb-1">
+        
+        <div class="row mt-3 mb-1">
             <span class="ml-3"> <i>If you are currently accessing a service, please provide your workers details below:</i></span>
         </div>
         <div class="row mb-2">
@@ -74,33 +68,35 @@
                 </mat-form-field>
             </div>
         </div>
-
+        
+        
         <div class="row mb-2">
             <div class="col-md-12">
                 <label>Have you been prescribed any mental health medication or anti-depressants?</label>
-                <mat-radio-group class="ml-2" aria-label="Select an option"  required  formControlName="precribeAnyMedical">
+                <mat-radio-group class="ml-2" aria-label="Select an option"  required  formControlName="prescribedAnyMedical">
                     <mat-radio-button value="Yes">Yes</mat-radio-button>
                     <mat-radio-button value="No">No</mat-radio-button>
                     <mat-radio-button value="N/A">N/A</mat-radio-button>
                 </mat-radio-group>
                 <div *ngIf="form.controls['commonSurvivorImpactIndicators'].touched && form.controls['commonSurvivorImpactIndicators'].invalid">
-                    <div *ngIf="form.controls['commonSurvivorImpactIndicators'].get('precribeAnyMedical').errors?.required" class="error">
+                    <div *ngIf="form.controls['commonSurvivorImpactIndicators'].get('prescribedAnyMedical').errors?.required" class="error">
                         <span>This field is mandatory</span>
                     </div>
                 </div>
             </div>
         </div>
-        <div *ngIf="form.get('commonSurvivorImpactIndicators.precribeAnyMedical').value=='Yes'">
+        <div *ngIf="form.get('commonSurvivorImpactIndicators.prescribedAnyMedical').value=='Yes'">
             <div class="row">
                 <div class="col-md-12">
                     <mat-form-field class="full-width-input" appearance="outline">
                         <mat-label>Please provide details of medication, dosage, etc::</mat-label>
-                        <textarea matInput #message maxlength="256" rows="3" formControlName="precribeAnyMedicalDetails"></textarea>
+                        <textarea matInput #message maxlength="256" rows="3" formControlName="prescribedAnyMedicalDetails"></textarea>
                         <mat-hint align="end">{{message.value.length}} / 256</mat-hint>     
                     </mat-form-field>
                 </div>
             </div>
         </div>
+
 
         <div class="row mt-3 mb-2">
             <span class="ml-3"> 
@@ -116,21 +112,22 @@
             </span>
         </div>
       
+
         <div class="row mb-2">
             <div class="col-md-12">
                 <label>Have you ever served a custodial sentence, been on remand, or currently under investigation?</label>
-                <mat-radio-group class="ml-2" aria-label="Select an option"  required  formControlName="servedOrCurrentlyUnderInvestiagtion">
-                    <mat-radio-button value="Yes">Yes</mat-radio-button>
-                    <mat-radio-button value="No">No</mat-radio-button>
+                <mat-radio-group class="ml-2" aria-label="Select an option"  required  formControlName="servedOrCurrentlyUnderInvestigation">
+                    <mat-radio-button value="true">Yes</mat-radio-button>
+                    <mat-radio-button value="false">No</mat-radio-button>
                 </mat-radio-group>
                 <div *ngIf="form.controls['commonSurvivorImpactIndicators'].touched && form.controls['commonSurvivorImpactIndicators'].invalid">
-                    <div *ngIf="form.controls['commonSurvivorImpactIndicators'].get('servedOrCurrentlyUnderInvestiagtion').errors?.required" class="error">
+                    <div *ngIf="form.controls['commonSurvivorImpactIndicators'].get('servedOrCurrentlyUnderInvestigation').errors?.required" class="error">
                         <span>This field is mandatory</span>
                     </div>
                 </div>
             </div>
         </div>
-        <div *ngIf="form.get('commonSurvivorImpactIndicators.servedOrCurrentlyUnderInvestiagtion').value=='Yes'">
+        <div *ngIf="form.get('commonSurvivorImpactIndicators.servedOrCurrentlyUnderInvestigation').value=='true'">
             <div>
                 <app-list-of-offences
                     [offencesArray]= "form.controls['commonSurvivorImpactIndicators'].get('listOfOffences')">
@@ -138,7 +135,8 @@
             </div>
         </div>
 
-        <div class="row mb-2">
+        
+        <div class="row mt-2 mb-2">
             <div class="col-md-12">
                 <label>Are you now under the supervision of Probation Service or CRC? </label>
                 <mat-radio-group class="ml-2" aria-label="Select an option"  required  formControlName="probationServiceOrCRC">
@@ -161,7 +159,8 @@
             </div>
         </div>
 
-        <div class="row mt-2 mb-2">
+
+        <div class="row mt-5 mb-2">
             <div class="col-md-12">
                 <mat-form-field class="full-width-input" appearance="outline">
                     <mat-label>Please provide any other datails or comments on this referral:</mat-label>
@@ -170,7 +169,7 @@
                     <mat-error>This field is mandatory</mat-error>  
                 </mat-form-field>
             </div>
-        </div>
+        </div>  
 
     </div>
 </div>

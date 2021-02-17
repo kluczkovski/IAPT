@@ -33,9 +33,9 @@ export class MentalHealthServiceComponent implements OnInit {
   private getMHS() {
     return this.fb.group({
       service: new FormControl(''),
-      treatmentProvided: new FormControl(''),
-      startMonthYear: new FormControl(''),
-      endMonthYear: new FormControl('')
+      typeOfTreatment: new FormControl(''),
+      startTreament: new FormControl(''),
+      endTreament: new FormControl('')
     });
   }
 }

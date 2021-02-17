@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+
 namespace IAPT.EK.Business.Models
 {
     public class DisabilityCode : Entity
@@ -6,6 +8,7 @@ namespace IAPT.EK.Business.Models
         public string Code { get; set; }
 
         public string Description { get; set; }
+
 
         public DisabilityCode()
         {

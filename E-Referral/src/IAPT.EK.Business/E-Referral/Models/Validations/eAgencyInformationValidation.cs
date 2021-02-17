@@ -1,9 +1,10 @@
 ﻿using System;
 using FluentValidation;
+using IAPT.EK.Business.EReferral.Models;
 
 namespace IAPT.EK.Business.Models.Validations
 {
-    public class eAgencyInformationValidation: AbstractValidator<eAgencyInformation>
+    public class eAgencyInformationValidation : AbstractValidator<eAgencyInformation>
     {
         public eAgencyInformationValidation()
         {
@@ -17,6 +18,6 @@ namespace IAPT.EK.Business.Models.Validations
 
             RuleFor(ai => ai.AgencyHasClientConsent)
                     .NotNull().WithMessage("The field {PropertyName} must be informed on Agency Information.");
-         }           
+        }
     }
 }

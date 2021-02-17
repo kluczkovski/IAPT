@@ -35,7 +35,6 @@ namespace IAPT.EK.API.Configuration
             // Set up application to work with JWT Token Validation
             services.AddAuthentication(x =>
             {
-
                 x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
                 x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
             }).AddJwtBearer(x =>

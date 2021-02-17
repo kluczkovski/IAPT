@@ -1,4 +1,5 @@
 ﻿using System;
+using IAPT.EK.Business.EReferral.Models;
 using IAPT.EK.Business.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
@@ -39,6 +40,34 @@ namespace IAPT.EK.Data.Mappings
 
             builder.HasOne(eref => eref.eDiversity)
                     .WithOne(div => div.eReferral)
+                    .OnDelete(DeleteBehavior.Cascade);
+
+            builder.HasOne(eref => eref.eArmedForce)
+                    .WithOne(af => af.EReferral)
+                    .OnDelete(DeleteBehavior.Cascade);
+
+            builder.HasOne(eref => eref.eLongTermPhysicalHealth)
+                    .WithOne(lf => lf.eReferral)
+                    .OnDelete(DeleteBehavior.Cascade);
+
+            builder.HasOne(eref => eref.eRiskIndicator)
+                    .WithOne(ri => ri.eReferral)
+                    .OnDelete(DeleteBehavior.Cascade);
+
+            builder.HasOne(eref => eref.EClinicalReferralInfo)
+                    .WithOne(cli => cli.eReferral)
+                    .OnDelete(DeleteBehavior.Cascade);
+
+            builder.HasOne(eref => eref.eIsvaReferralInfo)
+                    .WithOne(isva => isva.EReferral)
+                    .OnDelete(DeleteBehavior.Cascade);
+
+            builder.HasOne(eref => eref.eSexualOffence)
+                    .WithOne(so => so.EReferral)
+                    .OnDelete(DeleteBehavior.Cascade);
+
+            builder.HasOne(eref => eref.eCommonSurvivorImpact)
+                    .WithOne(csi => csi.eReferral)
                     .OnDelete(DeleteBehavior.Cascade);
 
         }

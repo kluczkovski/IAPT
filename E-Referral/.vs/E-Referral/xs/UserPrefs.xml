@@ -1,31 +1,24 @@
 ﻿<Properties StartupConfiguration="{B95D2C88-DC43-4742-A2DB-FC20169257D0}|Self-Host-Dev">
-  <MonoDevelop.Ide.Workbench ActiveDocument="src/IAPT.EK.API/V1/Controllers/eReferralsController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="src/IAPT.EK.API/Views/Referral/Referral.cshtml">
     <Files>
-      <File FileName="src/IAPT.EK.API/V1/Controllers/eReferralsController.cs" Line="69" Column="1" />
-      <File FileName="src/IAPT.EK.API/DTO/E-Referral/eDiversityDTO.cs" />
-      <File FileName="src/IAPT.EK.Business/E-Referral/Models/eDiversity.cs" />
-      <File FileName="src/IAPT.EK.Business/Core/Models/Enums/MaritalStatusEnum.cs" />
-      <File FileName="src/IAPT.EK.Business/Core/Models/Enums/ParentalStatusEnum.cs" />
-      <File FileName="src/IAPT.EK.Business/Core/Models/Enums/StatusEReferral.cs" />
-      <File FileName="src/IAPT.EK.Business/Core/Models/Enums/SexualityEnum.cs" />
-      <File FileName="src/IAPT.EK.Business/E-Referral/Models/eReferral.cs" />
-      <File FileName="src/IAPT.EK.Business/Core/Models/Entity.cs" />
-      <File FileName="src/IAPT.EK.Business/E-Referral/Models/eContactDetail.cs" />
-      <File FileName="src/IAPT.EK.Business/E-Referral/Models/eAgencyInformation.cs" />
-      <File FileName="src/IAPT.EK.Business/E-Referral/Services/eReferralServices.cs" />
-      <File FileName="src/IAPT.EK.Data/Repository/Repository.cs" />
-      <File FileName="src/IAPT.EK.API/Configuration/AutoMapperConfig.cs" />
-      <File FileName="src/IAPT.EK.Business/Core/Models/Enums/GenderEnum.cs" />
+      <File FileName="src/IAPT.EK.API/Views/Referral/Referral.cshtml" Line="68" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="E-Referral" expanded="True">
             <Node name="IAPT.EK.API" expanded="True">
-              <Node name="V1" expanded="True">
-                <Node name="Controllers" expanded="True">
-                  <Node name="eReferralsController.cs" selected="True" />
+              <Node name="Views" expanded="True">
+                <Node name="Referral" expanded="True">
+                  <Node name="Referral.cshtml" selected="True" />
                 </Node>
+                <Node name="Shared" expanded="True" />
+              </Node>
+            </Node>
+            <Node name="IAPT.EK.Business" expanded="True" />
+            <Node name="IAPT.EK.Data" expanded="True">
+              <Node name="Repository" expanded="True">
+                <Node name="E-Referral" expanded="True" />
               </Node>
             </Node>
           </Node>
@@ -37,9 +30,7 @@
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="/Users/ekluczkovski/Projects/IAPT/E-Referral/src/IAPT.EK.API/V1/Controllers/eReferralsController.cs" relfile="src/IAPT.EK.API/V1/Controllers/eReferralsController.cs" line="68" column="1" />
-    </BreakpointStore>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
 </Properties>

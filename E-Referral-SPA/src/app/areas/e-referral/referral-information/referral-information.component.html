@@ -24,8 +24,8 @@
             <div class="col-md-12">
                 <label>When was the offence(s) committed?</label>
                 <mat-radio-group class="ml-2" aria-label="Select an option"  required  formControlName="whenWasIt">
-                    <mat-radio-button value="less12" class="ml-2"> &lt;12 months ago (Current)</mat-radio-button>
-                    <mat-radio-button value="more13"> 13+ months (Non-Current)</mat-radio-button>
+                    <mat-radio-button value="current" class="ml-2"> &lt;12 months ago (Current)</mat-radio-button>
+                    <mat-radio-button value="non-current"> 13+ months (Non-Current)</mat-radio-button>
                 </mat-radio-group>
                 <div *ngIf="form.controls['referralInformation'].touched && form.controls['referralInformation'].invalid">
                     <div *ngIf="form.controls['referralInformation'].get('whenWasIt').errors?.required" class="error">

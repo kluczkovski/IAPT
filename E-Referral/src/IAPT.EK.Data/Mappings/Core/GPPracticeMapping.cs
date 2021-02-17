@@ -14,11 +14,7 @@ namespace IAPT.EK.Data.Mappings
 
             builder.HasIndex(c => c.Code)
                   .IsUnique();
-
-            builder.HasOne(gp => gp.CCGCode)
-                    .WithMany(ccg => ccg.GPPractices)
-                    .OnDelete(DeleteBehavior.SetNull);
-
+        
             builder.Property(c => c.Code)
                     .IsRequired()
                     .HasColumnType("varchar(6)");
@@ -29,6 +25,14 @@ namespace IAPT.EK.Data.Mappings
 
             builder.Property(c => c.PostCode)
                    .HasColumnType("varchar(8)");
+
+            builder.HasOne(gp => gp.CCGCode)
+                .WithMany(ccg => ccg.GPPractices)
+                .OnDelete(DeleteBehavior.SetNull);
+
+            builder.HasMany(c => c.eContactDetails)
+                    .WithOne(cd => cd.GpPractice)
+                    .OnDelete(DeleteBehavior.SetNull);
         }
     }
 }

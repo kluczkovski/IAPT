@@ -1,5 +1,6 @@
 ﻿using System;
 using FluentValidation;
+using IAPT.EK.Business.EReferral.Models;
 using IAPT.EK.Business.Models.Enums;
 
 namespace IAPT.EK.Business.Models.Validations
@@ -18,7 +19,7 @@ namespace IAPT.EK.Business.Models.Validations
 
             // Check the enum
             RuleFor(e => e.Status).IsInEnum();
-          
+
         }
     }
 }

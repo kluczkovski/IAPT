@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using IAPT.EK.Business.EReferral.Models;
 using IAPT.EK.Business.Models;
 
 namespace IAPT.EK.Business.Interfaces
@@ -10,6 +11,8 @@ namespace IAPT.EK.Business.Interfaces
         Task<IEnumerable<eReferral>> GetAll();
 
         Task<IEnumerable<eReferral>> GetAllReferralWithIncludes();
+
+        Task<eReferral> GetReferralWithIncludes(Guid id);
 
         Task<eReferral> GetById(Guid id);
 

@@ -5,10 +5,7 @@ namespace IAPT.EK.API.DTO
 {
     public class eDiversityDTO
     {
-        public eDiversityDTO()
-        {
-        }
-
+       
         public Guid? Id { get; set; }
 
         [Required(ErrorMessage = "The field {0} must be informed on Diversity.")]
@@ -39,5 +36,10 @@ namespace IAPT.EK.API.DTO
         public string SpecificSupportNeeds { get; set; }
 
         public string SpecificSupportNeedState { get; set; }
+
+        public eDiversityDTO()
+        {
+        }
+
     }
 }

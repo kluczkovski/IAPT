@@ -1,16 +1,13 @@
 ﻿using AutoMapper;
+using IAPT.EK.API.Configuration;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Hosting;
-using IAPT.EK.API.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.OpenApi.Models;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
-using Microsoft.AspNetCore.Diagnostics.HealthChecks;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 //using HealthChecks.UI.Client;
-using IAPT.EK.API.Extensions;
+using Wkhtmltopdf.NetCore;
 
 namespace IAPT.EK.API
 {
@@ -43,6 +40,9 @@ namespace IAPT.EK.API
             // Auto Mapper Setup
             services.AddAutoMapper(typeof(Startup));
 
+            //Wrkhtmltopd
+            services.AddWkhtmltopdf();
+           
             // Identity Setup
             services.AddIdentityConfiguration(Configuration);
 
@@ -88,8 +88,10 @@ namespace IAPT.EK.API
 
             app.UseHttpsRedirection();
 
-            app.UseRouting();
+            app.UseStaticFiles();
 
+            app.UseRouting();
+           
             app.UseAuthentication();
             app.UseAuthorization();
 

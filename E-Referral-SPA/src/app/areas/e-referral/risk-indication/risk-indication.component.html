@@ -6,7 +6,7 @@
             <div class="col-md-6">
                 <mat-form-field class="full-width-input">
                     <mat-label>Are there any risk indicators that you fell we need to know about?</mat-label>
-                    <mat-select  formControlName="hasClientLRisk"required>
+                    <mat-select  formControlName="hasClientRisk"required>
                         <mat-option value="Yes">Yes</mat-option>
                         <mat-option value="No">No</mat-option>
                         <mat-option value="Declined">Declined</mat-option>
@@ -17,7 +17,7 @@
             </div>
         </div>
 
-        <div *ngIf="form.get('riskIndicatorInformation.hasClientLRisk').value=='Yes'">
+        <div *ngIf="form.get('riskIndicatorInformation.hasClientRisk').value=='Yes'">
 
             <div class="row mt-2">
                 <div class="col-md-12">

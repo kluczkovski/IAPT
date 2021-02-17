@@ -1,5 +1,4 @@
-﻿using System;
-using IAPT.EK.Business.Models;
+﻿using IAPT.EK.Business.EReferral.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -23,14 +22,14 @@ namespace IAPT.EK.Data.Mappings.EReferral
                     .HasColumnType("varchar(50)");
 
             builder.Property(d => d.EthnicCategoryId)
-                    .IsRequired(true);
+                    .IsRequired(false);
            
             builder.Property(d => d.Sexuality)
                     .IsRequired(true)
                     .HasColumnType("varchar(50)");
 
             builder.Property(d => d.ReligionId)
-                    .IsRequired(true);
+                    .IsRequired(false);
           
             builder.Property(d => d.MaritalStatus)
                     .IsRequired(true)

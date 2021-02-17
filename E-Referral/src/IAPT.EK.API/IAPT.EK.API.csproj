@@ -28,6 +28,7 @@
     <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="2.2.0" />
     <PackageReference Include="AspNetCore.HealthChecks.MySql" Version="3.0.0" />
     <PackageReference Include="AspNetCore.HealthChecks.UI" Version="3.1.1" />
+    <PackageReference Include="Wkhtmltopdf.NetCore" Version="3.0.2" />
   </ItemGroup>
 
   <ItemGroup>
@@ -50,11 +51,24 @@
     <Folder Include="Properties\" />
     <Folder Include="DTO\Core\" />
     <Folder Include="DTO\E-Referral\" />
+    <Folder Include="Rotativa\" />
+    <Folder Include="Rotativa\Mac\" />
+    <Folder Include="Views\" />
+    <Folder Include="Views\Referral\" />
+    <Folder Include="Views\Shared\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="Configuration\IdentityConfig.json" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="DTO\UserDTO.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="wkhtmltopdf\Mac\wkhtmltopdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Rotativa\Mac\wkhtmltopdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 </Project>

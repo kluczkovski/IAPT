@@ -16,6 +16,10 @@ namespace IAPT.EK.Data.Mappings
                 .IsRequired()
                 .HasColumnType("varchar(100)");
 
+            builder.HasMany(c => c.EContactDetails)
+                .WithOne(cd => cd.City)
+                .OnDelete(DeleteBehavior.SetNull);
+
             builder.HasData(
                 new City
                 {

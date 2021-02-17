@@ -6,6 +6,7 @@ import { NgxSpinnerService } from "ngx-spinner";
 import { EReferralService } from './_services/e-referral.service';
 import { NotificationService } from 'src/app/shared/notification.service';
 import { Ereferral } from './_models/e-referral';
+import { RiskIndicationComponent } from './risk-indication/risk-indication.component';
 
 
 @Component({
@@ -29,6 +30,10 @@ export class EReferralComponent implements OnInit {
 
   ngOnInit(): void {
     this.ereferralService.initializeForm();
+
+    // Set suicideRisk and selfHarmRisk fields with zeros
+    this.ereferralService.Form.get('riskIndicatorInformation.suicideRisk').setValue(0);
+    this.ereferralService.Form.get('riskIndicatorInformation.selfHarmRisk').setValue(0);
   }
 
   onSubmit() {
@@ -59,6 +64,13 @@ export class EReferralComponent implements OnInit {
       agencyInformation: this.ereferralService.Form.get('typeReferral.agencyInformation').value,
       contactDetail: this.ereferralService.Form.get('contactDetail').value,
       diversityDetail: this.ereferralService.Form.get('diversityDetail').value,
+      armedForceDetail: this.ereferralService.Form.get('armedForceDetail').value,
+      longTermPhysicalHealth: this.ereferralService.Form.get('longTermPhysicalHealth').value,
+      riskIndicator: this.ereferralService.Form.get('riskIndicatorInformation').value,
+      clinicalReferral: this.ereferralService.Form.get('clinicalReferral').value,
+      isvaReferral: this.ereferralService.Form.get('isvaReferral').value,
+      referralInformation: this.ereferralService.Form.get('referralInformation').value,
+      commonSurvivorImpact: this.ereferralService.Form.get('commonSurvivorImpactIndicators').value
     };
   }
 

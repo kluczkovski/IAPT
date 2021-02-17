@@ -1,3 +1,4 @@
+import { OtherServices } from './otherServices';
 
 export interface ClinicalReferral {
     clinicalSupportService: boolean;
@@ -6,7 +7,7 @@ export interface ClinicalReferral {
     hasMentalHealthDiag: boolean;
     statedMentalHealth: string;
     accessedCurrentlyOtherService: boolean;
-    //otherServices: OtherServices[];
+    listOfServices: OtherServices[];
     accessingService: boolean;
     accessingServiceWorkName: string;
     accessingServiceWorkService: string;

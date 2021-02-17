@@ -17,12 +17,12 @@
             <div class="col-md-12">
                 <label>Are you referring into the Independent Sexual Violence Advisor Service 
                     (<i>Support for court, Police Reportin</i>)?</label>
-                <mat-radio-group class="ml-2" aria-label="Select an option"  required  formControlName="isvaSupportService">
+                <mat-radio-group class="ml-2" aria-label="Select an option"  required  formControlName="isvaReferralService">
                     <mat-radio-button value="true">Yes</mat-radio-button>
                     <mat-radio-button value="false">No</mat-radio-button>
                 </mat-radio-group>
                 <div *ngIf="form.controls['isvaReferral'].touched && form.controls['isvaReferral'].invalid">
-                    <div *ngIf="form.controls['isvaReferral'].get('isvaSupportService').errors?.required" class="error">
+                    <div *ngIf="form.controls['isvaReferral'].get('isvaReferralService').errors?.required" class="error">
                         <span>This field is mandatory</span>
                     </div>
                 </div>
@@ -52,9 +52,9 @@
             <div class="col-md-12">
                 <label>Did you attend a Sexual Assault Referral Centre (SARC) about this referral reason?</label>
                 <mat-radio-group class="ml-2" aria-label="Select an option"  required  formControlName="attendSexualAssaultRefCenter">
-                    <mat-radio-button value="true">Yes</mat-radio-button>
-                    <mat-radio-button value="false">No</mat-radio-button>
-                    <mat-radio-button value="NA">N/A</mat-radio-button>
+                    <mat-radio-button value="Yes">Yes</mat-radio-button>
+                    <mat-radio-button value="No">No</mat-radio-button>
+                    <mat-radio-button value="N/A">N/A</mat-radio-button>
                 </mat-radio-group>
                 <div *ngIf="form.controls['isvaReferral'].touched && form.controls['isvaReferral'].invalid">
                     <div *ngIf="form.controls['isvaReferral'].get('attendSexualAssaultRefCenter').errors?.required" class="error">

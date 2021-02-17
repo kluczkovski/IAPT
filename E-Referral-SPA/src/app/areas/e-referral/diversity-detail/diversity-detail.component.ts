@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, OnChanges } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormGroup, Validators } from '@angular/forms';
 import { GenderEnum } from '../_models/enums/genderEnum';
 import { EthnicCategoryService } from '../../ethnic-categories/ethnic-category.service';
 import { EthnicCategory } from '../../ethnic-categories/ethnicCategory';
@@ -48,26 +48,34 @@ export class DiversityDetailComponent implements OnInit, OnChanges {
           this.isDisability = false;
           if (val === 'Yes') {
               this.isDisability = true;
+              this.form.get('diversityDetail.physicalDisabilityState').setValidators(Validators.required);
           } else {
+            this.form.get('diversityDetail.physicalDisabilityState').setValidators(null);
             this.form.patchValue({
               diversityDetail: {
                 physicalDisabilityState: ''
               }
             });
           }
+          this.form.get('diversityDetail.physicalDisabilityState').markAsUntouched();
+          this.form.get('diversityDetail.physicalDisabilityState').updateValueAndValidity();
       });
 
     this.form.get('diversityDetail.specificSupportNeeds').valueChanges.subscribe( (val) => {
       this.hasNeeds = false;
       if (val === 'Yes') {
         this.hasNeeds = true;
+        this.form.get('diversityDetail.specificSupportNeedState').setValidators(Validators.required);
       } else {
+          this.form.get('diversityDetail.specificSupportNeedState').setValidators(null);
           this.form.patchValue({
             diversityDetail: {
               specificSupportNeedState: ''
           }
         });
       }
+      this.form.get('diversityDetail.specificSupportNeedState').markAsUntouched();
+      this.form.get('diversityDetail.specificSupportNeedState').updateValueAndValidity();
     });
   }
 

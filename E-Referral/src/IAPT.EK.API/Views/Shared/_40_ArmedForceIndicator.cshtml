@@ -1,53 +1,29 @@
 ﻿@namespace IAPT.EK.API.Views.Referral
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
-@model IAPT.EK.Business.EReferral.Models.eDiversity
+@model IAPT.EK.Business.EReferral.Models.eArmedForce
 
 <div class="panel panel-primary">
     <div class="panel-heading">
-        <h3 class="panel-title">Diversity Indicators</h3>
+        <h3 class="panel-title">Armed Forces Indicator</h3>
     </div>
     <div class="panel-body">
         <table class="table table-striped" width="100px">
             <tbody>
                 <tr>
-                    <td width="10px">Gender</td>
-                    <td width="90px">@Model?.Gender</td>
+                    <td width="10px">Have you previously been a member of the British Armed Forces?</td>
+                    <td width="90px">@Model?.MemberOfArmedForce</td>
                 </tr>
                 <tr>
-                    <td width="10px">Is this the gender you were assigned at birth</td>
-                    <td width="90px">@Model?.IsgenderAssignedAtBirth</td>
+                    <td width="10px">Are your difficulties directly related to your military service?</td>
+                    <td width="90px">@Model?.HasLinkedWithArmedForce</td>
                 </tr>
                 <tr>
-                    <td width="10px">Ethinicity type</td>
-                    <td width="90px">@Model?.EthnicCategory</td>
+                    <td width="10px">Branch type</td>
+                    <td width="90px">@Model?.Branch</td>
                 </tr>
                 <tr>
-                    <td width="10px">Sexuality</td>
-                    <td width="90px">@Model?.Sexuality</td>
-                </tr>
-                <tr>
-                    <td width="10px">Religion</td>
-                    <td width="90px">@Model?.Religion</td>
-                </tr>
-                <tr>
-                    <td width="10px">Do you consider yourself to have a physical disabilityr:</td>
-                    <td width="90px">@Model?.PhysicalDisability</td>
-                </tr>
-                <tr>
-                    <td width="10px">Stated:</td>
-                    <td width="90px">@Model?.PhysicalDisabilityState</td>
-                </tr>
-                <tr>
-                    <td width="10px">Marital Status</td>
-                    <td width="90px">@Model?.MaritalStatus</td>
-                </tr>
-                <tr>
-                    <td width="10px">Do you have any specific need?</td>
-                    <td width="90px">@Model?.SpecificSupportNeeds</td>
-                </tr>
-                <tr>
-                    <td width="10px">Please state</td>
-                    <td width="90px">@Model?.SpecificSupportNeedState</td>
+                    <td width="10px">Service Number</td>
+                    <td width="90px">@Model?.ServiceNumber</td>
                 </tr>
             </tbody>
         </table>

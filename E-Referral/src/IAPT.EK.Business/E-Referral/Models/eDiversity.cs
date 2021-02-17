@@ -1,7 +1,8 @@
 ﻿using System;
+using IAPT.EK.Business.Models;
 using IAPT.EK.Business.Models.Enums;
 
-namespace IAPT.EK.Business.Models
+namespace IAPT.EK.Business.EReferral.Models
 {
     public class eDiversity : Entity
     {
@@ -12,12 +13,12 @@ namespace IAPT.EK.Business.Models
 
         public string IsgenderAssignedAtBirth { get; set; }
 
-        public Guid EthnicCategoryId { get; set; }
+        public Guid? EthnicCategoryId { get; set; }
         public EthnicCategory EthnicCategory { get; set; }
 
         public SexualityEnum Sexuality { get; set; }
 
-        public Guid ReligionId { get; set; }
+        public Guid? ReligionId { get; set; }
         public ReligiousGroup Religion { get; set; }
 
         public MaritalStatusEnum MaritalStatus { get; set; }

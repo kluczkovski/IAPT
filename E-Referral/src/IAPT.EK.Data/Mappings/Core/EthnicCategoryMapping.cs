@@ -29,6 +29,10 @@ namespace IAPT.EK.Data.Mappings
                    .IsRequired()
                    .HasColumnType("int(5)");
 
+            builder.HasMany(a => a.EDiversities)
+                   .WithOne(d => d.EthnicCategory)
+                   .OnDelete(DeleteBehavior.SetNull);
+
             builder.HasData(
                 new EthnicCategory
                 {

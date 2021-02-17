@@ -17,8 +17,8 @@ export class ReferralService extends BaseService {
   }
 
   // Get All Referrals
-  getAllReferrals(): Observable<Referral[]> {
-    return this.http.get<Referral[]>(this.url)
+  getAllReferral(): Observable<Referral[]> {
+    return this.http.get<Referral[]>(this.url + '/GetAllReferrals')
               .pipe(catchError(this.handlerError));
   }
 
@@ -27,6 +27,14 @@ export class ReferralService extends BaseService {
     return this.http
       .delete(this.url + '/' + id)
       .pipe();
+  }
+
+  // PDF Referral
+  pdfReferral(id: string): Observable<any> {
+    var mediaType = 'application/pdf';
+    return this.http
+            .get(this.url + '/pdfReferral/' + id, {responseType: 'blob'})
+            .pipe(catchError(this.handlerError));
   }
 
 }

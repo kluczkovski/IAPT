@@ -58,69 +58,70 @@ export class EReferralService extends BaseService {
       specificSupportNeeds: new FormControl('', Validators.required),
       specificSupportNeedState: new FormControl(''),
     }),
-    // armedForceDetail: new FormGroup({
-    //   memberOfArmedForce: new FormControl('', Validators.required),
-    //   hasLinkedWithArmedForce: new FormControl(''),
-    //   branch: new FormControl(''),
-    //   serviceNumber: new FormControl('')
-    // }),
-    // longTermPhysicalHealth: new FormGroup({
-    //   hasClientLTPH: new FormControl('', Validators.required),
-    //   details: new FormControl(''),
-    // }),
-    // riskIndicatorInformation: new FormGroup({
-    //   hasClientLRisk: new FormControl('', Validators.required),
-    //   details: new FormControl(''),
-    //   suicideRisk: new FormControl(''),
-    //   selfHarmRisk: new FormControl('')
-    // }),
-    // clinicalReferral: new FormGroup({
-    //   clinicalSupportService: new FormControl('', Validators.required),
-    //   accessedSMBefore: new FormControl('', Validators.required),
-    //   smBeforeWhen: new FormControl('', ),
-    //   hasMentalHealthDiag: new FormControl('', Validators.required),
-    //   statedMentalHealth: new FormControl(''),
-    //   accessedCurrentlyOtherService: new FormControl(''),
-    //   listOfServices: new FormArray([]),
-    //   accessingServiceWorkName: new FormControl(''),
-    //   accessingServiceWorkService: new FormControl(''),
-    //   accessingServiceWorkTel: new FormControl(''),
-    // }),
-    // isvaReferral: new FormGroup({
-    //   isvaSupportService: new FormControl('', Validators.required),
-    //   currentlyReceivingSupport: new FormControl('', Validators.required),
-    //   attendSexualAssaultRefCenter: new FormControl('', Validators.required),
-    //   policeInvolved: new FormControl('', Validators.required),
-    //   currentOpenInvestigation: new FormControl('', Validators.required),
-    //   officerInChargeName: new FormControl(''),
-    //   officerInChargeService: new FormControl(''),
-    //   officerInChargeTel: new FormControl(''),
-    //   victimSupportBeenContact: new FormControl('')
-    // }),
-    // referralInformation: new FormGroup({
-    //   briefSummary: new FormControl('', Validators.required),
-    //   whenWasIt: new FormControl('', Validators.required),
-    //   offenceType: new FormControl('', Validators.required),
-    //   ageAtTimeOfOffence: new FormControl('', Validators.required),
-    //   whatWasGenderOfPerpetror: new FormControl('', Validators.required),
-    //   whatWasRelationshipToPerpetror: new FormControl('', Validators.required)
-    // }),
-    // commonSurvivorImpactIndicators : new FormGroup({
-    //   hasAnyIssuesWithDrugs: new FormControl('', Validators.required),
-    //   hasAnyIssuesWithDrugsDetail: new FormControl(''),
-    //   hasOrHadEngagedAnyDrugTreatment: new FormControl('', Validators.required),
-    //   listOfTreatments: new FormArray([]),
-    //   currentTreatmentName: new FormControl(''),
-    //   currentTreatmentService: new FormControl(''),
-    //   currentTreatmentTel: new FormControl(''),
-    //   precribeAnyMedical: new FormControl('', Validators.required),
-    //   precribeAnyMedicalDetails: new FormControl(''),
-    //   servedOrCurrentlyUnderInvestiagtion: new FormControl('', Validators.required),
-    //   listOfOffences: new FormArray([]),
-    //   probationServiceOrCRC: new FormControl('', Validators.required),
-    //   listOfProbations: new FormArray([]),
-    //   finalComments: new FormControl('')
-    // }),
+    armedForceDetail: new FormGroup({
+      memberOfArmedForce: new FormControl('', Validators.required),
+      hasLinkedWithArmedForce: new FormControl(''),
+      branch: new FormControl(''),
+      serviceNumber: new FormControl('')
+    }),
+    longTermPhysicalHealth: new FormGroup({
+      hasClientLTPH: new FormControl('', Validators.required),
+      details: new FormControl(''),
+    }),
+    riskIndicatorInformation: new FormGroup({
+      hasClientRisk: new FormControl('', Validators.required),
+      details: new FormControl(''),
+      suicideRisk: new FormControl(0),
+      selfHarmRisk: new FormControl(0)
+    }),
+    clinicalReferral: new FormGroup({
+      clinicalSupportService: new FormControl('', Validators.required),
+      accessedSMBefore: new FormControl('', Validators.required),
+      smBeforeWhen: new FormControl('', ),
+      hasMentalHealthDiag: new FormControl('', Validators.required),
+      statedMentalHealth: new FormControl(''),
+      accessedCurrentlyOtherService: new FormControl(''),
+      listOfServices: new FormArray([]),
+      accessingService: new FormControl(''),
+      accessingServiceWorkName: new FormControl(''),
+      accessingServiceWorkService: new FormControl(''),
+      accessingServiceWorkTel: new FormControl(''),
+    }),
+    isvaReferral: new FormGroup({
+      isvaReferralService: new FormControl('', Validators.required),
+      currentlyReceivingSupport: new FormControl('', Validators.required),
+      attendSexualAssaultRefCenter: new FormControl('', Validators.required),
+      policeInvolved: new FormControl('', Validators.required),
+      currentOpenInvestigation: new FormControl('', Validators.required),
+      officerInChargeName: new FormControl(''),
+      officerInChargeService: new FormControl(''),
+      officerInChargeTel: new FormControl(''),
+      victimSupportBeenContact: new FormControl('')
+    }),
+    referralInformation: new FormGroup({
+      briefSummary: new FormControl('', Validators.required),
+      whenWasIt: new FormControl('', Validators.required),
+      offenceType: new FormControl('', Validators.required),
+      ageAtTimeOfOffence: new FormControl('', Validators.required),
+      whatWasGenderOfPerpetror: new FormControl('', Validators.required),
+      whatWasRelationshipToPerpetror: new FormControl('', Validators.required)
+    }),
+    commonSurvivorImpactIndicators : new FormGroup({
+      hasAnyIssuesWithDrugs: new FormControl('', Validators.required),
+      hasAnyIssuesWithDrugsDetail: new FormControl(''),
+      hasOrHadEngagedAnyDrugTreatment: new FormControl('', Validators.required),
+      listOfTreatments: new FormArray([]),
+      currentTreatmentName: new FormControl(''),
+      currentTreatmentService: new FormControl(''),
+      currentTreatmentTel: new FormControl(''),
+      prescribedAnyMedical: new FormControl('', Validators.required),
+      prescribedAnyMedicalDetails: new FormControl(''),
+      servedOrCurrentlyUnderInvestigation: new FormControl('', Validators.required),
+      listOfOffences: new FormArray([]),
+      probationServiceOrCRC: new FormControl('', Validators.required),
+      listOfProbations: new FormArray([]),
+      finalComments: new FormControl('')
+    }),
   });
 
   constructor(private http: HttpClient) {

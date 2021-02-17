@@ -1,5 +1,7 @@
 ﻿using System;
-namespace IAPT.EK.Business.Models
+using IAPT.EK.Business.Models;
+
+namespace IAPT.EK.Business.EReferral.Models
 {
     public class eAgencyInformation: Entity
     {

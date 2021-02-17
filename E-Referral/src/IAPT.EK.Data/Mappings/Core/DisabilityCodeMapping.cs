@@ -10,18 +10,19 @@ namespace IAPT.EK.Data.Mappings
     {
         public void Configure(EntityTypeBuilder<DisabilityCode> builder)
         {
-            builder.HasKey(rg => rg.Id);
+            builder.HasKey(dc => dc.Id);
 
-            builder.HasIndex(rg => rg.Code).IsUnique();
+            builder.HasIndex(dc => dc.Code).IsUnique();
 
-            builder.Property(rg => rg.Code)
+            builder.Property(dc => dc.Code)
                 .IsRequired()
                 .HasColumnType("varchar(5)");
 
-            builder.Property(rg => rg.Description)
+            builder.Property(dc => dc.Description)
                 .IsRequired()
                 .HasColumnType("varchar(100)");
 
+         
             builder.HasData(
                 new DisabilityCode
                 {
@@ -59,8 +60,7 @@ namespace IAPT.EK.Data.Mappings
                     Code = "NN",
                     Description = "No Disability"
                 }
-               
-
+              
                 ); 
         }
         

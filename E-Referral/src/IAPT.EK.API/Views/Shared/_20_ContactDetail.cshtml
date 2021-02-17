@@ -1,53 +1,73 @@
 ﻿@namespace IAPT.EK.API.Views.Referral
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
-@model IAPT.EK.Business.EReferral.Models.eDiversity
+@model IAPT.EK.Business.EReferral.Models.eContactDetail
 
 <div class="panel panel-primary">
     <div class="panel-heading">
-        <h3 class="panel-title">Diversity Indicators</h3>
+        <h3 class="panel-title">Contact Detail</h3>
     </div>
     <div class="panel-body">
-        <table class="table table-striped" width="100px">
+        <table class="table table-striped">
             <tbody>
                 <tr>
-                    <td width="10px">Gender</td>
-                    <td width="90px">@Model?.Gender</td>
+                    <td>NHS Number:</td>
+                    <td>@Model?.NHSNumber</td>
                 </tr>
                 <tr>
-                    <td width="10px">Is this the gender you were assigned at birth</td>
-                    <td width="90px">@Model?.IsgenderAssignedAtBirth</td>
+                    <td>Fisrt Name:</td>
+                    <td>@Model?.FirstName</td>
                 </tr>
                 <tr>
-                    <td width="10px">Ethinicity type</td>
-                    <td width="90px">@Model?.EthnicCategory</td>
+                    <td>Last Name:</td>
+                    <td>@Model?.LastName</td>
                 </tr>
                 <tr>
-                    <td width="10px">Sexuality</td>
-                    <td width="90px">@Model?.Sexuality</td>
+                    <td>D.O.B:</td>
+                    <td>@Model?.BirthDay</td>
                 </tr>
                 <tr>
-                    <td width="10px">Religion</td>
-                    <td width="90px">@Model?.Religion</td>
+                    <td>Address 1:</td>
+                    <td>@Model?.Address1</td>
                 </tr>
                 <tr>
-                    <td width="10px">Do you consider yourself to have a physical disabilityr:</td>
-                    <td width="90px">@Model?.PhysicalDisability</td>
+                    <td>Address 2:</td>
+                    <td>@Model?.Address2</td>
                 </tr>
                 <tr>
-                    <td width="10px">Stated:</td>
-                    <td width="90px">@Model?.PhysicalDisabilityState</td>
+                    <td>Address 2:</td>
+                    <td>@Model?.Address2</td>
                 </tr>
                 <tr>
-                    <td width="10px">Marital Status</td>
-                    <td width="90px">@Model?.MaritalStatus</td>
+                    <td>City:</td>
+                    <td>@Model?.City?.Name.</td>
                 </tr>
                 <tr>
-                    <td width="10px">Do you have any specific need?</td>
-                    <td width="90px">@Model?.SpecificSupportNeeds</td>
+                    <td>Other City:</td>
+                    <td>@Model?.anotherCity</td>
                 </tr>
                 <tr>
-                    <td width="10px">Please state</td>
-                    <td width="90px">@Model?.SpecificSupportNeedState</td>
+                    <td>Postcode:</td>
+                    <td>@Model?.PostCode</td>
+                </tr>
+                <tr>
+                    <td>Phone:</td>
+                    <td>@Model?.Phone</td>
+                </tr>
+                <tr>
+                    <td>Mobile:</td>
+                    <td>@Model?.Mobile</td>
+                </tr>
+                <tr>
+                    <td>Email:</td>
+                    <td>@Model?.Email</td>
+                </tr>
+                <tr>
+                    <td>Method(s) to be contact:</td>
+                    <td>@Model?.MethodsToContact</td>
+                </tr>
+                <tr>
+                    <td>GP:</td>
+                    <td>@Model?.GpPractice?.Description</td>
                 </tr>
             </tbody>
         </table>

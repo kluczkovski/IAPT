@@ -22,6 +22,10 @@ namespace IAPT.EK.Data.Mappings
                 .IsRequired()
                 .HasColumnType("varchar(100)");
 
+            builder.HasMany(rg => rg.EDiversities)
+                .WithOne(d => d.Religion)
+                .OnDelete(DeleteBehavior.SetNull);
+
             builder.HasData(
                 new ReligiousGroup
                 {

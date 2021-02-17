@@ -9,6 +9,7 @@ import { Referral } from '../referral';
 import { ReferralService } from '../referral.service';
 
 import { NgxSpinnerService } from "ngx-spinner";
+import { saveAs } from 'file-saver';
 
 @Component({
   selector: 'app-referral-list',
@@ -43,7 +44,7 @@ export class ReferralListComponent implements OnInit {
 
   // Load Referral
   loadingReferrals() {
-    this.referralService.getAllReferrals()
+    this.referralService.getAllReferral()
       .subscribe(
         (data: Referral[]) => this.dataSource.data = data,
         error => this.notification.error('Error to access Referral, error: ' + error)
@@ -56,6 +57,19 @@ export class ReferralListComponent implements OnInit {
   onDetail(data: Referral) {
 
   }
+
+  onPDF(data: Referral) {
+    this.referralService
+      .pdfReferral(data.id)
+      .subscribe( 
+        (data)=> {
+          console.log(data)
+          var blob = new Blob([data], { type: 'application/pdf' });
+          saveAs(blob, 'referral.pdf')
+        },
+      );
+  }
+
 
   onDelete(data: Referral) {
     // console.log(data);

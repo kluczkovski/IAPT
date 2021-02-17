@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using IAPT.EK.Business.EReferral.Models;
+
 namespace IAPT.EK.Business.Models
 {
     public class GPPractice : Entity
@@ -21,7 +24,10 @@ namespace IAPT.EK.Business.Models
 
         public Guid? CCGCodeId { get; set; }
         public CCGCode CCGCode { get; set; }
-        
+
+
+        // EF
+        public IEnumerable<eContactDetail> eContactDetails { get; set; }
 
         public GPPractice()
         {

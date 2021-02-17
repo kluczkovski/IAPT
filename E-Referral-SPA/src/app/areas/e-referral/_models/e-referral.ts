@@ -6,6 +6,9 @@ import { ArmedForce } from './armedForce';
 import { LongTermPhysicalHealth } from './longTermPhysicalHealth';
 import { RiskIndicator } from './riskIndicator';
 import { ClinicalReferral } from './clinicalReferral';
+import { IsvaReferral } from './isvaReferral';
+import { ReferralInformation } from './referralInformation';
+import { CommonSurvivorImpact } from './commonSurvivorImpact';
 
 export interface Ereferral {
     type: ReferralTypeEnum;
@@ -13,8 +16,11 @@ export interface Ereferral {
     agencyInformation: AgencyInformation;
     contactDetail: ContactDetails;
     diversityDetail: Diversity;
-    // armedForce: ArmedForce;
-    // longTermPhysicalHealth: LongTermPhysicalHealth;
-    // riskIndicator: RiskIndicator;
-    // clinicalReferral: ClinicalReferral;
+    armedForceDetail: ArmedForce;
+    longTermPhysicalHealth: LongTermPhysicalHealth;
+    riskIndicator: RiskIndicator;
+    clinicalReferral: ClinicalReferral;
+    isvaReferral: IsvaReferral;
+    referralInformation: ReferralInformation;
+    commonSurvivorImpact: CommonSurvivorImpact;
 }

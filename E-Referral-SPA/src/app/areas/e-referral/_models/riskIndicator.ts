@@ -1,5 +1,5 @@
 export interface RiskIndicator {
-    hasClientLRisk: string;
+    hasClientRisk: string;
     details: string;
     suicideRisk: number;
     selfHarmRisk: number;

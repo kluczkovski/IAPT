@@ -1,9 +1,10 @@
 ﻿using System;
 using FluentValidation;
+using IAPT.EK.Business.EReferral.Models;
 
 namespace IAPT.EK.Business.Models.Validations
 {
-    public class eContactDetailValidation: AbstractValidator<eContactDetail>
+    public class eContactDetailValidation : AbstractValidator<eContactDetail>
     {
         public eContactDetailValidation()
         {

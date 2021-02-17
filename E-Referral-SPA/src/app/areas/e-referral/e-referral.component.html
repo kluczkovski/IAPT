@@ -16,15 +16,11 @@
         <span>e-Referral</span>
     </mat-toolbar>
 
-    <ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "medium" color = "#fff" type = "timer" [fullScreen] = "true">
-        <p style="color: #00AEEF" > Submitting... </p>
-    </ngx-spinner>
-
     <mat-card-content>
         <div class="mat-elevation-z8">
             <form [formGroup]="ereferralService.Form" (ngSubmit)="onSubmit()">
                 <mat-vertical-stepper [linear]="true" appMatVerticalStepperScroller  #stepper>
-                    
+                
                     <mat-step formGroupName="typeReferral"  [stepControl]="ereferralService.Form.get('typeReferral')">
                         <ng-template matStepLabel>Type Referral</ng-template>
                         <app-type-referral [form]="ereferralService.Form"></app-type-referral>
@@ -40,14 +36,13 @@
                         <app-diversity-detail [form]="ereferralService.Form"></app-diversity-detail>
                     </mat-step>
 
-                    <!--
                     <mat-step formGroupName="armedForceDetail" [stepControl]="ereferralService.Form.get('armedForceDetail')">
                         <ng-template matStepLabel>Armed Forces Details</ng-template>
                         <app-armed-forces-detail [form]="ereferralService.Form"></app-armed-forces-detail>
                     </mat-step>
-
+                   
                     <mat-step formGroupName="longTermPhysicalHealth" [stepControl]="ereferralService.Form.get('longTermPhysicalHealth')">
-                        <ng-template matStepLabel>Long Term Physical Helath Indicator (e.g. Heart Conditions, Epilepsy, COPD)</ng-template>
+                        <ng-template matStepLabel>Long Term Physical Health Indicator (e.g. Heart Conditions, Epilepsy, COPD)</ng-template>
                         <app-long-term-physical-health [form]="ereferralService.Form"></app-long-term-physical-health>
                     </mat-step> 
 
@@ -65,16 +60,16 @@
                         <ng-template matStepLabel>Criminal Justice Support Referral Information</ng-template>
                         <app-isva-referral [form]="ereferralService.Form"></app-isva-referral>
                     </mat-step> 
-
+                   
                     <mat-step formGroupName="referralInformation" [stepControl]="ereferralService.Form.get('referralInformation')">
                         <ng-template matStepLabel>Referral Information</ng-template>
                         <app-referral-information [form]="ereferralService.Form"></app-referral-information>
                     </mat-step>
-
+           
                     <mat-step formGroupName="commonSurvivorImpactIndicators" [stepControl]="ereferralService.Form.get('commonSurvivorImpactIndicators')">
                         <ng-template matStepLabel>Common Survivor Impact Indicators</ng-template>
                         <app-common-survivors-impact [form]="ereferralService.Form"></app-common-survivors-impact>
-                    </mat-step> -->
+                    </mat-step>
 
                     <mat-step>
                         <ng-template matStepLabel>Done</ng-template>
@@ -92,6 +87,3 @@
 </mat-card>
 
 <app-form-debug [form]="ereferralService.Form"></app-form-debug>
-     
-
-

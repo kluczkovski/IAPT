@@ -1,5 +1,4 @@
-﻿using System;
-using IAPT.EK.Business.Models;
+﻿using IAPT.EK.Business.EReferral.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
