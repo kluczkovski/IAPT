@@ -12,11 +12,12 @@
 
 html, body{
     height: 100%;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Source Sans Pro', Helvetica, serif;
 }
 
 body{
     margin: 0;
+    background-color: #f8f8f8;
 }
 
 .table {
@@ -27,7 +28,6 @@ body{
 .button-row a {
    margin: 5px;
 }
-
 
 snack-bar-container.success{
     background-color: #5cb85c;
@@ -82,3 +82,4 @@ snack-bar-container.error{
     color:red;
     font-size: 10px;
 }
+

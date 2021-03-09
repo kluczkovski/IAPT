@@ -1,11 +1,13 @@
 import { throwError } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { HttpErrorResponse, HttpHeaders } from '@angular/common/http';
+import { LocalStorage } from './localStorage';
+import { cwd } from 'process';
 
 export abstract class BaseService {
 
+    public LocalStorage = new LocalStorage();
     protected baseUrl: string = environment.apiUrl;
-
 
     // Get HeeaderJson
     protected getHeaderJson() {
@@ -21,6 +23,12 @@ export abstract class BaseService {
         const messages: string[]  = [];
 
         if (response instanceof HttpErrorResponse) {
+            console.log(response)
+            if (response.statusText === "Unknown Error") {
+                messages.push("Occured an unknow error");
+                response.error.erros = messages;
+            }
+
             if (response.status === 400) {
                 if (!response.error.success) {
                     // Bad Request - Get erros from Back-end
@@ -29,11 +37,19 @@ export abstract class BaseService {
                         messages.push(element);
                     });
                 }
-            } else {
-                messages.push(response.message);
             }
+
+            if (response.status === 500) {
+                messages.push("Internal Server Error");
+            } 
+
         }
         console.log('ERROR OCCURED: ' + messages);
         return throwError(messages);
+    }
+
+    // Extrac Data from the from the response
+    protected extractData(response: any){
+        return response.data || {};
     }
 }

@@ -4,11 +4,12 @@
       #drawer 
       class="sidenav" 
       [ngClass]="{hidden: !(isHandset$ | async)}"
-      fixedInViewport = "false"
+      fixedInViewport 
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
       [opened]="(isHandset$ | async) === false"> 
-    <mat-toolbar color="primary">Menu</mat-toolbar>
+
+    <mat-toolbar class="mat-elevation-z8" style="background-color: #FFFFFF;">Menu</mat-toolbar>
     <mat-nav-list>
       <a mat-list-item 
         [routerLink]="['/e-referral']" 
@@ -17,17 +18,24 @@
         <span>E-Referral</span>
       </a>
       <a mat-list-item 
-        [routerLink]="['/referral']" 
+        [routerLink]="['/admin/referral']" 
         (click)="drawer.close()">
         <mat-icon class="mr-2">list</mat-icon>
         <span>Referrals</span>
       </a>
       <a mat-list-item 
-        [routerLink]="['/user']" 
+        [routerLink]="['/account/signIn']" 
         (click)="drawer.close()">
         <mat-icon class="mr-2">group_work</mat-icon> 
-        <span>Users</span>
+        <span>Sign-In</span>
       </a>
+      <a mat-list-item 
+        [routerLink]="['/account/signUp']" 
+        (click)="drawer.close()">
+        <mat-icon class="mr-2">group_work</mat-icon> 
+        <span>Sign-Up</span>
+      </a>
+
       <a mat-list-item
          [matMenuTriggerFor]="modules" >
         <mat-icon class="mr-2">view_module</mat-icon>
@@ -40,37 +48,37 @@
         <mat-menu #setting="matMenu">
           <button 
             mat-menu-item
-            [routerLink]="['/ccg']"
+            [routerLink]="['/admin/ccg']"
             (click)="drawer.close()">
               CCGs
           </button>
           <button mat-menu-item
             mat-menu-item
-            [routerLink]="['/gppractice']"
+            [routerLink]="['/admin/gppractice']"
             (click)="drawer.close()">
               GP Practices
           </button>
           <button 
             mat-menu-item
-            [routerLink]="['/city']"
+            [routerLink]="['/admin/city']"
             (click)="drawer.close()">
               Cities
           </button>
           <button 
             mat-menu-item
-            [routerLink]="['/religion']" 
+            [routerLink]="['admin/religion']" 
             (click)="drawer.close()"> 
             Religions Group
           </button>
           <button 
             mat-menu-item
-            [routerLink]="['/ehnicCategory']"
+            [routerLink]="['admin/ehnicCategory']"
             (click)="drawer.close()">
               Ethnic Categories
           </button>
           <button 
             mat-menu-item
-            [routerLink]="['/disability']" 
+            [routerLink]="['admin/disability']" 
             (click)="drawer.close()">Disabilityes</button>
         </mat-menu>
       </a>
@@ -78,52 +86,48 @@
     </mat-nav-list>
   </mat-sidenav>
   
-  <mat-sidenav-content class="d-flex flex-column">
+  <mat-sidenav-content>
     
-    <mat-toolbar color="primary" class="d-flex flex-row bd-highlight">
-      <div class="p-2 bd-highlight">
-        <button
-          type="button"
-          aria-label="Toggle sidenav"
-          mat-icon-button
-          (click)="drawer.toggle()">
-          <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
-        </button>
+    <mat-toolbar class="mat-elevation-z2">
+      <div *ngIf="checkUserLogin()">
+        <div class="p-2">
+          <button
+            type="button"
+            aria-label="Toggle sidenav"
+            mat-icon-button
+            (click)="drawer.toggle()">
+            <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+          </button>
+        </div>
+      </div>
+      
+      <div class="p-1">
       </div>
 
-      <div class="p-1 bd-highlight">
-        <span></span>
-      </div>
-
-      <div class="mr-auto p-2 bd-highlight"> 
+      <div class="mr-auto p-2"> 
         <button mat-icon-button> 
           <mat-icon svgIcon="sm-logo" class="svg_icons"></mat-icon>
         </button>
       </div>
 
-      <div class="p-2 bd-highlight">
-        <button mat-icon-button [matMenuTriggerFor]="userMenu"><mat-icon>account_circle</mat-icon></button>
-        <mat-menu #userMenu="matMenu">
-        <button mat-menu-item> 
-          <mat-icon>account_circle</mat-icon>
-          <span>User Profile</span>
-        </button>
-        <button mat-menu-item>
-          <mat-icon>exit_to_app</mat-icon>
-            <span>Logout</span>
-          </button>
-        </mat-menu>
+      <ul  *ngIf="(isSmall$ | async) === false">
+        <li><a href="#"><span class="helplineLabel">Helpline:</span> <span class="helplineOfficeValue">0800 800 5005</span></a></li>
+        <li><a href="#"><span class="officeLabel">Office:</span> <span class="helplineOfficeValue">0161 236 2182</span></a></li>
+      </ul>
+
+      <div>
+        <a href="https:www.google.co.uk" class="button-leave"> <span style="color: #FFFFFF;" >Leave Site</span></a>
       </div>
+
+      <app-menu-login></app-menu-login>
       
     </mat-toolbar>
 
-    <!-- p-3 p-sm-4 -->
-    <main class="flex-grow-1 p-4" style="background-color: #f2f2f2;">
-      <div class="container">
+    <body>
+      <div class="container mt-3">
         <ng-content></ng-content>
       </div>
-    </main>
-
-    <app-footer></app-footer>
+    </body>
+    
   </mat-sidenav-content>
 </mat-sidenav-container>

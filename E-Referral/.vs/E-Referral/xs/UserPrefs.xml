@@ -1,24 +1,27 @@
 ﻿<Properties StartupConfiguration="{B95D2C88-DC43-4742-A2DB-FC20169257D0}|Self-Host-Dev">
-  <MonoDevelop.Ide.Workbench ActiveDocument="src/IAPT.EK.API/Views/Referral/Referral.cshtml">
+  <MonoDevelop.Ide.Workbench ActiveDocument="src/IAPT.EK.API/V1/Controllers/AuthController.cs">
     <Files>
-      <File FileName="src/IAPT.EK.API/Views/Referral/Referral.cshtml" Line="68" Column="1" />
+      <File FileName="src/IAPT.EK.API/Program.cs" Line="14" Column="30" />
+      <File FileName="src/IAPT.EK.API/Startup.cs" />
+      <File FileName="src/IAPT.EK.API/appsettings.Development.json" />
+      <File FileName="src/IAPT.EK.API/appsettings.Production.json" />
+      <File FileName="src/IAPT.EK.API/Properties/launchSettings.json" />
+      <File FileName="src/IAPT.EK.API/V1/Controllers/AuthController.cs" Line="63" Column="17" />
+      <File FileName="src/IAPT.EK.API/DTO/UserLoginDTO.cs" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="E-Referral" expanded="True">
             <Node name="IAPT.EK.API" expanded="True">
-              <Node name="Views" expanded="True">
-                <Node name="Referral" expanded="True">
-                  <Node name="Referral.cshtml" selected="True" />
-                </Node>
-                <Node name="Shared" expanded="True" />
+              <Node name="DTO" expanded="True">
+                <Node name="Core" expanded="True" />
               </Node>
-            </Node>
-            <Node name="IAPT.EK.Business" expanded="True" />
-            <Node name="IAPT.EK.Data" expanded="True">
-              <Node name="Repository" expanded="True">
-                <Node name="E-Referral" expanded="True" />
+              <Node name="Properties" expanded="True" />
+              <Node name="V1" expanded="True">
+                <Node name="Controllers" expanded="True">
+                  <Node name="AuthController.cs" selected="True" />
+                </Node>
               </Node>
             </Node>
           </Node>
@@ -30,7 +33,9 @@
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/Users/ekluczkovski/Projects/IAPT/E-Referral/src/IAPT.EK.API/V1/Controllers/AuthController.cs" relfile="src/IAPT.EK.API/V1/Controllers/AuthController.cs" line="74" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
 </Properties>

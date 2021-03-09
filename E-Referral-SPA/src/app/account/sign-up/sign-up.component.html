@@ -1,0 +1,54 @@
+<div class="d-flex flex-column">
+    
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    
+    <mat-card class="mat-elevation-z8">
+       
+        <h1 class="title"><b> Register User to SM Support</b></h1>
+
+        <div class="container">
+            <form [formGroup]="accountRegister" (ngSubmit)="addUser()">
+                <div class="row mt-3">
+                    <div class="col-md-12">
+                        <mat-form-field class="full-width-input">
+                            <input formControlName="email" matInput placeholder="Email">
+                            <mat-error *ngIf="accountRegister.controls['email'].errors?.required">Email is required</mat-error>
+                            <mat-error *ngIf="accountRegister.controls['email'].errors?.email">Email must be a valid email address</mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md-12">
+                        <mat-form-field class="full-width-input">
+                            <input type="password" formControlName="password" matInput placeholder="Password">
+                            <mat-error *ngIf="accountRegister.controls['password'].errors?.required">Password is required</mat-error>
+                            <mat-error *ngIf="accountRegister.controls['password'].errors?.minlength">Password must be at least 6 characters</mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md-12">
+                        <mat-form-field class="full-width-input">
+                            <input type="password" formControlName="confirmPassword" matInput placeholder="Confirm Password">
+                            <mat-error *ngIf="accountRegister.controls['confirmPassword'].errors?.required">Confirmed Password is required</mat-error>
+                            <mat-error *ngIf="accountRegister.controls['confirmPassword'].errors?.mustmatch">Password must match</mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+
+                <div class="d-flex flex-row justify-content-center mt-3">
+                    <button type="submit" mat-raised-button color="primary" class="mr-2"  style="width: 400px;" [disabled]="accountRegister.invalid">Sign Up</button>
+                </div>  
+
+            </form>
+        </div>
+       
+   
+    </mat-card>
+   
+   
+</div>

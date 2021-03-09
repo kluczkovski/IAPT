@@ -6,11 +6,11 @@
   width: 200px;
 }
 
-.mat-toolbar.mat-primary {
+.mat-toolbar {
   position: sticky;
   top: 0;
   z-index: 1;
-  font-size: 14px;
+  background-color: #FFFFFF;
 }
 
 .hidden {
@@ -21,14 +21,59 @@
   flex: 1 1 auto;
 }
 
-mat-toolbar a {
-  display: inline-block;
-  margin: 0 10px;
-  color: white;
-  text-decoration: none;
-  font-size: 14px;
-}
-
 .svg_icons{
   transform: scale(3.8);
 }  
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+li {
+  float: left;
+}
+li a {
+  display: block;
+  text-align: center;
+  padding: 3px;
+  text-decoration: none;  
+}
+
+.helplineLabel {
+  font-size: 16px;
+  color: #00AEEF;
+  font-weight: lighter;
+  // font-family: 'Source Sans Pro';
+  font-weight: bolder;
+  margin-right: 4px;
+}
+
+.helplineOfficeValue {
+  margin-right: 10px;
+  // font-family: 'Source Sans Pro';
+  color: #929191;
+  font-size: 20px;
+  font-weight: lighter;
+  animation: none;
+  transition: none;
+}
+
+.officeLabel {
+  font-size: 16px;
+  color: #898989;
+  font-weight: bolder;
+  // font-family: 'Source Sans Pro';
+  margin-right: 4px;
+}
+
+.button-leave {
+  background-color: black;
+  color: #FFFFFF;
+  font-weight: 500;
+  display: inline-block;
+  border-radius: 10px 10px 10px 10px;
+  padding: 7px
+}

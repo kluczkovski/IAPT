@@ -6,57 +6,55 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { MaterialModule } from './material.module';
-import { GpPracticeModule } from './areas/gp-practices/gp-practice.module';
-import { CityModule} from './areas/cities/city.module';
+// import { GpPracticeModule } from './admin/gp-practices/gp-practice.module';
 
-// import { NgxSpinnerModule } from "ngx-spinner";
 
 import { AppComponent } from './app.component';
 import { MainNavComponent } from './navigation/main-nav/main-nav.component';
-import { rootRouterConfig } from './app.routers';
 import { FooterComponent } from './navigation/footer/footer.component';
-import { CityService } from './areas/cities/city.service';
+import { CityService } from './admin/cities/city.service';
 import { NotificationService } from './shared/notification.service';
-import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
-import { DisabilityModule } from './areas/disabilities/disability.module';
-import { DisabilityService } from './areas/disabilities/disability.service';
-import { ReligionModule } from './areas/religious-group/religion.module';
-import { CcgModule } from './areas/ccgs/ccg.module';
-import { EthnicCategoryModule } from './areas/ethnic-categories/ethnic-category.module';
-import { EReferralModule } from './areas/e-referral/e-referral.module';
+import { ConfirmDialogComponent } from './shared/components/confirm-dialog/confirm-dialog.component';
+// import { DisabilityModule } from './admin/disabilities/disability.module';
+import { DisabilityService } from './admin/disabilities/disability.service';
+// import { ReligionModule } from './admin/religious-group/religion.module';
+// import { EthnicCategoryModule } from './admin/ethnic-categories/ethnic-category.module';
+import { EReferralModule } from './e-referral/e-referral.module';
 import { MAT_DATE_LOCALE, MAT_DATE_FORMATS, DateAdapter } from '@angular/material/core';
 import { CustomDateAdapter } from './shared/CustomDateAdapter';
-import { ReferralModule } from './areas/referrals/referral.module';
+// import { ReferralModule } from './admin/referrals/referral.module';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { AppRoutingModule } from './app.routing.module';
+import { MenuLoginComponent } from './navigation/menu-login/menu-login.component';
+import { NotFoundComponent } from './navigation/not-found/not-found.component';
+import { AdminAuthGuard } from './admin/admin.guard';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainNavComponent,
     FooterComponent,
-    ConfirmDialogComponent
+    ConfirmDialogComponent,
+    MenuLoginComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
     MaterialModule,
-    CityModule,
-    DisabilityModule,
-    ReligionModule,
-    CcgModule,
-    GpPracticeModule,
-    EthnicCategoryModule,
+    AppRoutingModule,
     EReferralModule,
-    ReferralModule,
     BrowserAnimationsModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    [RouterModule.forRoot(rootRouterConfig, {useHash: false})]
-  ],
+    FlexLayoutModule,
+    ],
 
   providers: [
     CityService,
     DisabilityService,
     NotificationService,
+    AdminAuthGuard,
     {provide: LOCALE_ID, useValue: 'en-GB'},
     {provide: MAT_DATE_LOCALE, useValue: 'en-GB'},
     {provide: DateAdapter, useClass: CustomDateAdapter}
