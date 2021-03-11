@@ -56,6 +56,7 @@
     <Folder Include="Views\" />
     <Folder Include="Views\Referral\" />
     <Folder Include="Views\Shared\" />
+    <Folder Include="Migrations\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="Configuration\IdentityConfig.json" />

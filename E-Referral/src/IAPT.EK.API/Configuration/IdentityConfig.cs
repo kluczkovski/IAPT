@@ -17,7 +17,7 @@ namespace IAPT.EK.API.Configuration
         {
 
             services.AddDbContext<MyIdentitySetupDbContext>(options =>
-                options.UseMySql(configuration.GetConnectionString("DefaultConnection"), builder =>
+                options.UseSqlServer(configuration.GetConnectionString("DefaultConnection"), builder =>
                 builder.MigrationsAssembly(typeof(MyIdentitySetupDbContext).Assembly.FullName)));
 
             services.AddDefaultIdentity<IdentityUser>()

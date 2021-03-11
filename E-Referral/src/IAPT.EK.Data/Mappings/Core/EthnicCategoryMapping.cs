@@ -27,7 +27,7 @@ namespace IAPT.EK.Data.Mappings
 
             builder.Property(a => a.Sequence)
                    .IsRequired()
-                   .HasColumnType("int(5)");
+                   .HasColumnType("int");
 
             builder.HasMany(a => a.EDiversities)
                    .WithOne(d => d.EthnicCategory)

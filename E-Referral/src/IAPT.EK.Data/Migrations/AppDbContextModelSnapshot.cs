@@ -3,6 +3,7 @@ using System;
 using IAPT.EK.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace IAPT.EK.Data.Migrations
@@ -15,25 +16,60 @@ namespace IAPT.EK.Data.Migrations
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "3.1.7")
-                .HasAnnotation("Relational:MaxIdentifierLength", 64);
+                .HasAnnotation("Relational:MaxIdentifierLength", 128)
+                .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+            modelBuilder.Entity("IAPT.EK.Business.EReferral.Models.eAgencyInformation", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Agency")
+                        .IsRequired()
+                        .HasColumnType("varchar(150)");
+
+                    b.Property<bool>("AgencyHasClientConsent")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("ContactPerson")
+                        .IsRequired()
+                        .HasColumnType("varchar(150)");
+
+                    b.Property<Guid>("EReferralId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("varchar(100)");
+
+                    b.Property<string>("Phone")
+                        .HasColumnType("varchar(50)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("EReferralId")
+                        .IsUnique();
+
+                    b.ToTable("EAgencyInformations");
+                });
 
             modelBuilder.Entity("IAPT.EK.Business.EReferral.Models.eArmedForce", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("char(36)");
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<int>("Branch")
                         .HasColumnType("int");
 
                     b.Property<Guid>("EReferralId")
-                        .HasColumnType("char(36)");
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("HasLinkedWithArmedForce")
                         .HasColumnType("varchar(10)");
 
                     b.Property<bool>("MemberOfArmedForce")
-                        .HasColumnType("tinyint(1)");
+                        .HasColumnType("bit");
 
                     b.Property<string>("ServiceNumber")
                         .HasColumnType("varchar(20)");
@@ -50,16 +86,16 @@ namespace IAPT.EK.Data.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("char(36)");
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<bool>("AccessedCurrentlyOtherService")
-                        .HasColumnType("tinyint(1)");
+                        .HasColumnType("bit");
 
                     b.Property<bool>("AccessedSMBefore")
-                        .HasColumnType("tinyint(1)");
+                        .HasColumnType("bit");
 
                     b.Property<bool>("AccessingService")
-                        .HasColumnType("tinyint(1)");
+                        .HasColumnType("bit");
 
                     b.Property<string>("AccessingServiceWorkName")
                         .HasColumnType("varchar(100)");
@@ -71,19 +107,19 @@ namespace IAPT.EK.Data.Migrations
                         .HasColumnType("varchar(100)");
 
                     b.Property<bool>("ClinicalSupportService")
-                        .HasColumnType("tinyint(1)");
+                        .HasColumnType("bit");
 
                     b.Property<bool>("HasMentalHealthDiag")
-                        .HasColumnType("tinyint(1)");
+                        .HasColumnType("bit");
 
                     b.Property<string>("SMBeforeWhen")
                         .HasColumnType("varchar(50)");
 
                     b.Property<string>("StatedMentalHealth")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<Guid>("eReferralId")
-                        .HasColumnType("char(36)");
+                        .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
 
@@ -97,7 +133,7 @@ namespace IAPT.EK.Data.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("char(36)");
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("CurrentTreatmentName")
                         .HasColumnType("varchar(50)");
@@ -109,16 +145,16 @@ namespace IAPT.EK.Data.Migrations
                         .HasColumnType("varchar(30)");
 
                     b.Property<Guid>("EReferralId")
-                        .HasColumnType("char(36)");
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("FinalComments")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("HasAnyIssuesWithDrugs")
-                        .HasColumnType("tinyint(1)");
+                        .HasColumnType("bit");
 
                     b.Property<string>("HasAnyIssuesWithDrugsDetail")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("HasOrHadEngagedAnyDrugTreatment")
                         .HasColumnType("varchar(20)");
@@ -127,13 +163,13 @@ namespace IAPT.EK.Data.Migrations
                         .HasColumnType("varchar(20)");
 
                     b.Property<string>("PrescribedAnyMedicalDetails")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ProbationServiceOrCRC")
                         .HasColumnType("varchar(20)");
 
                     b.Property<bool>("ServedOrCurrentlyUnderInvestigation")
-                        .HasColumnType("tinyint(1)");
+                        .HasColumnType("bit");
 
                     b.HasKey("Id");
 
@@ -143,697 +179,11 @@ namespace IAPT.EK.Data.Migrations
                     b.ToTable("eCommonSurvivorImpacts");
                 });
 
-            modelBuilder.Entity("IAPT.EK.Business.EReferral.Models.eIsvaReferralInfo", b =>
+            modelBuilder.Entity("IAPT.EK.Business.EReferral.Models.eContactDetail", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("char(36)");
-
-                    b.Property<string>("AttendSexualAssaultRefCenter")
-                        .IsRequired()
-                        .HasColumnType("varchar(5)");
-
-                    b.Property<bool>("CurrentOpenInvestigation")
-                        .HasColumnType("tinyint(1)");
-
-                    b.Property<bool>("CurrentlyReceivingSupport")
-                        .HasColumnType("tinyint(1)");
-
-                    b.Property<bool>("IsvaReferralService")
-                        .HasColumnType("tinyint(1)");
-
-                    b.Property<string>("OfficerInChargeName")
-                        .HasColumnType("varchar(50)");
-
-                    b.Property<string>("OfficerInChargeService")
-                        .HasColumnType("varchar(50)");
-
-                    b.Property<string>("OfficerInChargeTel")
-                        .HasColumnType("varchar(50)");
-
-                    b.Property<bool>("PoliceInvolved")
-                        .HasColumnType("tinyint(1)");
-
-                    b.Property<bool>("VictimSupportBeenContact")
-                        .HasColumnType("tinyint(1)");
-
-                    b.Property<Guid>("eReferralId")
-                        .HasColumnType("char(36)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("eReferralId")
-                        .IsUnique();
-
-                    b.ToTable("eIsvaReferralInfos");
-                });
-
-            modelBuilder.Entity("IAPT.EK.Business.EReferral.Models.eLongTermPhysicalHealth", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("char(36)");
-
-                    b.Property<string>("Details")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
-
-                    b.Property<Guid>("EReferralId")
-                        .HasColumnType("char(36)");
-
-                    b.Property<string>("HasClientLTPH")
-                        .IsRequired()
-                        .HasColumnType("varchar(50)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("EReferralId")
-                        .IsUnique();
-
-                    b.ToTable("eLongTermPhysicalHealths");
-                });
-
-            modelBuilder.Entity("IAPT.EK.Business.EReferral.Models.eOffence", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("char(36)");
-
-                    b.Property<string>("Conviction")
-                        .HasColumnType("varchar(30)");
-
-                    b.Property<Guid>("ECommonSurvivorImpactId")
-                        .HasColumnType("char(36)");
-
-                    b.Property<string>("LengthOfSentence")
-                        .HasColumnType("varchar(30)");
-
-                    b.Property<string>("MonthYearSentence")
-                        .HasColumnType("varchar(30)");
-
-                    b.Property<string>("Offence")
-                        .HasColumnType("varchar(150)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ECommonSurvivorImpactId");
-
-                    b.ToTable("eOffences");
-                });
-
-            modelBuilder.Entity("IAPT.EK.Business.EReferral.Models.eProbationService", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("char(36)");
-
-                    b.Property<bool>("ConsentToContact")
-                        .HasColumnType("tinyint(1)");
-
-                    b.Property<Guid>("ECommonSurvivorImpactId")
-                        .HasColumnType("char(36)");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("varchar(50)");
-
-                    b.Property<string>("Service")
-                        .HasColumnType("varchar(100)");
-
-                    b.Property<string>("Telephone")
-                        .HasColumnType("varchar(50)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ECommonSurvivorImpactId");
-
-                    b.ToTable("eProbationServices");
-                });
-
-            modelBuilder.Entity("IAPT.EK.Business.EReferral.Models.eRiskIndicator", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("char(36)");
-
-                    b.Property<string>("Details")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
-
-                    b.Property<Guid>("EReferralId")
-                        .HasColumnType("char(36)");
-
-                    b.Property<string>("HasClientRisk")
-                        .IsRequired()
-                        .HasColumnType("varchar(50)");
-
-                    b.Property<int>("SelfHarmRisk")
-                        .HasColumnType("int");
-
-                    b.Property<int>("SuicideRisk")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("EReferralId")
-                        .IsUnique();
-
-                    b.ToTable("eRiskIndicators");
-                });
-
-            modelBuilder.Entity("IAPT.EK.Business.EReferral.Models.eService", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("char(36)");
-
-                    b.Property<Guid>("ECommonSurvivorImpactId")
-                        .HasColumnType("char(36)");
-
-                    b.Property<string>("End")
-                        .HasColumnType("varchar(50)");
-
-                    b.Property<string>("Service")
-                        .HasColumnType("varchar(150)");
-
-                    b.Property<string>("Start")
-                        .HasColumnType("varchar(50)");
-
-                    b.Property<string>("TreatmentProvided")
-                        .HasColumnType("varchar(100)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ECommonSurvivorImpactId");
-
-                    b.ToTable("eServices");
-                });
-
-            modelBuilder.Entity("IAPT.EK.Business.EReferral.Models.eSexualOffence", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("char(36)");
-
-                    b.Property<string>("AgeAtTimeOfOffence")
-                        .IsRequired()
-                        .HasColumnType("varchar(250)");
-
-                    b.Property<string>("BriefSummary")
-                        .IsRequired()
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
-
-                    b.Property<string>("OffenceType")
-                        .IsRequired()
-                        .HasColumnType("varchar(250)");
-
-                    b.Property<string>("WhatWasGenderOfPerpetror")
-                        .IsRequired()
-                        .HasColumnType("varchar(250)");
-
-                    b.Property<string>("WhatWasRelationshipToPerpetror")
-                        .IsRequired()
-                        .HasColumnType("varchar(250)");
-
-                    b.Property<string>("WhenWasIt")
-                        .IsRequired()
-                        .HasColumnType("varchar(50)");
-
-                    b.Property<Guid>("eReferralId")
-                        .HasColumnType("char(36)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("eReferralId")
-                        .IsUnique();
-
-                    b.ToTable("eSexualOffences");
-                });
-
-            modelBuilder.Entity("IAPT.EK.Business.EReferral.Models.eTreatment", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("char(36)");
-
-                    b.Property<Guid>("EClinicalReferralInfoID")
-                        .HasColumnType("char(36)");
-
-                    b.Property<string>("End")
-                        .HasColumnType("varchar(50)");
-
-                    b.Property<string>("Service")
-                        .HasColumnType("varchar(100)");
-
-                    b.Property<string>("Start")
-                        .HasColumnType("varchar(50)");
-
-                    b.Property<string>("TreatmentProvided")
-                        .HasColumnType("varchar(100)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("EClinicalReferralInfoID");
-
-                    b.ToTable("eTreatments");
-                });
-
-            modelBuilder.Entity("IAPT.EK.Business.Models.CCGCode", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("char(36)");
-
-                    b.Property<string>("Code")
-                        .IsRequired()
-                        .HasColumnType("varchar(5)");
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("varchar(100)");
-
-                    b.Property<string>("Hub")
-                        .HasColumnType("varchar(5)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("Code")
-                        .IsUnique();
-
-                    b.ToTable("CCGCodes");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("fa4a6c6f-e133-40aa-9c7f-b0ff21da4c42"),
-                            Code = "01G",
-                            Description = "NHS Salford CCG",
-                            Hub = "Q73"
-                        },
-                        new
-                        {
-                            Id = new Guid("09749016-2b22-4561-b34f-04b3ff11ad43"),
-                            Code = "01M",
-                            Description = "NHS North Manchester CCG"
-                        },
-                        new
-                        {
-                            Id = new Guid("020f19e8-1a8e-4b48-ae0d-ef5371b3dccd"),
-                            Code = "01N",
-                            Description = "NHS South Manchester CCG",
-                            Hub = "Q73"
-                        },
-                        new
-                        {
-                            Id = new Guid("737e33a8-b34f-4e4b-bb37-044d1d1f51ac"),
-                            Code = "12F",
-                            Description = "NHS Wirral CCG",
-                            Hub = "Q75"
-                        });
-                });
-
-            modelBuilder.Entity("IAPT.EK.Business.Models.City", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("char(36)");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("varchar(100)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Cities");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("0d9a3810-fdb8-4ede-8db4-e6ef3e3f4dcf"),
-                            Name = "Liverpool"
-                        },
-                        new
-                        {
-                            Id = new Guid("f601187f-75c4-4e86-aa69-a4f2f3eaa5bc"),
-                            Name = "Manchester"
-                        },
-                        new
-                        {
-                            Id = new Guid("258be96b-7e8d-4177-a0b9-feff6ea4f1e0"),
-                            Name = "Salfor"
-                        },
-                        new
-                        {
-                            Id = new Guid("a95f9c73-4923-491a-91a3-cfead369845a"),
-                            Name = "York"
-                        },
-                        new
-                        {
-                            Id = new Guid("6e455f23-a817-41e4-858d-3286d3a4f16a"),
-                            Name = "Leeds"
-                        },
-                        new
-                        {
-                            Id = new Guid("15c91e11-fb1a-4e05-b77a-48595e69062a"),
-                            Name = "Chester"
-                        },
-                        new
-                        {
-                            Id = new Guid("bd6faa0e-a0ac-4fdd-9d84-ba427abe33d0"),
-                            Name = "Oldhan"
-                        },
-                        new
-                        {
-                            Id = new Guid("4b0fb160-ccd3-4acc-8dd0-9b3391466d22"),
-                            Name = "Other"
-                        });
-                });
-
-            modelBuilder.Entity("IAPT.EK.Business.Models.DisabilityCode", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("char(36)");
-
-                    b.Property<string>("Code")
-                        .IsRequired()
-                        .HasColumnType("varchar(5)");
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("varchar(100)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("Code")
-                        .IsUnique();
-
-                    b.ToTable("DisabilityCodes");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("a47ce8f0-3279-4191-b567-0c9ead311460"),
-                            Code = "01",
-                            Description = "Behaviour and Emotional"
-                        },
-                        new
-                        {
-                            Id = new Guid("e3702e37-f1b2-4ab8-86ce-2d769340c885"),
-                            Code = "02",
-                            Description = "Hearing"
-                        },
-                        new
-                        {
-                            Id = new Guid("3a8b9418-b940-4545-a027-277a140d7bcd"),
-                            Code = "03",
-                            Description = "Manual Dexterity"
-                        },
-                        new
-                        {
-                            Id = new Guid("d2c6bd70-37a5-4345-9f6b-2f45209d05a8"),
-                            Code = "04",
-                            Description = "Memory or ability to concentrate, learn or understand (Learning Disability)"
-                        },
-                        new
-                        {
-                            Id = new Guid("1af119bf-29da-483e-b301-03c249e8b3af"),
-                            Code = "XX",
-                            Description = "Other"
-                        },
-                        new
-                        {
-                            Id = new Guid("ad6ef5c6-7706-4431-a85c-2bc94f61ff68"),
-                            Code = "NN",
-                            Description = "No Disability"
-                        });
-                });
-
-            modelBuilder.Entity("IAPT.EK.Business.Models.EthnicCategory", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("char(36)");
-
-                    b.Property<string>("Code")
-                        .IsRequired()
-                        .HasColumnType("varchar(5)");
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("varchar(100)");
-
-                    b.Property<int>("Sequence")
-                        .HasColumnType("int(5)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("Code")
-                        .IsUnique();
-
-                    b.ToTable("EthnicCategories");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("0c6c1a04-4ee5-4ed1-9c91-924d1934f737"),
-                            Code = "A",
-                            Description = "White -British",
-                            Sequence = 15
-                        },
-                        new
-                        {
-                            Id = new Guid("305d3e75-cbea-45a3-b6a1-12b12e9bc654"),
-                            Code = "B",
-                            Description = "White - Irish",
-                            Sequence = 20
-                        },
-                        new
-                        {
-                            Id = new Guid("fb1a21db-2704-4c10-9dd9-be06678a6513"),
-                            Code = "C",
-                            Description = "White - Any other White background",
-                            Sequence = 23
-                        },
-                        new
-                        {
-                            Id = new Guid("baeb98f8-33a1-4ef8-9ea1-5b94cc5cf5e6"),
-                            Code = "D",
-                            Description = "Mixed - White and Black Caribbean",
-                            Sequence = 25
-                        },
-                        new
-                        {
-                            Id = new Guid("4ad047cb-1960-4b08-a68b-d4c68231176f"),
-                            Code = "E",
-                            Description = "Mixed - White and Black African",
-                            Sequence = 30
-                        },
-                        new
-                        {
-                            Id = new Guid("ed41d6f4-dfe3-4fab-9ccd-ff085302f819"),
-                            Code = "F",
-                            Description = "Mixed - White and Asian",
-                            Sequence = 35
-                        },
-                        new
-                        {
-                            Id = new Guid("9ac55b20-fc0a-47aa-ae34-2b1bbf5d0afc"),
-                            Code = "G",
-                            Description = "Mixed - Any mixed backgroundn",
-                            Sequence = 40
-                        });
-                });
-
-            modelBuilder.Entity("IAPT.EK.Business.Models.GPPractice", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("char(36)");
-
-                    b.Property<string>("AddressLine1")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
-
-                    b.Property<string>("AddressLine2")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
-
-                    b.Property<string>("AddressLine3")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
-
-                    b.Property<string>("AddressLine4")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
-
-                    b.Property<string>("AddressLine5")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
-
-                    b.Property<Guid?>("CCGCodeId")
-                        .HasColumnType("char(36)");
-
-                    b.Property<string>("Code")
-                        .IsRequired()
-                        .HasColumnType("varchar(6)");
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("varchar(100)");
-
-                    b.Property<string>("PostCode")
-                        .HasColumnType("varchar(8)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("CCGCodeId");
-
-                    b.HasIndex("Code")
-                        .IsUnique();
-
-                    b.ToTable("GPPractices");
-                });
-
-            modelBuilder.Entity("IAPT.EK.Business.Models.ReligiousGroup", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("char(36)");
-
-                    b.Property<string>("Code")
-                        .IsRequired()
-                        .HasColumnType("varchar(5)");
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("varchar(100)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("Code")
-                        .IsUnique();
-
-                    b.ToTable("ReligiousGroups");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("45c7ef0d-8cbc-4a19-84f9-93077d49814a"),
-                            Code = "A",
-                            Description = "Baha'i"
-                        },
-                        new
-                        {
-                            Id = new Guid("b12d905d-9f36-42aa-a1fe-d8deb61f2def"),
-                            Code = "B",
-                            Description = "Buddhist"
-                        },
-                        new
-                        {
-                            Id = new Guid("b51126a6-a2d8-4397-9eb3-b18d15b75594"),
-                            Code = "C",
-                            Description = "Christian"
-                        },
-                        new
-                        {
-                            Id = new Guid("870a4107-5cb5-4152-b444-2edcd9271cbe"),
-                            Code = "D",
-                            Description = "Hindu"
-                        },
-                        new
-                        {
-                            Id = new Guid("f3224334-5bcd-4417-98a0-269abcdc36b3"),
-                            Code = "E",
-                            Description = "Jain"
-                        },
-                        new
-                        {
-                            Id = new Guid("7d9627b3-5549-4eef-9d3a-9cc13608f472"),
-                            Code = "F",
-                            Description = "Jewish"
-                        },
-                        new
-                        {
-                            Id = new Guid("c87ea713-f4b0-45e7-96a6-1e801cb25f42"),
-                            Code = "G",
-                            Description = "Muslim"
-                        },
-                        new
-                        {
-                            Id = new Guid("81b0fc2d-2f53-4a03-8b51-471408dab7cf"),
-                            Code = "H",
-                            Description = "Pagan"
-                        },
-                        new
-                        {
-                            Id = new Guid("445a999c-9360-4786-b0e3-79109ee46162"),
-                            Code = "I",
-                            Description = "Sikh"
-                        },
-                        new
-                        {
-                            Id = new Guid("e05b7239-c545-435a-b5fc-662cfa50d5d0"),
-                            Code = "J",
-                            Description = "Zoroastrian"
-                        },
-                        new
-                        {
-                            Id = new Guid("70479e49-d7b5-4e6a-a13f-4a7d1cde886c"),
-                            Code = "K",
-                            Description = "Other"
-                        },
-                        new
-                        {
-                            Id = new Guid("8d8836f2-5da7-4ea3-9d1a-d72080869aa5"),
-                            Code = "L",
-                            Description = "None"
-                        },
-                        new
-                        {
-                            Id = new Guid("07429971-268b-47ac-9bde-a0a366ade746"),
-                            Code = "M",
-                            Description = "Declines to Disclose"
-                        },
-                        new
-                        {
-                            Id = new Guid("19b2788c-60f8-45a0-8c26-ce8f0f3fa980"),
-                            Code = "N",
-                            Description = "Patient Religion Unknown"
-                        });
-                });
-
-            modelBuilder.Entity("IAPT.EK.Business.Models.eAgencyInformation", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("char(36)");
-
-                    b.Property<string>("Agency")
-                        .IsRequired()
-                        .HasColumnType("varchar(150)");
-
-                    b.Property<bool>("AgencyHasClientConsent")
-                        .HasColumnType("tinyint(1)");
-
-                    b.Property<string>("ContactPerson")
-                        .IsRequired()
-                        .HasColumnType("varchar(150)");
-
-                    b.Property<Guid>("EReferralId")
-                        .HasColumnType("char(36)");
-
-                    b.Property<string>("Email")
-                        .HasColumnType("varchar(100)");
-
-                    b.Property<string>("Phone")
-                        .HasColumnType("varchar(50)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("EReferralId")
-                        .IsUnique();
-
-                    b.ToTable("EAgencyInformations");
-                });
-
-            modelBuilder.Entity("IAPT.EK.Business.Models.eContactDetail", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("char(36)");
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Address1")
                         .IsRequired()
@@ -843,13 +193,13 @@ namespace IAPT.EK.Data.Migrations
                         .HasColumnType("varchar(100)");
 
                     b.Property<DateTime>("BirthDay")
-                        .HasColumnType("datetime(6)");
+                        .HasColumnType("datetime2");
 
                     b.Property<Guid?>("CityId")
-                        .HasColumnType("char(36)");
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid>("EReferralId")
-                        .HasColumnType("char(36)");
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Email")
                         .HasColumnType("varchar(150)");
@@ -859,7 +209,7 @@ namespace IAPT.EK.Data.Migrations
                         .HasColumnType("varchar(150)");
 
                     b.Property<Guid?>("GpPracticeId")
-                        .HasColumnType("char(36)");
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("LastName")
                         .IsRequired()
@@ -896,17 +246,17 @@ namespace IAPT.EK.Data.Migrations
                     b.ToTable("EContactDetails");
                 });
 
-            modelBuilder.Entity("IAPT.EK.Business.Models.eDiversity", b =>
+            modelBuilder.Entity("IAPT.EK.Business.EReferral.Models.eDiversity", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("char(36)");
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid>("EReferralId")
-                        .HasColumnType("char(36)");
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid?>("EthnicCategoryId")
-                        .HasColumnType("char(36)");
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Gender")
                         .IsRequired()
@@ -932,7 +282,7 @@ namespace IAPT.EK.Data.Migrations
                         .HasColumnType("varchar(500)");
 
                     b.Property<Guid?>("ReligionId")
-                        .HasColumnType("char(36)");
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Sexuality")
                         .IsRequired()
@@ -957,14 +307,139 @@ namespace IAPT.EK.Data.Migrations
                     b.ToTable("EDiversities");
                 });
 
-            modelBuilder.Entity("IAPT.EK.Business.Models.eReferral", b =>
+            modelBuilder.Entity("IAPT.EK.Business.EReferral.Models.eIsvaReferralInfo", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("char(36)");
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("AttendSexualAssaultRefCenter")
+                        .IsRequired()
+                        .HasColumnType("varchar(5)");
+
+                    b.Property<bool>("CurrentOpenInvestigation")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("CurrentlyReceivingSupport")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsvaReferralService")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("OfficerInChargeName")
+                        .HasColumnType("varchar(50)");
+
+                    b.Property<string>("OfficerInChargeService")
+                        .HasColumnType("varchar(50)");
+
+                    b.Property<string>("OfficerInChargeTel")
+                        .HasColumnType("varchar(50)");
+
+                    b.Property<bool>("PoliceInvolved")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("VictimSupportBeenContact")
+                        .HasColumnType("bit");
+
+                    b.Property<Guid>("eReferralId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("eReferralId")
+                        .IsUnique();
+
+                    b.ToTable("eIsvaReferralInfos");
+                });
+
+            modelBuilder.Entity("IAPT.EK.Business.EReferral.Models.eLongTermPhysicalHealth", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Details")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("EReferralId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("HasClientLTPH")
+                        .IsRequired()
+                        .HasColumnType("varchar(50)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("EReferralId")
+                        .IsUnique();
+
+                    b.ToTable("eLongTermPhysicalHealths");
+                });
+
+            modelBuilder.Entity("IAPT.EK.Business.EReferral.Models.eOffence", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Conviction")
+                        .HasColumnType("varchar(30)");
+
+                    b.Property<Guid>("ECommonSurvivorImpactId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("LengthOfSentence")
+                        .HasColumnType("varchar(30)");
+
+                    b.Property<string>("MonthYearSentence")
+                        .HasColumnType("varchar(30)");
+
+                    b.Property<string>("Offence")
+                        .HasColumnType("varchar(150)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ECommonSurvivorImpactId");
+
+                    b.ToTable("eOffences");
+                });
+
+            modelBuilder.Entity("IAPT.EK.Business.EReferral.Models.eProbationService", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<bool>("ConsentToContact")
+                        .HasColumnType("bit");
+
+                    b.Property<Guid>("ECommonSurvivorImpactId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("varchar(50)");
+
+                    b.Property<string>("Service")
+                        .HasColumnType("varchar(100)");
+
+                    b.Property<string>("Telephone")
+                        .HasColumnType("varchar(50)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ECommonSurvivorImpactId");
+
+                    b.ToTable("eProbationServices");
+                });
+
+            modelBuilder.Entity("IAPT.EK.Business.EReferral.Models.eReferral", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("ReceivedDate")
-                        .HasColumnType("datetime(6)");
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Source")
                         .HasColumnType("varchar(100)");
@@ -982,9 +457,545 @@ namespace IAPT.EK.Data.Migrations
                     b.ToTable("EReferrals");
                 });
 
+            modelBuilder.Entity("IAPT.EK.Business.EReferral.Models.eRiskIndicator", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Details")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("EReferralId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("HasClientRisk")
+                        .IsRequired()
+                        .HasColumnType("varchar(50)");
+
+                    b.Property<int>("SelfHarmRisk")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SuicideRisk")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("EReferralId")
+                        .IsUnique();
+
+                    b.ToTable("eRiskIndicators");
+                });
+
+            modelBuilder.Entity("IAPT.EK.Business.EReferral.Models.eService", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("ECommonSurvivorImpactId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("End")
+                        .HasColumnType("varchar(50)");
+
+                    b.Property<string>("Service")
+                        .HasColumnType("varchar(150)");
+
+                    b.Property<string>("Start")
+                        .HasColumnType("varchar(50)");
+
+                    b.Property<string>("TreatmentProvided")
+                        .HasColumnType("varchar(100)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ECommonSurvivorImpactId");
+
+                    b.ToTable("eServices");
+                });
+
+            modelBuilder.Entity("IAPT.EK.Business.EReferral.Models.eSexualOffence", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("AgeAtTimeOfOffence")
+                        .IsRequired()
+                        .HasColumnType("varchar(250)");
+
+                    b.Property<string>("BriefSummary")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("OffenceType")
+                        .IsRequired()
+                        .HasColumnType("varchar(250)");
+
+                    b.Property<string>("WhatWasGenderOfPerpetror")
+                        .IsRequired()
+                        .HasColumnType("varchar(250)");
+
+                    b.Property<string>("WhatWasRelationshipToPerpetror")
+                        .IsRequired()
+                        .HasColumnType("varchar(250)");
+
+                    b.Property<string>("WhenWasIt")
+                        .IsRequired()
+                        .HasColumnType("varchar(50)");
+
+                    b.Property<Guid>("eReferralId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("eReferralId")
+                        .IsUnique();
+
+                    b.ToTable("eSexualOffences");
+                });
+
+            modelBuilder.Entity("IAPT.EK.Business.EReferral.Models.eTreatment", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("EClinicalReferralInfoID")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("End")
+                        .HasColumnType("varchar(50)");
+
+                    b.Property<string>("Service")
+                        .HasColumnType("varchar(100)");
+
+                    b.Property<string>("Start")
+                        .HasColumnType("varchar(50)");
+
+                    b.Property<string>("TreatmentProvided")
+                        .HasColumnType("varchar(100)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("EClinicalReferralInfoID");
+
+                    b.ToTable("eTreatments");
+                });
+
+            modelBuilder.Entity("IAPT.EK.Business.Models.CCGCode", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Code")
+                        .IsRequired()
+                        .HasColumnType("varchar(5)");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("varchar(100)");
+
+                    b.Property<string>("Hub")
+                        .HasColumnType("varchar(5)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Code")
+                        .IsUnique();
+
+                    b.ToTable("CCGCodes");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("bb55d1e0-52e7-460e-a803-b68b0a26e5a7"),
+                            Code = "01G",
+                            Description = "NHS Salford CCG",
+                            Hub = "Q73"
+                        },
+                        new
+                        {
+                            Id = new Guid("93f3a833-5efd-422b-8f17-213df5eff2cd"),
+                            Code = "01M",
+                            Description = "NHS North Manchester CCG"
+                        },
+                        new
+                        {
+                            Id = new Guid("880546c0-5a1d-4362-ac36-5877b4568f78"),
+                            Code = "01N",
+                            Description = "NHS South Manchester CCG",
+                            Hub = "Q73"
+                        },
+                        new
+                        {
+                            Id = new Guid("f4cfab55-a07a-49fe-80c6-fcb7d68be2c4"),
+                            Code = "12F",
+                            Description = "NHS Wirral CCG",
+                            Hub = "Q75"
+                        });
+                });
+
+            modelBuilder.Entity("IAPT.EK.Business.Models.City", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("varchar(100)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Cities");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("e4d7ae5d-7ec5-4bbf-a215-ee5172c5efe2"),
+                            Name = "Liverpool"
+                        },
+                        new
+                        {
+                            Id = new Guid("d41c4240-a8cd-4b79-93d5-f81667fda458"),
+                            Name = "Manchester"
+                        },
+                        new
+                        {
+                            Id = new Guid("13664d32-c73e-4b52-b9e3-4ba588832001"),
+                            Name = "Salfor"
+                        },
+                        new
+                        {
+                            Id = new Guid("eda94419-7997-46b9-8b00-1ccec00af0a9"),
+                            Name = "York"
+                        },
+                        new
+                        {
+                            Id = new Guid("462a8b76-827f-4028-b9ed-e09b60944f09"),
+                            Name = "Leeds"
+                        },
+                        new
+                        {
+                            Id = new Guid("a44c7024-5ba2-410f-8b9f-1594dc122e13"),
+                            Name = "Chester"
+                        },
+                        new
+                        {
+                            Id = new Guid("5a47ce65-1672-47f6-b865-b7e9f077c173"),
+                            Name = "Oldhan"
+                        },
+                        new
+                        {
+                            Id = new Guid("1824dc7b-4373-4323-ada8-401a945c044b"),
+                            Name = "Other"
+                        });
+                });
+
+            modelBuilder.Entity("IAPT.EK.Business.Models.DisabilityCode", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Code")
+                        .IsRequired()
+                        .HasColumnType("varchar(5)");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("varchar(100)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Code")
+                        .IsUnique();
+
+                    b.ToTable("DisabilityCodes");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("2f67b95c-b76d-4376-b964-93a78f92ad48"),
+                            Code = "01",
+                            Description = "Behaviour and Emotional"
+                        },
+                        new
+                        {
+                            Id = new Guid("a1d7e58e-d0e0-4515-bf59-fe98c52f24a8"),
+                            Code = "02",
+                            Description = "Hearing"
+                        },
+                        new
+                        {
+                            Id = new Guid("20465deb-31d6-42a7-95be-a369731f64f4"),
+                            Code = "03",
+                            Description = "Manual Dexterity"
+                        },
+                        new
+                        {
+                            Id = new Guid("8bc1ad23-9bc2-4395-bf57-189a25e8dab7"),
+                            Code = "04",
+                            Description = "Memory or ability to concentrate, learn or understand (Learning Disability)"
+                        },
+                        new
+                        {
+                            Id = new Guid("b6524e99-0b78-4862-a8f0-fe875ab243e3"),
+                            Code = "XX",
+                            Description = "Other"
+                        },
+                        new
+                        {
+                            Id = new Guid("19bd1950-78ef-4281-a570-26bd91da9abf"),
+                            Code = "NN",
+                            Description = "No Disability"
+                        });
+                });
+
+            modelBuilder.Entity("IAPT.EK.Business.Models.EthnicCategory", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Code")
+                        .IsRequired()
+                        .HasColumnType("varchar(5)");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("varchar(100)");
+
+                    b.Property<int>("Sequence")
+                        .HasColumnType("int(5)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Code")
+                        .IsUnique();
+
+                    b.ToTable("EthnicCategories");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("c4fe5163-4135-4265-a7ef-c4248501712d"),
+                            Code = "A",
+                            Description = "White -British",
+                            Sequence = 15
+                        },
+                        new
+                        {
+                            Id = new Guid("f5e2d10f-7334-4043-95c6-b4a9734d37c7"),
+                            Code = "B",
+                            Description = "White - Irish",
+                            Sequence = 20
+                        },
+                        new
+                        {
+                            Id = new Guid("9b466dfa-d984-4c27-af7f-a0c6c1ef5839"),
+                            Code = "C",
+                            Description = "White - Any other White background",
+                            Sequence = 23
+                        },
+                        new
+                        {
+                            Id = new Guid("639b2727-aea7-4331-96c2-bdf99f9ae00b"),
+                            Code = "D",
+                            Description = "Mixed - White and Black Caribbean",
+                            Sequence = 25
+                        },
+                        new
+                        {
+                            Id = new Guid("812827a5-9ec0-4879-b21c-d6633960f59f"),
+                            Code = "E",
+                            Description = "Mixed - White and Black African",
+                            Sequence = 30
+                        },
+                        new
+                        {
+                            Id = new Guid("3acdf39a-98f2-49a5-bef6-45c1e331df94"),
+                            Code = "F",
+                            Description = "Mixed - White and Asian",
+                            Sequence = 35
+                        },
+                        new
+                        {
+                            Id = new Guid("7e608cba-bb1b-4848-ad05-da6cce0f09f3"),
+                            Code = "G",
+                            Description = "Mixed - Any mixed backgroundn",
+                            Sequence = 40
+                        });
+                });
+
+            modelBuilder.Entity("IAPT.EK.Business.Models.GPPractice", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("AddressLine1")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("AddressLine2")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("AddressLine3")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("AddressLine4")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("AddressLine5")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid?>("CCGCodeId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Code")
+                        .IsRequired()
+                        .HasColumnType("varchar(6)");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("varchar(100)");
+
+                    b.Property<string>("PostCode")
+                        .HasColumnType("varchar(8)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CCGCodeId");
+
+                    b.HasIndex("Code")
+                        .IsUnique();
+
+                    b.ToTable("GPPractices");
+                });
+
+            modelBuilder.Entity("IAPT.EK.Business.Models.ReligiousGroup", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Code")
+                        .IsRequired()
+                        .HasColumnType("varchar(5)");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("varchar(100)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Code")
+                        .IsUnique();
+
+                    b.ToTable("ReligiousGroups");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("0c5f0c60-7cda-4954-aa96-eb807b7d2a8b"),
+                            Code = "A",
+                            Description = "Baha'i"
+                        },
+                        new
+                        {
+                            Id = new Guid("35a20e9f-b8d5-48b4-95c3-5f57f3877571"),
+                            Code = "B",
+                            Description = "Buddhist"
+                        },
+                        new
+                        {
+                            Id = new Guid("e9086520-7a6d-41fd-a62f-b38f6fb60874"),
+                            Code = "C",
+                            Description = "Christian"
+                        },
+                        new
+                        {
+                            Id = new Guid("16e82073-a6b0-4579-ade5-d180fe534995"),
+                            Code = "D",
+                            Description = "Hindu"
+                        },
+                        new
+                        {
+                            Id = new Guid("46aa7699-af81-4c79-8d44-dac4894aa280"),
+                            Code = "E",
+                            Description = "Jain"
+                        },
+                        new
+                        {
+                            Id = new Guid("56f8b973-0643-418e-964a-60d1c8cb77cd"),
+                            Code = "F",
+                            Description = "Jewish"
+                        },
+                        new
+                        {
+                            Id = new Guid("b66f1a95-44cf-46c3-80c9-d05e1e734225"),
+                            Code = "G",
+                            Description = "Muslim"
+                        },
+                        new
+                        {
+                            Id = new Guid("1906c7fc-297d-4e41-bbf5-c8e602021627"),
+                            Code = "H",
+                            Description = "Pagan"
+                        },
+                        new
+                        {
+                            Id = new Guid("e3b0bace-bf59-4308-b06b-70c373533e0d"),
+                            Code = "I",
+                            Description = "Sikh"
+                        },
+                        new
+                        {
+                            Id = new Guid("587ee53a-677b-47e4-9d4c-ff26e6e20224"),
+                            Code = "J",
+                            Description = "Zoroastrian"
+                        },
+                        new
+                        {
+                            Id = new Guid("838f4a3a-7cc1-4483-ac89-275bd8fe6685"),
+                            Code = "K",
+                            Description = "Other"
+                        },
+                        new
+                        {
+                            Id = new Guid("92e88df6-23ca-46a9-aebf-f4ecabd87e69"),
+                            Code = "L",
+                            Description = "None"
+                        },
+                        new
+                        {
+                            Id = new Guid("04c15bc2-d3a5-4298-9e0d-0b0959a907da"),
+                            Code = "M",
+                            Description = "Declines to Disclose"
+                        },
+                        new
+                        {
+                            Id = new Guid("4ed7f383-982c-485b-95c1-7de0f987aac4"),
+                            Code = "N",
+                            Description = "Patient Religion Unknown"
+                        });
+                });
+
+            modelBuilder.Entity("IAPT.EK.Business.EReferral.Models.eAgencyInformation", b =>
+                {
+                    b.HasOne("IAPT.EK.Business.EReferral.Models.eReferral", "eReferral")
+                        .WithOne("eAgencyInformation")
+                        .HasForeignKey("IAPT.EK.Business.EReferral.Models.eAgencyInformation", "EReferralId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("IAPT.EK.Business.EReferral.Models.eArmedForce", b =>
                 {
-                    b.HasOne("IAPT.EK.Business.Models.eReferral", "EReferral")
+                    b.HasOne("IAPT.EK.Business.EReferral.Models.eReferral", "EReferral")
                         .WithOne("eArmedForce")
                         .HasForeignKey("IAPT.EK.Business.EReferral.Models.eArmedForce", "EReferralId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -993,7 +1004,7 @@ namespace IAPT.EK.Data.Migrations
 
             modelBuilder.Entity("IAPT.EK.Business.EReferral.Models.eClinicalReferralInfo", b =>
                 {
-                    b.HasOne("IAPT.EK.Business.Models.eReferral", "eReferral")
+                    b.HasOne("IAPT.EK.Business.EReferral.Models.eReferral", "eReferral")
                         .WithOne("EClinicalReferralInfo")
                         .HasForeignKey("IAPT.EK.Business.EReferral.Models.eClinicalReferralInfo", "eReferralId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -1002,16 +1013,54 @@ namespace IAPT.EK.Data.Migrations
 
             modelBuilder.Entity("IAPT.EK.Business.EReferral.Models.eCommonSurvivorImpact", b =>
                 {
-                    b.HasOne("IAPT.EK.Business.Models.eReferral", "eReferral")
+                    b.HasOne("IAPT.EK.Business.EReferral.Models.eReferral", "eReferral")
                         .WithOne("eCommonSurvivorImpact")
                         .HasForeignKey("IAPT.EK.Business.EReferral.Models.eCommonSurvivorImpact", "EReferralId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("IAPT.EK.Business.EReferral.Models.eContactDetail", b =>
+                {
+                    b.HasOne("IAPT.EK.Business.Models.City", "City")
+                        .WithMany("EContactDetails")
+                        .HasForeignKey("CityId")
+                        .OnDelete(DeleteBehavior.SetNull);
+
+                    b.HasOne("IAPT.EK.Business.EReferral.Models.eReferral", "eReferral")
+                        .WithOne("eContactDetail")
+                        .HasForeignKey("IAPT.EK.Business.EReferral.Models.eContactDetail", "EReferralId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("IAPT.EK.Business.Models.GPPractice", "GpPractice")
+                        .WithMany("eContactDetails")
+                        .HasForeignKey("GpPracticeId")
+                        .OnDelete(DeleteBehavior.SetNull);
+                });
+
+            modelBuilder.Entity("IAPT.EK.Business.EReferral.Models.eDiversity", b =>
+                {
+                    b.HasOne("IAPT.EK.Business.EReferral.Models.eReferral", "eReferral")
+                        .WithOne("eDiversity")
+                        .HasForeignKey("IAPT.EK.Business.EReferral.Models.eDiversity", "EReferralId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("IAPT.EK.Business.Models.EthnicCategory", "EthnicCategory")
+                        .WithMany("EDiversities")
+                        .HasForeignKey("EthnicCategoryId")
+                        .OnDelete(DeleteBehavior.SetNull);
+
+                    b.HasOne("IAPT.EK.Business.Models.ReligiousGroup", "Religion")
+                        .WithMany("EDiversities")
+                        .HasForeignKey("ReligionId")
+                        .OnDelete(DeleteBehavior.SetNull);
+                });
+
             modelBuilder.Entity("IAPT.EK.Business.EReferral.Models.eIsvaReferralInfo", b =>
                 {
-                    b.HasOne("IAPT.EK.Business.Models.eReferral", "EReferral")
+                    b.HasOne("IAPT.EK.Business.EReferral.Models.eReferral", "EReferral")
                         .WithOne("eIsvaReferralInfo")
                         .HasForeignKey("IAPT.EK.Business.EReferral.Models.eIsvaReferralInfo", "eReferralId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -1020,7 +1069,7 @@ namespace IAPT.EK.Data.Migrations
 
             modelBuilder.Entity("IAPT.EK.Business.EReferral.Models.eLongTermPhysicalHealth", b =>
                 {
-                    b.HasOne("IAPT.EK.Business.Models.eReferral", "eReferral")
+                    b.HasOne("IAPT.EK.Business.EReferral.Models.eReferral", "eReferral")
                         .WithOne("eLongTermPhysicalHealth")
                         .HasForeignKey("IAPT.EK.Business.EReferral.Models.eLongTermPhysicalHealth", "EReferralId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -1047,7 +1096,7 @@ namespace IAPT.EK.Data.Migrations
 
             modelBuilder.Entity("IAPT.EK.Business.EReferral.Models.eRiskIndicator", b =>
                 {
-                    b.HasOne("IAPT.EK.Business.Models.eReferral", "eReferral")
+                    b.HasOne("IAPT.EK.Business.EReferral.Models.eReferral", "eReferral")
                         .WithOne("eRiskIndicator")
                         .HasForeignKey("IAPT.EK.Business.EReferral.Models.eRiskIndicator", "EReferralId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -1065,7 +1114,7 @@ namespace IAPT.EK.Data.Migrations
 
             modelBuilder.Entity("IAPT.EK.Business.EReferral.Models.eSexualOffence", b =>
                 {
-                    b.HasOne("IAPT.EK.Business.Models.eReferral", "EReferral")
+                    b.HasOne("IAPT.EK.Business.EReferral.Models.eReferral", "EReferral")
                         .WithOne("eSexualOffence")
                         .HasForeignKey("IAPT.EK.Business.EReferral.Models.eSexualOffence", "eReferralId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -1086,53 +1135,6 @@ namespace IAPT.EK.Data.Migrations
                     b.HasOne("IAPT.EK.Business.Models.CCGCode", "CCGCode")
                         .WithMany("GPPractices")
                         .HasForeignKey("CCGCodeId")
-                        .OnDelete(DeleteBehavior.SetNull);
-                });
-
-            modelBuilder.Entity("IAPT.EK.Business.Models.eAgencyInformation", b =>
-                {
-                    b.HasOne("IAPT.EK.Business.Models.eReferral", "eReferral")
-                        .WithOne("eAgencyInformation")
-                        .HasForeignKey("IAPT.EK.Business.Models.eAgencyInformation", "EReferralId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("IAPT.EK.Business.Models.eContactDetail", b =>
-                {
-                    b.HasOne("IAPT.EK.Business.Models.City", "City")
-                        .WithMany("EContactDetails")
-                        .HasForeignKey("CityId")
-                        .OnDelete(DeleteBehavior.SetNull);
-
-                    b.HasOne("IAPT.EK.Business.Models.eReferral", "eReferral")
-                        .WithOne("eContactDetail")
-                        .HasForeignKey("IAPT.EK.Business.Models.eContactDetail", "EReferralId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("IAPT.EK.Business.Models.GPPractice", "GpPractice")
-                        .WithMany("eContactDetails")
-                        .HasForeignKey("GpPracticeId")
-                        .OnDelete(DeleteBehavior.SetNull);
-                });
-
-            modelBuilder.Entity("IAPT.EK.Business.Models.eDiversity", b =>
-                {
-                    b.HasOne("IAPT.EK.Business.Models.eReferral", "eReferral")
-                        .WithOne("eDiversity")
-                        .HasForeignKey("IAPT.EK.Business.Models.eDiversity", "EReferralId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("IAPT.EK.Business.Models.EthnicCategory", "EthnicCategory")
-                        .WithMany("EDiversities")
-                        .HasForeignKey("EthnicCategoryId")
-                        .OnDelete(DeleteBehavior.SetNull);
-
-                    b.HasOne("IAPT.EK.Business.Models.ReligiousGroup", "Religion")
-                        .WithMany("EDiversities")
-                        .HasForeignKey("ReligionId")
                         .OnDelete(DeleteBehavior.SetNull);
                 });
 #pragma warning restore 612, 618

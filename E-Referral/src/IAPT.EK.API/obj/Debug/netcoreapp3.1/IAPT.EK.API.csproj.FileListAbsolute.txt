@@ -346,8 +346,6 @@
 /Users/ekluczkovski/Projects/IAPT/E-Referral/src/IAPT.EK.API/bin/Debug/netcoreapp3.1/MySqlConnector.dll
 /Users/ekluczkovski/Projects/IAPT/E-Referral/src/IAPT.EK.API/bin/Debug/netcoreapp3.1/Newtonsoft.Json.dll
 /Users/ekluczkovski/Projects/IAPT/E-Referral/src/IAPT.EK.API/bin/Debug/netcoreapp3.1/Newtonsoft.Json.Bson.dll
-/Users/ekluczkovski/Projects/IAPT/E-Referral/src/IAPT.EK.API/bin/Debug/netcoreapp3.1/Pomelo.EntityFrameworkCore.MySql.dll
-/Users/ekluczkovski/Projects/IAPT/E-Referral/src/IAPT.EK.API/bin/Debug/netcoreapp3.1/Pomelo.JsonObject.dll
 /Users/ekluczkovski/Projects/IAPT/E-Referral/src/IAPT.EK.API/bin/Debug/netcoreapp3.1/BouncyCastle.Crypto.dll
 /Users/ekluczkovski/Projects/IAPT/E-Referral/src/IAPT.EK.API/bin/Debug/netcoreapp3.1/SQLitePCLRaw.batteries_v2.dll
 /Users/ekluczkovski/Projects/IAPT/E-Referral/src/IAPT.EK.API/bin/Debug/netcoreapp3.1/SQLitePCLRaw.nativelibrary.dll
@@ -428,3 +426,17 @@
 /Users/ekluczkovski/Projects/IAPT/E-Referral/src/IAPT.EK.API/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_XX_Test.cshtml.g.cs
 /Users/ekluczkovski/Projects/IAPT/E-Referral/src/IAPT.EK.API/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_XY_Test.cshtml.g.cs
 /Users/ekluczkovski/Projects/IAPT/E-Referral/src/IAPT.EK.API/obj/Debug/netcoreapp3.1/IAPT.EK.API.csproj.CoreCompileInputs.cache
+/Users/ekluczkovski/Projects/IAPT/E-Referral/src/IAPT.EK.API/bin/Debug/netcoreapp3.1/Microsoft.Data.SqlClient.dll
+/Users/ekluczkovski/Projects/IAPT/E-Referral/src/IAPT.EK.API/bin/Debug/netcoreapp3.1/Microsoft.EntityFrameworkCore.SqlServer.dll
+/Users/ekluczkovski/Projects/IAPT/E-Referral/src/IAPT.EK.API/bin/Debug/netcoreapp3.1/Microsoft.Identity.Client.dll
+/Users/ekluczkovski/Projects/IAPT/E-Referral/src/IAPT.EK.API/bin/Debug/netcoreapp3.1/System.Configuration.ConfigurationManager.dll
+/Users/ekluczkovski/Projects/IAPT/E-Referral/src/IAPT.EK.API/bin/Debug/netcoreapp3.1/System.Runtime.Caching.dll
+/Users/ekluczkovski/Projects/IAPT/E-Referral/src/IAPT.EK.API/bin/Debug/netcoreapp3.1/System.Security.Cryptography.ProtectedData.dll
+/Users/ekluczkovski/Projects/IAPT/E-Referral/src/IAPT.EK.API/bin/Debug/netcoreapp3.1/runtimes/unix/lib/netcoreapp2.1/Microsoft.Data.SqlClient.dll
+/Users/ekluczkovski/Projects/IAPT/E-Referral/src/IAPT.EK.API/bin/Debug/netcoreapp3.1/runtimes/win/lib/netcoreapp2.1/Microsoft.Data.SqlClient.dll
+/Users/ekluczkovski/Projects/IAPT/E-Referral/src/IAPT.EK.API/bin/Debug/netcoreapp3.1/runtimes/win-arm64/native/sni.dll
+/Users/ekluczkovski/Projects/IAPT/E-Referral/src/IAPT.EK.API/bin/Debug/netcoreapp3.1/runtimes/win-x64/native/sni.dll
+/Users/ekluczkovski/Projects/IAPT/E-Referral/src/IAPT.EK.API/bin/Debug/netcoreapp3.1/runtimes/win-x86/native/sni.dll
+/Users/ekluczkovski/Projects/IAPT/E-Referral/src/IAPT.EK.API/bin/Debug/netcoreapp3.1/runtimes/unix/lib/netcoreapp2.0/System.Runtime.Caching.dll
+/Users/ekluczkovski/Projects/IAPT/E-Referral/src/IAPT.EK.API/bin/Debug/netcoreapp3.1/runtimes/win/lib/netcoreapp2.0/System.Runtime.Caching.dll
+/Users/ekluczkovski/Projects/IAPT/E-Referral/src/IAPT.EK.API/bin/Debug/netcoreapp3.1/runtimes/win/lib/netstandard2.0/System.Security.Cryptography.ProtectedData.dll

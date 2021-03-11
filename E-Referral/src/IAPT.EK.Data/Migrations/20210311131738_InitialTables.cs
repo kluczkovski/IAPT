@@ -68,7 +68,7 @@ namespace IAPT.EK.Data.Migrations
                     Id = table.Column<Guid>(nullable: false),
                     Code = table.Column<string>(type: "varchar(5)", nullable: false),
                     Description = table.Column<string>(type: "varchar(100)", nullable: false),
-                    Sequence = table.Column<int>(type: "int(5)", nullable: false)
+                    Sequence = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
