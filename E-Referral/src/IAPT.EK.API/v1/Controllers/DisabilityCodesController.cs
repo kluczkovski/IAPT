@@ -8,11 +8,13 @@ using IAPT.EK.API.DTO;
 using IAPT.EK.API.Extensions;
 using IAPT.EK.Business.Interfaces;
 using IAPT.EK.Business.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 
 namespace IAPT.EK.API.V1.Controllers
 {
+    [Authorize]
     [ApiVersion("1.0")]
     [Route("api/v{version:apiVersion}/[controller]")]
     public class DisabilityCodesController : MainController
@@ -31,6 +33,7 @@ namespace IAPT.EK.API.V1.Controllers
 
 
         // GET: api/disabilitycodes
+        [AllowAnonymous]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<DisabilityCodeDTO>>> GetAll()
         {
@@ -42,6 +45,7 @@ namespace IAPT.EK.API.V1.Controllers
 
 
         // GET api/disabilitycodes/5
+        [ClaimsAuthorize("Disability", "Consult")]
         [HttpGet("{id:guid}")]
         public async Task<ActionResult<DisabilityCodeDTO>> GetById(Guid id)
         {
@@ -58,7 +62,7 @@ namespace IAPT.EK.API.V1.Controllers
         }
 
         // POST api/disabilitycodes
-        //[ClaimsAuthorize("Disability", "Add")]
+        [ClaimsAuthorize("Disability", "Add")]
         [HttpPost]
         public async Task<ActionResult<DisabilityCodeDTO>> Add(DisabilityCodeDTO disabilityCodeDTO)
         {
@@ -79,6 +83,7 @@ namespace IAPT.EK.API.V1.Controllers
         }
 
         // PUT api/disabilitycodes/5
+        [ClaimsAuthorize("Disability", "Update")]
         [HttpPut("{id:guid}")]
         public async Task<ActionResult<DisabilityCodeDTO>> Put(Guid id, DisabilityCodeDTO disabilityCodeDTO)
         {
@@ -109,6 +114,7 @@ namespace IAPT.EK.API.V1.Controllers
         }
 
         // DELETE api/disabilitycodes/5
+        [ClaimsAuthorize("Disability", "Delete")]
         [HttpDelete("{id:guid}")]
         public async Task<ActionResult<DisabilityCodeDTO>> Delete(Guid id)
         {

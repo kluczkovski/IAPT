@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AdminAuthGuard } from './admin/admin.guard';
 import { EReferralComponent } from './e-referral/e-referral.component';
-import { NotFoundComponent } from './navigation/not-found/not-found.component';
+import { NotFoundComponent } from './navigation/components/not-found/not-found.component';
 
 const routes : Routes = [
     { path: '', redirectTo: 'e-referral', pathMatch: 'full'},

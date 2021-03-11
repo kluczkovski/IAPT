@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core'
 import { CanLoad, Route, UrlSegment } from '@angular/router';
 import { Observable } from 'rxjs';
-import { LocalStorage } from '../shared/localStorage';
+import { LocalStorage } from '../shared/utils/localStorage';
 
 @Injectable()
 export class AdminAuthGuard implements CanLoad {

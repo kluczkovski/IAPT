@@ -427,3 +427,4 @@
 /Users/ekluczkovski/Projects/IAPT/E-Referral/src/IAPT.EK.API/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_95_CommonSurvivorsImpactIndicator.cshtml.g.cs
 /Users/ekluczkovski/Projects/IAPT/E-Referral/src/IAPT.EK.API/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_XX_Test.cshtml.g.cs
 /Users/ekluczkovski/Projects/IAPT/E-Referral/src/IAPT.EK.API/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_XY_Test.cshtml.g.cs
+/Users/ekluczkovski/Projects/IAPT/E-Referral/src/IAPT.EK.API/obj/Debug/netcoreapp3.1/IAPT.EK.API.csproj.CoreCompileInputs.cache

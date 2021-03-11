@@ -8,10 +8,12 @@ using IAPT.EK.Business.Interfaces;
 using IAPT.EK.Business.Models;
 using IAPT.EK.API.Controllers;
 using Microsoft.AspNetCore.Mvc;
-
+using Microsoft.AspNetCore.Authorization;
+using IAPT.EK.API.Extensions;
 
 namespace IAPT.EK.API.V1.Controllers
 {
+    [Authorize]
     [ApiVersion("1.0")]
     [Route("api/v{version:apiVersion}/[controller]")]
     public class GPPracticesController : MainController
@@ -33,6 +35,7 @@ namespace IAPT.EK.API.V1.Controllers
 
 
         // GET: api/ccgcodes
+        [AllowAnonymous]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<GPPracticeDTO>>> GetAll()
         {
@@ -44,6 +47,7 @@ namespace IAPT.EK.API.V1.Controllers
 
 
         // GET api/ccgcodes/5
+        [ClaimsAuthorize("GP", "Consult")]
         [HttpGet("{id:guid}")]
         public async Task<ActionResult<GPPracticeDTO>> GetById(Guid id)
         {
@@ -61,6 +65,7 @@ namespace IAPT.EK.API.V1.Controllers
 
         // POST api/cities
         [HttpPost]
+        [ClaimsAuthorize("GP", "Add")]
         public async Task<ActionResult<GPPracticeDTO>> Add(GPPracticeDTO gpPracticeDTO)
         {
             if (!ModelState.IsValid) return CustomResponse(ModelState);
@@ -81,6 +86,7 @@ namespace IAPT.EK.API.V1.Controllers
         }
 
         // PUT api/ccgcodes/5
+        [ClaimsAuthorize("GP", "Update")]
         [HttpPut("{id:guid}")]
         public async Task<ActionResult<GPPracticeDTO>> Put(Guid id, GPPracticeDTO gpPracticeDTO)
         {
@@ -111,6 +117,7 @@ namespace IAPT.EK.API.V1.Controllers
         }
 
         // DELETE api/ccgcodes/5
+        [ClaimsAuthorize("GP", "Delete")]
         [HttpDelete("{id:guid}")]
         public async Task<ActionResult<GPPracticeDTO>> Delete(Guid id)
         {

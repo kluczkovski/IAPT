@@ -9,10 +9,12 @@ using IAPT.EK.Business.Models;
 using IAPT.EK.API.Controllers;
 
 using Microsoft.AspNetCore.Mvc;
-
+using Microsoft.AspNetCore.Authorization;
+using IAPT.EK.API.Extensions;
 
 namespace IAPT.EK.API.V1.Controllers
 {
+    [Authorize]
     [ApiVersion("1.0")]
     [Route("api/v{version:apiVersion}/[controller]")]
     public class ReligiousGroupsController : MainController
@@ -31,6 +33,7 @@ namespace IAPT.EK.API.V1.Controllers
 
 
         // GET: api/religiousgroup
+        [AllowAnonymous]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<ReligiousGroupDTO>>> GetAll()
         {
@@ -42,6 +45,7 @@ namespace IAPT.EK.API.V1.Controllers
 
 
         // GET api/religiousgroup/5
+        [ClaimsAuthorize("Religious", "Consult")]
         [HttpGet("{id:guid}")]
         public async Task<ActionResult<ReligiousGroupDTO>> GetById(Guid id)
         {
@@ -58,6 +62,7 @@ namespace IAPT.EK.API.V1.Controllers
         }
 
         // POST api/religiousgroup
+        [ClaimsAuthorize("Religious", "Add")]
         [HttpPost]
         public async Task<ActionResult<ReligiousGroupDTO>> Add(ReligiousGroupDTO religiousGroupDTO)
         {
@@ -78,6 +83,7 @@ namespace IAPT.EK.API.V1.Controllers
         }
 
         // PUT api/values/5
+        [ClaimsAuthorize("Religious", "Update")]
         [HttpPut("{id:guid}")]
         public async Task<ActionResult<ReligiousGroupDTO>> Put(Guid id, ReligiousGroupDTO religiousGroupDTO)
         {
@@ -108,6 +114,7 @@ namespace IAPT.EK.API.V1.Controllers
         }
 
         // DELETE api/values/5
+        [ClaimsAuthorize("Religious", "Delete")]
         [HttpDelete("{id:guid}")]
         public async Task<ActionResult<ReligiousGroupDTO>> Delete(Guid id)
         {

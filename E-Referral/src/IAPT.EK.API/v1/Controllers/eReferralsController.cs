@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using IAPT.EK.API.Controllers;
 using IAPT.EK.API.DTO;
+using IAPT.EK.API.Extensions;
 using IAPT.EK.Business.EReferral.Models;
 using IAPT.EK.Business.Interfaces;
 using IAPT.EK.Business.Models.Enums;
@@ -35,7 +36,7 @@ namespace IAPT.EK.API.V1.Controllers
         }
 
 
-        [AllowAnonymous]
+        [ClaimsAuthorize("Referral", "Consult")]
         [HttpGet]
         [Route("GetAllReferrals")]
         public async Task<ActionResult<List<eReferralDTO>>> List()
@@ -54,6 +55,7 @@ namespace IAPT.EK.API.V1.Controllers
             }
         }
 
+        //[ClaimsAuthorize("Referral", "Consult")]
         [AllowAnonymous]
         [HttpGet]
         [Route("pdfReferral/{id:guid}")]
@@ -147,8 +149,7 @@ namespace IAPT.EK.API.V1.Controllers
 
 
         // DELETE api/disabilitycodes/5
-        //[ClaimsAuthorize("City", "Delete")]
-        [AllowAnonymous]
+        [ClaimsAuthorize("Referral", "Delete")]
         [HttpDelete("{id:guid}")]
         public async Task<ActionResult<eReferralReturnDTO>> Delete(Guid id)
         {

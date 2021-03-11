@@ -8,11 +8,14 @@ using IAPT.EK.API.DTO;
 using IAPT.EK.Business.Interfaces;
 using IAPT.EK.API.Controllers;
 using IAPT.EK.Business.Models;
+using Microsoft.AspNetCore.Authorization;
+using IAPT.EK.API.Extensions;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace IAPT.EK.API.V1.Controllers
 {
+    [Authorize]
     [ApiVersion("1.0")]
     [Route("api/v{version:apiVersion}/[controller]")]
     public class EthnicCategoriesController : MainController
@@ -33,6 +36,7 @@ namespace IAPT.EK.API.V1.Controllers
 
 
         // GET: DataSet/EthnicCategories
+        [AllowAnonymous]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<EthnicCategoryDTO>>> GetAllEcthnics()
         {
@@ -43,6 +47,7 @@ namespace IAPT.EK.API.V1.Controllers
 
 
         // GET api/EthnicCategories/5
+        [ClaimsAuthorize("Ethnic", "Consult")]
         [HttpGet("{id:guid}")]
         public async Task<ActionResult<EthnicCategoryDTO>> GetById(Guid id)
         {

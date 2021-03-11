@@ -5,13 +5,16 @@ using System.Threading.Tasks;
 using AutoMapper;
 using IAPT.EK.API.Controllers;
 using IAPT.EK.API.DTO;
+using IAPT.EK.API.Extensions;
 using IAPT.EK.Business.Interfaces;
 using IAPT.EK.Business.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 
 namespace IAPT.EK.API.V1.Controllers
 {
+    [Authorize]
     [ApiVersion("1.0")]
     [Route("api/v{version:apiVersion}/[controller]")]
     public class CCGCodesController : MainController
@@ -30,6 +33,7 @@ namespace IAPT.EK.API.V1.Controllers
 
 
         // GET: api/ccgcodes
+        [AllowAnonymous]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<CCGCodeDTO>>> GetAll()
         {
@@ -41,6 +45,7 @@ namespace IAPT.EK.API.V1.Controllers
 
 
         // GET api/ccgcodes/5
+        [ClaimsAuthorize("CCG", "Consult")]
         [HttpGet("{id:guid}")]
         public async Task<ActionResult<CCGCodeDTO>> GetById(Guid id)
         {
@@ -57,6 +62,7 @@ namespace IAPT.EK.API.V1.Controllers
         }
 
         // POST api/ccgs
+        [ClaimsAuthorize("CCG", "Add")]
         [HttpPost]
         public async Task<ActionResult<CCGCodeDTO>> Add(CCGCodeDTO ccgCodeDTO)
         {
@@ -77,6 +83,7 @@ namespace IAPT.EK.API.V1.Controllers
         }
 
         // PUT api/ccgcodes/5
+        [ClaimsAuthorize("CCG", "Update")]
         [HttpPut("{id:guid}")]
         public async Task<ActionResult<CCGCodeDTO>> Put(Guid id, CCGCodeDTO ccgCodeDTO)
         {
@@ -107,6 +114,7 @@ namespace IAPT.EK.API.V1.Controllers
         }
 
         // DELETE api/ccgcodes/5
+        [ClaimsAuthorize("CCG", "Delete")]
         [HttpDelete("{id:guid}")]
         public async Task<ActionResult<CCGCodeDTO>> Delete(Guid id)
         {

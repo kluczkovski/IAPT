@@ -11,3 +11,4 @@
 /Users/ekluczkovski/Projects/IAPT/E-Referral/src/IAPT.EK.Data/obj/Debug/netcoreapp3.1/IAPT.EK.Data.csproj.CopyComplete
 /Users/ekluczkovski/Projects/IAPT/E-Referral/src/IAPT.EK.Data/obj/Debug/netcoreapp3.1/IAPT.EK.Data.dll
 /Users/ekluczkovski/Projects/IAPT/E-Referral/src/IAPT.EK.Data/obj/Debug/netcoreapp3.1/IAPT.EK.Data.pdb
+/Users/ekluczkovski/Projects/IAPT/E-Referral/src/IAPT.EK.Data/obj/Debug/netcoreapp3.1/IAPT.EK.Data.csproj.CoreCompileInputs.cache

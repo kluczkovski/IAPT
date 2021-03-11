@@ -3,10 +3,10 @@ import { MatStepper } from '@angular/material/stepper';
 
 import { NgxSpinnerService } from "ngx-spinner";
 
-import { EReferralService } from './_services/e-referral.service';
-import { NotificationService } from 'src/app/shared/notification.service';
-import { Ereferral } from './_models/e-referral';
-import { RiskIndicationComponent } from './risk-indication/risk-indication.component';
+import { EReferralService } from './services/e-referral.service';
+import { NotificationService } from 'src/app/shared/services/notification.service';
+import { Ereferral } from './models/e-referral';
+import { RiskIndicationComponent } from './components/risk-indication/risk-indication.component';
 
 
 @Component({

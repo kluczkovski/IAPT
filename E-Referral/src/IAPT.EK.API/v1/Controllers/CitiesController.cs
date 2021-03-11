@@ -44,7 +44,7 @@ namespace IAPT.EK.API.V1.Controllers
 
 
         // GET api/cities/5
-        [AllowAnonymous]
+        [ClaimsAuthorize("City", "Consult")]
         [HttpGet("{id:guid}")]
         public async Task<ActionResult<CityDTO>> GetById(Guid id)
         {
@@ -61,8 +61,7 @@ namespace IAPT.EK.API.V1.Controllers
         }
 
         // POST api/cities
-        //[ClaimsAuthorize("City", "Add")]
-        [AllowAnonymous]
+        [ClaimsAuthorize("City", "Add")]
         [HttpPost]
         public async Task<ActionResult<CityDTO>> Add(CityDTO cityDTO)
         {
@@ -83,8 +82,7 @@ namespace IAPT.EK.API.V1.Controllers
         }
 
         // PUT api/cities/5
-        //[ClaimsAuthorize("City", "Update")]
-        [AllowAnonymous]
+        [ClaimsAuthorize("City", "Update")]
         [HttpPut("{id:guid}")]
         public async Task<ActionResult<CityDTO>> Update(Guid id, CityDTO cityDTO)
         {
@@ -115,8 +113,7 @@ namespace IAPT.EK.API.V1.Controllers
         }
 
         // DELETE api/disabilitycodes/5
-        //[ClaimsAuthorize("City", "Delete")]
-        [AllowAnonymous]
+        [ClaimsAuthorize("City", "Delete")]
         [HttpDelete("{id:guid}")]
         public async Task<ActionResult<CityDTO>> Delete(Guid id)
         {
